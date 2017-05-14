@@ -1,4 +1,4 @@
-package com.jalasoft.selenium;
+package org.fundacionjala.coding;
 
 import org.junit.Test;
 
