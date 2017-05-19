@@ -1,5 +1,6 @@
-package org.fundacionjala.coding;
+package org.fundacionjala.coding.Sergio;
 
+import org.fundacionjala.coding.Sergio.BankORC;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -9,11 +10,10 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class testBankOCRS {
     @Test
-    public void testBankStoryOne()
-    {
-        String entry = "    _  _     _  _  _  _  _ "+
-                       "  | _| _||_||_ |_   ||_||_|"+
-                       "  ||_  _|  | _||_|  ||_| _|";
+    public void testBankStoryOne() {
+        String entry = "    _  _     _  _  _  _  _ " +
+                "  | _| _||_||_ |_   ||_||_|" +
+                "  ||_  _|  | _||_|  ||_| _|";
         String expectecResult = "123456789";
         assertEquals(expectecResult, BankORC.convertEntryToNumber(entry));
     }

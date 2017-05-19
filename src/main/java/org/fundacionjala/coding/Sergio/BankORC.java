@@ -1,16 +1,14 @@
-package org.fundacionjala.coding;
+package org.fundacionjala.coding.Sergio;
 
 /**
  * Created by Administrator on 5/16/2017.
  */
 public class BankORC {
-    public  BankORC()
-    {
+    public BankORC() {
         //return "123456789";
     }
 
-    public static String convertEntryToNumber(String entry)
-    {
+    public static String convertEntryToNumber(String entry) {
 
         return "123456789";
     }
