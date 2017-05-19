@@ -1,4 +1,4 @@
-package org.fundacionjala.coding;
+package org.fundacionjala.coding.ovidio;
 
 /**
  * Created by OvidioMiranda on 5/16/2017.
