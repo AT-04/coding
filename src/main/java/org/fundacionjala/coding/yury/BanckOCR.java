@@ -5,4 +5,9 @@ package org.fundacionjala.coding.yury;
  */
 public class BanckOCR {
 
+
+    public BanckOCR(){
+        
+    }
+
 }
