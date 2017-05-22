@@ -153,4 +153,18 @@ public class BankOCRTest {
         String expectedResult = "999999999";
         assertEquals(expectedResult, convertEntryToNumber(entry));
     }
+
+    /**
+     *
+     */
+    @Test
+    public void testBankOCRStoryOneReadFileWorks() {
+        String fileName = "src/test/resources/123456789.txt";
+        ReadFile readFile = new ReadFile();
+
+        String actualResult = readFile.read(fileName);
+        String expectedResult =  "123456789";
+
+        assertEquals(expectedResult, convertEntryToNumber(actualResult));
+    }
 }

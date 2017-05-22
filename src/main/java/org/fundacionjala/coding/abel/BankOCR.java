@@ -116,14 +116,18 @@ public final class BankOCR {
      * @return String
      */
     private static String extractNumbers(char[] charArray, int position) {
-        return  charArray[FIRST_LINE_AT_ZERO + position * CHAR_LENGTH] + ""
-                + charArray[FIRST_LINE_AT_ONE + position * CHAR_LENGTH] + ""
-                + charArray[FIRST_LINE_AT_TWO + position * CHAR_LENGTH] + ""
-                + charArray[SECOND_LINE_AT_ZERO + position * CHAR_LENGTH] + ""
-                + charArray[SECOND_LINE_AT_ONE + position * CHAR_LENGTH] + ""
-                + charArray[SECOND_LINE_AT_TWO + position * CHAR_LENGTH] + ""
-                + charArray[THIRD_LINE_AT_ZERO + position * CHAR_LENGTH] + ""
-                + charArray[THIRD_LINE_AT_ONE + position * CHAR_LENGTH] + ""
-                + charArray[THIRD_LINE_AT_TWO + position * CHAR_LENGTH];
+        StringBuffer stringBuffer = new StringBuffer();
+
+        stringBuffer.append(charArray[FIRST_LINE_AT_ZERO + position * CHAR_LENGTH]);
+        stringBuffer.append(charArray[FIRST_LINE_AT_ONE + position * CHAR_LENGTH]);
+        stringBuffer.append(charArray[FIRST_LINE_AT_TWO + position * CHAR_LENGTH]);
+        stringBuffer.append(charArray[SECOND_LINE_AT_ZERO + position * CHAR_LENGTH]);
+        stringBuffer.append(charArray[SECOND_LINE_AT_ONE + position * CHAR_LENGTH]);
+        stringBuffer.append(charArray[SECOND_LINE_AT_TWO + position * CHAR_LENGTH]);
+        stringBuffer.append(charArray[THIRD_LINE_AT_ZERO + position * CHAR_LENGTH]);
+        stringBuffer.append(charArray[THIRD_LINE_AT_ONE + position * CHAR_LENGTH]);
+        stringBuffer.append(charArray[THIRD_LINE_AT_TWO + position * CHAR_LENGTH]);
+
+        return stringBuffer.toString();
     }
 }
