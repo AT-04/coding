@@ -24,4 +24,34 @@ public class ReadFileTest {
 
         assertEquals(expectedResult, readFile.read(fileName));
     }
+
+    /**
+     *
+     */
+    @Test
+    public void testCanReadATxtFileAllOnes() {
+        String fileName = "src/test/resources/111111111.txt";
+
+        String expectedResult =  "                           "
+                               + "  |  |  |  |  |  |  |  |  |"
+                               + "  |  |  |  |  |  |  |  |  |";
+        ReadFile readFile = new ReadFile();
+
+        assertEquals(expectedResult, readFile.read(fileName));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testCanReadATxtFileAllTwos() {
+        String fileName = "src/test/resources/222222222.txt";
+
+        String expectedResult =  " _  _  _  _  _  _  _  _  _ "
+                               + " _| _| _| _| _| _| _| _| _|"
+                               + "|_ |_ |_ |_ |_ |_ |_ |_ |_ ";
+        ReadFile readFile = new ReadFile();
+
+        assertEquals(expectedResult, readFile.read(fileName));
+    }
 }

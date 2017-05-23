@@ -167,4 +167,32 @@ public class BankOCRTest {
 
         assertEquals(expectedResult, convertEntryToNumber(actualResult));
     }
+
+    /**
+     *
+     */
+    @Test
+    public void testBankOCRStoryOneReadFileAllOnes() {
+        String fileName = "src/test/resources/111111111.txt";
+        ReadFile readFile = new ReadFile();
+
+        String actualResult = readFile.read(fileName);
+        String expectedResult =  "111111111";
+
+        assertEquals(expectedResult, convertEntryToNumber(actualResult));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testBankOCRStoryOneReadFileAllTwos() {
+        String fileName = "src/test/resources/222222222.txt";
+        ReadFile readFile = new ReadFile();
+
+        String actualResult = readFile.read(fileName);
+        String expectedResult =  "222222222";
+
+        assertEquals(expectedResult, convertEntryToNumber(actualResult));
+    }
 }
