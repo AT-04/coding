@@ -9,7 +9,6 @@ import static org.junit.Assert.assertEquals;
  */
 public class SpinWordsTest {
 
-
     /**
      * This test checks the string that returns the method getSpinWord returns the expected string.
      */
@@ -39,6 +38,4 @@ public class SpinWordsTest {
         String expectedResult = "This is rehtona test";
         assertEquals(expectedResult, spinWords.getSpinWord());
     }
-
-
 }

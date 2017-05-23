@@ -10,7 +10,6 @@ public class SpinWords {
     private String word;
     private ArrayList<String> arrayList;
 
-
     /**
      * This method is the constructor of this class.
      *
