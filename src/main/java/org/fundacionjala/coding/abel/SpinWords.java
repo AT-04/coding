@@ -3,7 +3,8 @@ package org.fundacionjala.coding.abel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringJoiner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by AbelBarrientos on 5/22/2017.
@@ -25,6 +26,7 @@ public class SpinWords {
      * @param string This is the string parameter to reverse method,
      * @return String This returns the reverse of a string.
      */
+    @Deprecated
     public String reverse(String string) {
         StringBuffer stringBuffer = new StringBuffer(string).reverse();
         return stringBuffer.toString();
@@ -35,6 +37,7 @@ public class SpinWords {
      * @param sentence This is the string parameter to get words.
      * @return List<String> This returns a list of words in a sentence.
      */
+    @Deprecated
     public List<String> getWords(String sentence) {
         String[] words = sentence.split(" ");
         stringList.addAll(Arrays.asList(words));
@@ -48,15 +51,9 @@ public class SpinWords {
      * @return String This returns the sentence with spin words.
      */
     public String spinWords(String sentence) {
-        List<String> strList = getWords(sentence);
-        StringJoiner stringJoiner = new StringJoiner(" ");
-        strList.stream().forEach(string -> {
-            if (string.length() >= REVERSE_LENGTH) {
-                stringJoiner.add(reverse(string));
-            } else {
-                stringJoiner.add(string);
-            }
-        });
-        return stringJoiner.toString();
+        return Stream.of(sentence.split(" "))
+                .map(word -> (word.length() >= REVERSE_LENGTH) ? new StringBuilder(word).reverse().toString(): word)
+                .collect(Collectors.joining(" "));
+
     }
 }
