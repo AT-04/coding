@@ -52,7 +52,7 @@ public class SpinWords {
      */
     public String spinWords(String sentence) {
         return Stream.of(sentence.split(" "))
-                .map(word -> (word.length() >= REVERSE_LENGTH) ? new StringBuilder(word).reverse().toString(): word)
+                .map(word -> (word.length() >= REVERSE_LENGTH) ? new StringBuilder(word).reverse().toString() : word)
                 .collect(Collectors.joining(" "));
 
     }
