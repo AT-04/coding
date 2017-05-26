@@ -14,7 +14,7 @@ public class SortInnerContentTest {
     @Test
     public void getSortInnerContentOfAEmptyStringIsAEmptyString() {
         SortInnerContent sortInnerContent = new SortInnerContent("");
-
+        String sentence="";
         assertEquals("", sortInnerContent.getSortInnerContent());
     }
 
