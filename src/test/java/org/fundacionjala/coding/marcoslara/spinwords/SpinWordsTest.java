@@ -15,9 +15,7 @@ public class SpinWordsTest {
     @Test
     public void getSpinWordsOfAEmptyStringIsAEmptyString() {
         String word = "";
-        SpinWords spinWords = new SpinWords(word);
-
-        assertEquals("", spinWords.getSpinWords());
+        assertEquals("", SpinWords.spinWords(word));
     }
 
     /**
@@ -26,9 +24,7 @@ public class SpinWordsTest {
     @Test
     public void getSpinWordsOfAShortStringIsTheSameString() {
         String word = "abc";
-        SpinWords spinWords = new SpinWords(word);
-
-        assertEquals("abc", spinWords.getSpinWords());
+        assertEquals("abc", SpinWords.spinWords(word));
     }
 
     /**
@@ -37,9 +33,7 @@ public class SpinWordsTest {
     @Test
     public void getSpinWordsOfAStringWithTwoWords() {
         String word = "abc verify";
-        SpinWords spinWords = new SpinWords(word);
-
-        assertEquals("abc yfirev", spinWords.getSpinWords());
+        assertEquals("abc yfirev", SpinWords.spinWords(word));
     }
 
     /**
@@ -48,9 +42,7 @@ public class SpinWordsTest {
     @Test
     public void getSpinWordsOfATheExampleStringNumberOne() {
         String word = "Hey fellow warriors";
-        SpinWords spinWords = new SpinWords(word);
-
-        assertEquals("Hey wollef sroirraw", spinWords.getSpinWords());
+        assertEquals("Hey wollef sroirraw", SpinWords.spinWords(word));
     }
 
     /**
@@ -59,9 +51,7 @@ public class SpinWordsTest {
     @Test
     public void getSpinWordsOfATheExampleStringNumberTwo() {
         String word = "This is a test";
-        SpinWords spinWords = new SpinWords(word);
-
-        assertEquals("This is a test", spinWords.getSpinWords());
+        assertEquals("This is a test", SpinWords.spinWords(word));
     }
 
     /**
@@ -70,8 +60,6 @@ public class SpinWordsTest {
     @Test
     public void getSpinWordsOfATheExampleStringNumberThree() {
         String word = "This is another test";
-        SpinWords spinWords = new SpinWords(word);
-
-        assertEquals("This is rehtona test", spinWords.getSpinWords());
+        assertEquals("This is rehtona test", SpinWords.spinWords(word));
     }
 }
