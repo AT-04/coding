@@ -14,9 +14,9 @@ public class SpinWordsTest {
      */
     @Test
     public void verifyChangeHeyFellowWarriors() {
-        SpinWords spinWords = new SpinWords("Hey fellow warriors");
+        SpinWords spinWords = new SpinWords();
         String expectedResult = "Hey wollef sroirraw";
-        assertEquals(expectedResult, spinWords.getSpinWord());
+        assertEquals(expectedResult, spinWords.spin("Hey fellow warriors"));
     }
 
     /**
@@ -24,9 +24,9 @@ public class SpinWordsTest {
      */
     @Test
     public void verifyChangeThisIsATest() {
-        SpinWords spinWords = new SpinWords("This is a test");
+        SpinWords spinWords = new SpinWords();
         String expectedResult = "This is a test";
-        assertEquals(expectedResult, spinWords.getSpinWord());
+        assertEquals(expectedResult, spinWords.spin("This is a test"));
     }
 
     /**
@@ -34,8 +34,8 @@ public class SpinWordsTest {
      */
     @Test
     public void verifyChangeThisIsAnotherTest() {
-        SpinWords spinWords = new SpinWords("This is another test");
+        SpinWords spinWords = new SpinWords();
         String expectedResult = "This is rehtona test";
-        assertEquals(expectedResult, spinWords.getSpinWord());
+        assertEquals(expectedResult, spinWords.spin("This is another test"));
     }
 }
