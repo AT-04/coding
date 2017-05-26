@@ -19,7 +19,7 @@ public class SpinWordsTest {
     public void aSingleWordIsReversed() {
         SpinWords spinWords = new SpinWords();
 
-        assertEquals("olleH", spinWords.reverse("Hello"));
+        assertEquals("olleH", spinWords.spinWords("Hello"));
     }
 
     /**
@@ -29,29 +29,7 @@ public class SpinWordsTest {
     public void aLongWordIsReversed() {
         SpinWords spinWords = new SpinWords();
 
-        assertEquals("noitaminA", spinWords.reverse("Animation"));
-    }
-
-    /**
-     *
-     */
-    @Test
-    public void getAWordInTheSentence() {
-        SpinWords spinWords = new SpinWords();
-        List<String> expected = Arrays.asList("Hello");
-
-        assertEquals(expected, spinWords.getWords("Hello"));
-    }
-
-    /**
-     *
-     */
-    @Test
-    public void getAllWordsInTheSentence() {
-        SpinWords spinWords = new SpinWords();
-        List<String> expected = Arrays.asList("This", "is", "a", "long", "sentence");
-
-        assertEquals(expected, spinWords.getWords("This is a long sentence"));
+        assertEquals("noitaminA", spinWords.spinWords("Animation"));
     }
 
     /**
