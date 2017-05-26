@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by Administrator on 5/16/2017.
  */
-public final class BankORC {
+public final class BankOCR {
     private static final int THREE = 3;
     public static final int NINE = 9;
     public static final int FOUR = 4;
@@ -52,7 +52,7 @@ public final class BankORC {
     /**
      * CONSTRUCTOR.
      */
-    private BankORC() {
+    private BankOCR() {
     }
 
     /**
