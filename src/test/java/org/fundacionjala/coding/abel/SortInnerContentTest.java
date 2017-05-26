@@ -2,9 +2,6 @@ package org.fundacionjala.coding.abel;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -39,28 +36,6 @@ public class SortInnerContentTest {
         SortInnerContent sortInnerContent = new SortInnerContent();
 
         assertEquals("atonmiian", sortInnerContent.sort("animation"));
-    }
-
-    /**
-     *
-     */
-    @Test
-    public void getAWordInTheSentence() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
-        List<String> expected = Arrays.asList("hello");
-
-        assertEquals(expected, sortInnerContent.getWords("hello"));
-    }
-
-    /**
-     *
-     */
-    @Test
-    public void getAllWordsInTheSentence() {
-        SortInnerContent spinWords = new SortInnerContent();
-        List<String> expected = Arrays.asList("this", "is", "a", "long", "sentence");
-
-        assertEquals(expected, spinWords.getWords("this is a long sentence"));
     }
 
     /**
