@@ -1,11 +1,11 @@
 package org.fundacionjala.coding.ovidio_spinwords;
-
 import java.util.StringJoiner;
 
-/**
- * Created by OvidioMiranda on 5/26/2017.
- */
 
+
+/**
+ * Created by OvidioMiranda on 5/19/2017.
+ */
 public class SpinWord {
 
     private String sentence;
