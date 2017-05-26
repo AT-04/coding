@@ -18,9 +18,7 @@ public class SortInnerContent {
     public String sort(String word) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(word.charAt(0));
-        word.substring(1, word.length() - 1)
-                .chars()
-                .mapToObj(e -> (char) e)
+        Stream.of(word.substring(1, word.length() - 1).split(""))
                 .sorted(Collections.reverseOrder())
                 .forEach(character -> stringBuilder.append(character));
         stringBuilder.append(word.charAt(word.length() - 1));
