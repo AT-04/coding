@@ -17,7 +17,7 @@ public final class SpinWords {
     /**
      * Is the main method that makes the operations for spin the words.
      *
-     * @param sentence Is the original sentence.
+     * @param sentence Is the String to apply Spin Words method.
      * @return The concatenation result
      */
     public static String spinWords(String sentence) {

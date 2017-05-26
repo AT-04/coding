@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class SpinWordsTest {
 
     /**
-     * This test proves that the result of spin spinning on an empty string is the same string.
+     * This test proves that the result of spin spinning on an empty String is the same String.
      */
     @Test
     public void getSpinWordsOfAEmptyStringIsAEmptyString() {
@@ -19,7 +19,7 @@ public class SpinWordsTest {
     }
 
     /**
-     * This test proves that the result of spinning word on an short string (<=4 characters) is the same string.
+     * This test proves that the result of spinning word on an short string (<=4 characters) is the same String.
      */
     @Test
     public void getSpinWordsOfAShortStringIsTheSameString() {
@@ -28,7 +28,7 @@ public class SpinWordsTest {
     }
 
     /**
-     * This test proves that the result of spinning word on an short string (<=4 characters) is the same string.
+     * This test proves that the result of spinning word on an short string (<=4 characters) is the same String.
      */
     @Test
     public void getSpinWordsOfAStringWithTwoWords() {
@@ -55,7 +55,7 @@ public class SpinWordsTest {
     }
 
     /**
-     * This test proves the result of the spin words of the example string number three.
+     * This test proves the result of the spin words of the example String number three.
      */
     @Test
     public void getSpinWordsOfATheExampleStringNumberThree() {
