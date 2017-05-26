@@ -1,6 +1,6 @@
 package org.fundacionjala.coding.Richard_Severich_Sort_Inner_Content;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 
 /**
@@ -8,84 +8,55 @@ import java.util.Arrays;
  */
 public class SortInnerContent {
 
-    private String firstCad;
-    private String cadSortInner;
-    private ArrayList<String> arrayList;
-
     /**
-     * @param cad is a firs string
+     * This method descrambles the inner contents of a string.
+     *
+     * @param cad This is the chain to which we will change its internal content to a descending order.
+     * @return Returns the string to which we will change its internal contents to a descending order.
      */
-    public SortInnerContent(String cad) {
-        this.firstCad = cad;
-        this.cadSortInner = "";
-        arrayList = new ArrayList<String>();
-        this.sortInner();
-    }
 
-    /**
-     * This method sorts down the inner contents of a string.
-     */
-    public void sortInner() {
-
-        extractStrings();
-        int zisString;
-        int zisArrayList;
-        int zisArrayreverse;
-        int indReverse;
-        char[] reverseChar;
-        zisArrayList = arrayList.size();
-
-        for (int i = 0; i < zisArrayList; i++) {
-
-            zisString = arrayList.get(i).length() - 1;
-            reverseChar = new char[zisString - 1];
-            for (int j = 1; j < zisString; j++) {     // este for  de positio 1 a final -1
-
-                indReverse = j - 1;
-                reverseChar[indReverse] = arrayList.get(i).charAt(j);
-            }
-
-            zisArrayreverse = reverseChar.length - 1;
-            Arrays.sort(reverseChar);
-
-            cadSortInner = cadSortInner + arrayList.get(i).charAt(0);
-            for (int k = zisArrayreverse; k >= 0; k--) {
-                cadSortInner = cadSortInner + reverseChar[k];
-            }
-            if (i == zisArrayList - 1) {
-                cadSortInner = cadSortInner + arrayList.get(i).charAt(zisString);
-            } else {
-                cadSortInner = cadSortInner + arrayList.get(i).charAt(zisString) + " ";
-            }
-
-        }
+    public String sortInner(String cad) {
 
 
-    }
+        StringBuffer resultWords = new StringBuffer();
+        String[] partsWords;
+        partsWords = cad.split(" ");
+        String cadDescending;
 
-    /**
-     * This is the method extracts from a list each word of the main chain.
-     */
-    private void extractStrings() {
-        String cad = "";
-        for (int i = 0; i < firstCad.length(); i++) {
-            if (firstCad.charAt(i) != ' ') {
-                cad = cad + firstCad.charAt(i);
-                if (i == firstCad.length() - 1) {
-                    arrayList.add(cad);
-                }
-            } else {
-                arrayList.add(cad);
-                cad = "";
+        for (int i = 0; i < partsWords.length; i++) {
+
+            resultWords.append(partsWords[i].charAt(0));
+            cadDescending = partsWords[i].substring(1, partsWords[i].length() - 1);
+            cadDescending = getDescendingOrder(cadDescending);
+            resultWords.append(cadDescending);
+            resultWords.append(partsWords[i].charAt(partsWords[i].length() - 1));
+
+            if (i < partsWords.length - 1) {
+                resultWords.append(" ");
             }
         }
+
+        return resultWords.toString();
+
     }
 
     /**
-     * @return Returns the already changed string
+     * This method rolls down a querevide string as a parameter.
+     *
+     * @param string This parameter is the string that will be sorted in descending order.
+     * @return A sorted string is returned in descending order.
      */
-    public String getSortInner() {
-        return cadSortInner;
+    private String getDescendingOrder(String string) {
 
+        char[] charArray = string.toCharArray();
+        Arrays.sort(charArray);
+        StringBuffer result = new StringBuffer();
+
+        for (int i = charArray.length - 1; i >= 0; i--) {
+            result.append(charArray[i]);
+        }
+        return result.toString();
     }
+
+
 }
