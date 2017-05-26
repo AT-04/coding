@@ -9,11 +9,11 @@ import org.junit.Test;
  */
 public class BankOCRTest {
     /**
-     * hgsdhsdds.
+     *
      */
     @Test
     public void comprobateEntryNumbersOneToZero() {
-       // BankOCR x = new BankOCR();
+
         String firstLine = "    _  _     _  _  _  _  _  _ ";
         String secondLine = "  | _| _||_||_ |_   ||_||_|| |";
         String thirdLine = "  ||_  _|  | _||_|  ||_| _||_|";

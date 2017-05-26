@@ -6,15 +6,15 @@ import java.util.Map;
 /**
  * Created by Administrator on 5/16/2017.
  */
-public final class BankOCR {
+final class BankOCR {
     private static final int THREE = 3;
-    public static final int NINE = 9;
-    public static final int FOUR = 4;
-    public static final int FIVE = 5;
-    public static final int SIX = 6;
-    public static final int SEVEN = 7;
-    public static final int EIGHT = 8;
-    public static final int MAXLENGTH = 30;
+    private static final int NINE = 9;
+    private static final int FOUR = 4;
+    private static final int FIVE = 5;
+    private static final int SIX = 6;
+    private static final int SEVEN = 7;
+    private static final int EIGHT = 8;
+    private static final int MAXLENGTH = 30;
     private static Map<String, Integer> number;
     static {
         number = new HashMap<>();
@@ -62,14 +62,12 @@ public final class BankOCR {
      * @param line3 IS THE THIRD LINE OF ENTRY
      * @return THE NUMBER OF MAP IND
      */
-    public static String convertEntryToNumber(String line1, String line2, String line3) {
-        String finalString = "";
-        //int sum = 3;
-        //int x = number.size();
+     static String convertEntryToNumber(String line1, String line2, String line3) {
+        StringBuilder finalString = new StringBuilder();
         for (int i = 0; i < MAXLENGTH; i = i + THREE) {
-           int j = i +  THREE;
-            finalString += number.get(line1.substring(i, j) + line2.substring(i, j) + line3.substring(i, j));
+            int j = i + THREE;
+            finalString.append(number.get(line1.substring(i, j) + line2.substring(i, j) + line3.substring(i, j)));
         }
-        return finalString;
+        return finalString.toString();
     }
 }
