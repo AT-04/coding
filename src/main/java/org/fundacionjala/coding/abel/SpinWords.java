@@ -11,12 +11,6 @@ public class SpinWords {
     public static final int REVERSE_LENGTH = 5;
 
     /**
-     * The default constructor.
-     */
-    public SpinWords() {
-    }
-
-    /**
      * This method is used to spin the sentence, where words with length above
      * five letters are reversed.
      * @param sentence This is the string parameter to spin.
