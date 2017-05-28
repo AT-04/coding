@@ -1,7 +1,7 @@
 package org.fundacionjala.coding.abel;
 
 
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,13 +16,10 @@ public class SortInnerContent {
      * @return String This return the word sorted.
      */
     public String sort(String word) {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(word.charAt(0));
-        Stream.of(word.substring(1, word.length() - 1).split(""))
-                .sorted(Collections.reverseOrder())
-                .forEach(character -> stringBuilder.append(character));
-        stringBuilder.append(word.charAt(word.length() - 1));
-        return stringBuilder.toString();
+        String innerDescSorted = Stream.of(word.substring(1, word.length() - 1).split(""))
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.joining());
+        return String.join("", word.substring(0, 1), innerDescSorted, word.substring(word.length() - 1));
     }
 
     /**
