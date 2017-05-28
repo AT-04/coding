@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.abel;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,13 +10,21 @@ import static org.junit.Assert.assertEquals;
  */
 public class SortInnerContentTest {
 
+    private SortInnerContent sortInnerContent;
+
+    /**
+     *
+     */
+    @Before
+    public void initObjects() {
+        sortInnerContent = new SortInnerContent();
+    }
+
     /**
      *
      */
     @Test
     public void aSingleWordIsSorted() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
-
         assertEquals("srot", sortInnerContent.sort("sort"));
     }
 
@@ -24,8 +33,6 @@ public class SortInnerContentTest {
      */
     @Test
     public void aLongSingleWordIsSorted() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
-
         assertEquals("ctonnet", sortInnerContent.sort("content"));
     }
     /**
@@ -33,8 +40,6 @@ public class SortInnerContentTest {
      */
     @Test
     public void aLongerSingleWordIsSorted() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
-
         assertEquals("atonmiian", sortInnerContent.sort("animation"));
     }
 
@@ -43,8 +48,6 @@ public class SortInnerContentTest {
      */
     @Test
     public void sortInnerContentOfASingleFourLetterWord() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
-
         assertEquals("psas", sortInnerContent.sortInnerContent("pass"));
     }
 
@@ -53,8 +56,6 @@ public class SortInnerContentTest {
      */
     @Test
     public void sortInnerContentOfTwoWordSentence() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
-
         assertEquals("hlleo trhee", sortInnerContent.sortInnerContent("hello there"));
     }
 
@@ -63,8 +64,6 @@ public class SortInnerContentTest {
      */
     @Test
     public void sortInnerContentOfFirstExample() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
-
         assertEquals("srot the inner ctonnet in dsnnieedcg oredr",
                 sortInnerContent.sortInnerContent("sort the inner content in descending order"));
     }
@@ -74,8 +73,6 @@ public class SortInnerContentTest {
      */
     @Test
     public void sortInnerContentOfSecondExample() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
-
         assertEquals("wiat for me", sortInnerContent.sortInnerContent("wait for me"));
     }
 
@@ -84,8 +81,6 @@ public class SortInnerContentTest {
      */
     @Test
     public void sortInnerContentOfThirdExample() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
-
         assertEquals("tihs ktaa is esay", sortInnerContent.sortInnerContent("this kata is easy"));
     }
 }
