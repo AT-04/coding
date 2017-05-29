@@ -1,6 +1,6 @@
 package org.fundacionjala.coding.ovidio_spinwords;
-import java.util.StringJoiner;
 
+import java.util.StringJoiner;
 
 
 /**
@@ -8,41 +8,21 @@ import java.util.StringJoiner;
  */
 public class SpinWord {
 
-    private String sentence;
-
-
-    /**
-     * Constructor for objects of SpinWord.
-     */
-    public SpinWord() {
-        this("");
-    }
-
-    /**
-     * Constructor for objects of SpinWord with a parameter.
-     *
-     * @param sentence Is a word.
-     */
-    public SpinWord(String sentence) {
-        this.sentence = sentence;
-    }
-
-
     /**
      * Function that takes in a string and returns the same string
      * but with all five or more letter words reversed.
      *
+     * @param sentence Is a sentence with words.
      * @return returns the same string but with all five or more letter words reversed .
      */
-    public String spinWords() {
-        final Integer maxLetters = 5;
-        StringJoiner aux = new StringJoiner(" ");
+    public String spinWords(String sentence) {
+        final int maxLetters = 5;
+        StringJoiner join = new StringJoiner(" ");
         String[] wordsArray = sentence.split(" ");
         for (String word : wordsArray) {
-            aux = word.length() >= maxLetters ? aux.add(new StringBuilder(word).reverse()) : aux.add(word);
+            join = word.length() >= maxLetters ? join.add(new StringBuilder(word).reverse()) : join.add(word);
         }
-        return aux.toString();
+        return join.toString();
     }
-
 
 }

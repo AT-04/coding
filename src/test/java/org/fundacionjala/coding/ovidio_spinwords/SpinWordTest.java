@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.ovidio_spinwords;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -8,15 +9,22 @@ import static org.junit.Assert.assertEquals;
  * Created by OvidioMiranda on 5/26/2017.
  */
 public class SpinWordTest {
+    private SpinWord spinWord;
+
+    /**
+     * Initial setup.
+     */
+    @Before
+    public void setUp() {
+        spinWord = new SpinWord();
+    }
 
     /**
      * Test for see one sentecen reverse.
      */
     @Test
     public void whenYouHaveOneWord() {
-        SpinWord test1 = new SpinWord("Hello");
-        String result = test1.spinWords();
-        assertEquals("olleH", result);
+        assertEquals("olleH", spinWord.spinWords("Hello"));
     }
 
     /**
@@ -24,9 +32,7 @@ public class SpinWordTest {
      */
     @Test
     public void whenYouHaveThreeWordsAndLastStringPassedToFiveLetters() {
-        SpinWord test1 = new SpinWord("Hey fellow warriors");
-        String result = test1.spinWords();
-        assertEquals("Hey wollef sroirraw", result);
+        assertEquals("Hey wollef sroirraw", spinWord.spinWords("Hey fellow warriors"));
     }
 
     /**
@@ -34,9 +40,7 @@ public class SpinWordTest {
      */
     @Test
     public void whenYouHaveFourWordsAndAreLessToFiveLetters() {
-        SpinWord test1 = new SpinWord("This is a test");
-        String result = test1.spinWords();
-        assertEquals("This is a test", result);
+        assertEquals("This is a test", spinWord.spinWords("This is a test"));
     }
 
     /**
@@ -44,9 +48,7 @@ public class SpinWordTest {
      */
     @Test
     public void whenYouHaveThreeWordsAndThirdWordPassedTheFiveLetters() {
-        SpinWord test1 = new SpinWord("This is another test");
-        String result = test1.spinWords();
-        assertEquals("This is rehtona test", result);
+        assertEquals("This is rehtona test", spinWord.spinWords("This is another test"));
     }
 
 }
