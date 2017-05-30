@@ -17,12 +17,12 @@ public class SortInnerContent {
      * @return returns the string but sort the inner content of every word in descending order.
      */
     public String sort(String sentence) {
-        StringJoiner aux = new StringJoiner(" ");
+        StringJoiner newSentence = new StringJoiner(" ");
         String[] wordsArray = sentence.split(" ");
         for (String word : wordsArray) {
-            aux.add(sorTheInnerContent(word));
+            newSentence.add(sorTheInnerContent(word));
         }
-        return aux.toString();
+        return newSentence.toString();
     }
 
     /**
@@ -32,7 +32,7 @@ public class SortInnerContent {
      * @param word Is a words.
      * @return returns the string but sort the inner content of every word in descending order.
      */
-    public static String sorTheInnerContent(String word) {
+    public String sorTheInnerContent(String word) {
         final int positionLastLetter = word.length() - 1;
         final String firstLetter = word.substring(0, 1);
         final String lastLetter = word.substring(positionLastLetter);
