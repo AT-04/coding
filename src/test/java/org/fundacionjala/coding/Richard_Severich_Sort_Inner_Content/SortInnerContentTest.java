@@ -50,4 +50,14 @@ public class SortInnerContentTest {
         assertEquals(expectedResult, sortInner.sortInner(firstCad));
     }
 
+    /**
+     * This test checks the string that returns the method getSortInner returns the expected string.
+     */
+    @Test
+    public void verityChangeOfSortTheInnerContentInDescendingOrderIam() {
+        String firstCad = "I am";
+        String expectedResult = "I am";
+        assertEquals(expectedResult, sortInner.sortInner(firstCad));
+    }
+
 }
