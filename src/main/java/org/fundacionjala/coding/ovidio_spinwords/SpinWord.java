@@ -17,12 +17,12 @@ public class SpinWord {
      */
     public String spinWords(String sentence) {
         final int maxLetters = 5;
-        StringJoiner join = new StringJoiner(" ");
+        StringJoiner newSentence = new StringJoiner(" ");
         String[] wordsArray = sentence.split(" ");
         for (String word : wordsArray) {
-            join = word.length() >= maxLetters ? join.add(new StringBuilder(word).reverse()) : join.add(word);
+            newSentence.add(word.length() >= maxLetters ? new StringBuilder(word).reverse() : word);
         }
-        return join.toString();
+        return newSentence.toString();
     }
 
 }
