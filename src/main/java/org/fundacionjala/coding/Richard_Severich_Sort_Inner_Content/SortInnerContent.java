@@ -1,7 +1,9 @@
 package org.fundacionjala.coding.Richard_Severich_Sort_Inner_Content;
 
-
-import java.util.Arrays;
+import java.util.Comparator;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by RichardSeverich on 5/23/2017.
@@ -17,46 +19,20 @@ public class SortInnerContent {
 
     public String sortInner(String cad) {
 
-
-        StringBuffer resultWords = new StringBuffer();
         String[] partsWords;
         partsWords = cad.split(" ");
         String cadDescending;
 
+        StringJoiner stringJoiner = new StringJoiner(" ");
         for (int i = 0; i < partsWords.length; i++) {
 
-            resultWords.append(partsWords[i].charAt(0));
             cadDescending = partsWords[i].substring(1, partsWords[i].length() - 1);
-            cadDescending = getDescendingOrder(cadDescending);
-            resultWords.append(cadDescending);
-            resultWords.append(partsWords[i].charAt(partsWords[i].length() - 1));
-
-            if (i < partsWords.length - 1) {
-                resultWords.append(" ");
-            }
+            cadDescending = Stream.of(cadDescending.split("")).sorted(Comparator.reverseOrder()).collect(Collectors.joining());
+            String word = String.join("", String.valueOf(partsWords[i].charAt(0)), cadDescending,
+                    String.valueOf(partsWords[i].charAt(partsWords[i].length() - 1)));
+            stringJoiner.add(word);
         }
 
-        return resultWords.toString();
-
+        return stringJoiner.toString();
     }
-
-    /**
-     * This method rolls down a querevide string as a parameter.
-     *
-     * @param string This parameter is the string that will be sorted in descending order.
-     * @return A sorted string is returned in descending order.
-     */
-    private String getDescendingOrder(String string) {
-
-        char[] charArray = string.toCharArray();
-        Arrays.sort(charArray);
-        StringBuffer result = new StringBuffer();
-
-        for (int i = charArray.length - 1; i >= 0; i--) {
-            result.append(charArray[i]);
-        }
-        return result.toString();
-    }
-
-
 }
