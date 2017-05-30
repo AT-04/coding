@@ -4,14 +4,8 @@ package org.fundacionjala.coding.Jose;
  * Created by JoseTorrez on 5/30/2017.
  */
 public class EAN {
-    public static final int POSITION = 3;
-    public static final int TEN = 10;
-
-    /**
-     * Constructor.
-     */
-    public EAN() {
-    }
+    private static final int POSITION = 3;
+    private static final int TEN = 10;
     /**
      * Method for validate CheckSum.
      * @return boolean result
