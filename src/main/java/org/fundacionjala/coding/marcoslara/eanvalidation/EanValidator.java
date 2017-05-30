@@ -8,7 +8,6 @@ public final class EanValidator {
     private static final int NUMBER_OF_DIGITS = 13;
     private static final int MODULE_DIVIDEND = 10;
     private static final int EAN_MULTIPLIER = 3;
-    private static final int ZERO_ASCII = 48;
 
     /**
      * Private constructor required. These kind of classes are more like tools/utilities than being meant for objects.
@@ -25,10 +24,10 @@ public final class EanValidator {
         char[] digits = eanCode.toCharArray();
         int checksum = 0;
         for (int i = 0; i < NUMBER_OF_DIGITS - 1; i++) {
-            checksum += (i + 1) % 2 == 0 ? (digits[i] - ZERO_ASCII) * EAN_MULTIPLIER : digits[i] - ZERO_ASCII;
+            int digit = Character.getNumericValue(digits[i]);
+            checksum += (i + 1) % 2 == 0 ? digit * EAN_MULTIPLIER : digit;
         }
         checksum = checksum % MODULE_DIVIDEND == 0 ? 0 : MODULE_DIVIDEND - (checksum % MODULE_DIVIDEND);
-        digits[NUMBER_OF_DIGITS - 1] = (char) (checksum + ZERO_ASCII);
-        return eanCode.equals(new String(digits));
+        return Character.getNumericValue(digits[NUMBER_OF_DIGITS - 1]) == checksum;
     }
 }
