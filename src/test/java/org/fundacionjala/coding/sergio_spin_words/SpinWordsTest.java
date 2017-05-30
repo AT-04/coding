@@ -2,34 +2,49 @@ package org.fundacionjala.coding.sergio_spin_words;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static junit.framework.TestCase.assertEquals;
 
 /**
  * Created by Sergio on 28/05/2017.
  */
-public class spin_wordsTest {
+public class SpinWordsTest {
+    /**
+     *
+     */
     @Test
     public void spinOneWord() {
         String sentence = "warrior";
 
-        assertEquals("roirraw", Spin_words.spinWord(sentence));
+        assertEquals("roirraw", SpinWords.spinWord(sentence));
     }
+
+    /**
+     *
+     */
     @Test
     public void sameWordsIsWordsLengthIsMinorToFive() {
         String sentence = "It is a Test";
 
-        assertEquals("It is a Test", Spin_words.spinWord(sentence));
+        assertEquals("It is a Test", SpinWords.spinWord(sentence));
     }
+
+    /**
+     *
+     */
     @Test
     public void sentenceIsEmptyReturnEmpty() {
         String sentence = "";
 
-        assertEquals("", Spin_words.spinWord(sentence));
+        assertEquals("", SpinWords.spinWord(sentence));
     }
+
+    /**
+     *
+     */
     @Test
     public void sentenceHaveASpaceAtTheBeginningReturnWithoutSpace() {
         String sentence = " Sentence with a space";
 
-        assertEquals("ecnetneS with a ecaps", Spin_words.spinWord(sentence));
+        assertEquals("ecnetneS with a ecaps", SpinWords.spinWord(sentence));
     }
 }

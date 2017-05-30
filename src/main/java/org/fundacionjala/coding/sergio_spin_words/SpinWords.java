@@ -3,14 +3,14 @@ package org.fundacionjala.coding.sergio_spin_words;
 /**
  * Created by Sergio on 28/05/2017.
  */
-public final class Spin_words {
+public final class SpinWords {
 
     private static final int CONDITION = 5;
 
     /**
      * CONSTRUCTOR.
      */
-    private Spin_words() {
+    private SpinWords() {
 
     }
 
