@@ -1,7 +1,11 @@
 package org.fundacionjala.coding.abel;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Created by AbelBarrientos on 16/5/2017.
@@ -41,6 +45,7 @@ public final class BankOCR {
     public static final int THIRD_LINE_AT_ZERO = 54;
     public static final int THIRD_LINE_AT_ONE = 55;
     public static final int THIRD_LINE_AT_TWO = 56;
+    public static final int ELEVEN = 11;
 
     /**
      *
@@ -56,15 +61,15 @@ public final class BankOCR {
     public static String convertEntryToNumber(String entry) {
         char[] charArray = entry.toCharArray();
 
-        String[] positionNumbers = getPositionNumbers(charArray);
+        String[] positionNumbers = numbersByPosition(charArray);
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuilder = new StringBuilder();
 
         for (String string: positionNumbers) {
-            stringBuffer.append(checkString(string));
+            stringBuilder.append(checkString(string));
         }
 
-        return stringBuffer.toString();
+        return stringBuilder.toString();
     }
 
     /**
@@ -72,14 +77,14 @@ public final class BankOCR {
      * @param charArray parameter
      * @return String[]
      */
-    private static String[] getPositionNumbers(char[] charArray) {
-        String[] positionNumbers = new String[TOTAL_CHARS];
+    private static String[] numbersByPosition(char[] charArray) {
+        String[] numbersByPosition = new String[TOTAL_CHARS];
 
         for (int i = 0; i < TOTAL_CHARS; i++) {
-            positionNumbers[i] = extractNumbers(charArray, i);
+            numbersByPosition[i] = extractNumbers(charArray, i);
         }
 
-        return positionNumbers;
+        return numbersByPosition;
     }
 
     /**
@@ -106,7 +111,7 @@ public final class BankOCR {
                 .findAny()
                 .orElse(null);
 
-        return String.valueOf(result.getIntValue());
+        return (result == null) ? "?" : String.valueOf(result.getIntValue());
     }
 
     /**
@@ -116,18 +121,65 @@ public final class BankOCR {
      * @return String
      */
     private static String extractNumbers(char[] charArray, int position) {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuffer.append(charArray[FIRST_LINE_AT_ZERO + position * CHAR_LENGTH]);
-        stringBuffer.append(charArray[FIRST_LINE_AT_ONE + position * CHAR_LENGTH]);
-        stringBuffer.append(charArray[FIRST_LINE_AT_TWO + position * CHAR_LENGTH]);
-        stringBuffer.append(charArray[SECOND_LINE_AT_ZERO + position * CHAR_LENGTH]);
-        stringBuffer.append(charArray[SECOND_LINE_AT_ONE + position * CHAR_LENGTH]);
-        stringBuffer.append(charArray[SECOND_LINE_AT_TWO + position * CHAR_LENGTH]);
-        stringBuffer.append(charArray[THIRD_LINE_AT_ZERO + position * CHAR_LENGTH]);
-        stringBuffer.append(charArray[THIRD_LINE_AT_ONE + position * CHAR_LENGTH]);
-        stringBuffer.append(charArray[THIRD_LINE_AT_TWO + position * CHAR_LENGTH]);
+        stringBuilder.append(charArray[FIRST_LINE_AT_ZERO + position * CHAR_LENGTH]);
+        stringBuilder.append(charArray[FIRST_LINE_AT_ONE + position * CHAR_LENGTH]);
+        stringBuilder.append(charArray[FIRST_LINE_AT_TWO + position * CHAR_LENGTH]);
+        stringBuilder.append(charArray[SECOND_LINE_AT_ZERO + position * CHAR_LENGTH]);
+        stringBuilder.append(charArray[SECOND_LINE_AT_ONE + position * CHAR_LENGTH]);
+        stringBuilder.append(charArray[SECOND_LINE_AT_TWO + position * CHAR_LENGTH]);
+        stringBuilder.append(charArray[THIRD_LINE_AT_ZERO + position * CHAR_LENGTH]);
+        stringBuilder.append(charArray[THIRD_LINE_AT_ONE + position * CHAR_LENGTH]);
+        stringBuilder.append(charArray[THIRD_LINE_AT_TWO + position * CHAR_LENGTH]);
 
-        return stringBuffer.toString();
+        return stringBuilder.toString();
+    }
+
+    /**
+     *
+     * @param fileName param
+     * @return String
+     */
+    public static String readFile(String fileName) {
+        final StringBuilder stringBuilder = new StringBuilder();
+        try {
+            Stream<String> stream = Files.lines(Paths.get(fileName));
+            stream.forEach(st -> stringBuilder.append(st));
+
+            return stringBuilder.toString();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    /**
+     *
+     * @param accountNumber param
+     * @return Boolean
+     */
+    public static boolean validateAccountNumber(String accountNumber) {
+        if (accountNumber.contains("?")) {
+            return false;
+        }
+        char[] charArray = new StringBuilder(accountNumber).reverse().toString().toCharArray();
+        int sum = 0;
+        for (int i = 0; i <= charArray.length - 1; i++) {
+            int intValue = Integer.parseInt(String.valueOf(charArray[i]));
+            sum += intValue * (i + 1);
+        }
+        return sum % ELEVEN == 0;
+    }
+
+    /**
+     *
+     * @param entryToNumber param
+     * @return String
+     */
+    public static String lineOutPut(String entryToNumber) {
+        return (validateAccountNumber(entryToNumber)) ? entryToNumber : ((entryToNumber.contains("?"))
+                ? String.join("", entryToNumber, " ILL")
+                : String.join("", entryToNumber, " ERR"));
     }
 }
