@@ -1,19 +1,32 @@
-package movies;
+package org.fundacionjala.coding.ovidio.movies;
 
-class Rental {
-    private Movie _movie;
-    private int _daysRented;
+/**
+ * Class for the rental.
+ */
+public class Rental {
+    private Movie movie;
+    private int daysRented;
 
+    /**
+     * @param movie movie.
+     * @param daysRented day rented.
+     */
     public Rental(Movie movie, int daysRented) {
-        _movie = movie;
-        _daysRented = daysRented;
+        this.movie = movie;
+        this.daysRented = daysRented;
     }
 
+    /**
+     * @return Day Rented.
+     */
     public int getDaysRented() {
-        return _daysRented;
+        return daysRented;
     }
 
+    /**
+     * @return Movie.
+     */
     public Movie getMovie() {
-        return _movie;
+        return movie;
     }
 }
