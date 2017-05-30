@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.sergio_spin_words;
+package org.fundacionjala.coding.sergio;
 
 import org.junit.Test;
 

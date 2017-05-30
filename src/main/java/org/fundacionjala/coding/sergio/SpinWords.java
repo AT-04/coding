@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.sergio_spin_words;
+package org.fundacionjala.coding.sergio;
 
 /**
  * Created by Sergio on 28/05/2017.
