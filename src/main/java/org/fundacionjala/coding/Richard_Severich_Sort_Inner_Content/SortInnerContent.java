@@ -26,16 +26,17 @@ public class SortInnerContent {
         String cadDescending;
         StringJoiner stringJoiner = new StringJoiner(" ");
         String word;
-        for (int i = 0; i < partsWords.length; i++) {
+
+        for (String itemWord : partsWords) {
 
             if (partsWords.length < THREE) {
-                word = partsWords[i];
+                word = itemWord;
             } else {
-                cadDescending = partsWords[i].substring(1, partsWords[i].length() - 1);
+                cadDescending = itemWord.substring(1, itemWord.length() - 1);
                 cadDescending = Stream.of(cadDescending.split("")).sorted(Comparator.reverseOrder())
                         .collect(Collectors.joining());
-                word = String.join("", String.valueOf(partsWords[i].charAt(0)), cadDescending,
-                        String.valueOf(partsWords[i].charAt(partsWords[i].length() - 1)));
+                word = String.join("", itemWord.substring(0, 1), cadDescending,
+                        itemWord.substring(itemWord.length() - 1));
             }
             stringJoiner.add(word);
         }
