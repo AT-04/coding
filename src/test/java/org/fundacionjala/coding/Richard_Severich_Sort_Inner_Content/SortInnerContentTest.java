@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class SortInnerContentTest {
 
-    SortInnerContent sortInner;
+    private SortInnerContent sortInner;
 
     /**
      * This is the method that will run before each unit test.

@@ -27,7 +27,8 @@ public class SortInnerContent {
         for (int i = 0; i < partsWords.length; i++) {
 
             cadDescending = partsWords[i].substring(1, partsWords[i].length() - 1);
-            cadDescending = Stream.of(cadDescending.split("")).sorted(Comparator.reverseOrder()).collect(Collectors.joining());
+            cadDescending = Stream.of(cadDescending.split("")).sorted(Comparator.reverseOrder())
+                    .collect(Collectors.joining());
             String word = String.join("", String.valueOf(partsWords[i].charAt(0)), cadDescending,
                     String.valueOf(partsWords[i].charAt(partsWords[i].length() - 1)));
             stringJoiner.add(word);
