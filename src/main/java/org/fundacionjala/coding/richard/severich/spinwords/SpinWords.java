@@ -1,6 +1,5 @@
 package org.fundacionjala.coding.richard.severich.spinwords;
 
-
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -8,7 +7,6 @@ import java.util.stream.Stream;
  * Created by RichardSeverich on 5/22/2017.
  */
 public class SpinWords {
-
 
     public static final int REV = 5;
 
@@ -19,13 +17,8 @@ public class SpinWords {
      * @return Is the final string.
      */
     public String spin(String spinWord) {
-
-
         return Stream.of(spinWord.split(" "))
                 .map(word -> (word.length() >= REV) ? new StringBuilder(word).reverse().toString() : word)
                 .collect(Collectors.joining(" "));
-
     }
-
-
 }

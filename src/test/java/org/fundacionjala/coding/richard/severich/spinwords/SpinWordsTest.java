@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.richard.severich.spinwords;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,12 +10,22 @@ import static org.junit.Assert.assertEquals;
  */
 public class SpinWordsTest {
 
+    private SpinWords spinWords;
+
+    /**
+     * This method is executed before all the Unit Test.
+     */
+    @Before
+    public void setUp() {
+        spinWords = new SpinWords();
+    }
+
     /**
      * This test checks the string that returns the method getSpinWord returns the expected string.
      */
     @Test
     public void verifyChangeHeyFellowWarriors() {
-        SpinWords spinWords = new SpinWords();
+
         String expectedResult = "Hey wollef sroirraw";
         assertEquals(expectedResult, spinWords.spin("Hey fellow warriors"));
     }
@@ -24,7 +35,6 @@ public class SpinWordsTest {
      */
     @Test
     public void verifyChangeThisIsATest() {
-        SpinWords spinWords = new SpinWords();
         String expectedResult = "This is a test";
         assertEquals(expectedResult, spinWords.spin("This is a test"));
     }
@@ -34,7 +44,6 @@ public class SpinWordsTest {
      */
     @Test
     public void verifyChangeThisIsAnotherTest() {
-        SpinWords spinWords = new SpinWords();
         String expectedResult = "This is rehtona test";
         assertEquals(expectedResult, spinWords.spin("This is another test"));
     }
