@@ -1,8 +1,9 @@
 package org.fundacionjala.coding.ovidio_eanValidation;
 
+import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -10,14 +11,29 @@ import static org.junit.Assert.assertTrue;
  */
 public class EanValidationTest {
 
+    private EanValidation eanValidation;
 
-    /*
-    *This test evaluate EAN
+    /**
+     * Initial setup.
+     */
+    @Before
+    public void setUp() {
+        eanValidation = new EanValidation();
+    }
+
+    /**
+     * This test for  It is a valid EAN code.
      */
     @Test
-    public void isEanValidate() {
-        EanValidation test = new EanValidation();
-        Boolean result = test.validate("4003301018398");
-        assertTrue(result);
+    public void itIsAVvalidEanCode() {
+        assertTrue(eanValidation.validate("4003301018398"));
+    }
+
+    /**
+     * This test is when is not a valid Ean code.
+     */
+    @Test
+    public void itIsNotAValidEanCode() {
+        assertFalse(eanValidation.validate("4003301018391"));
     }
 }
