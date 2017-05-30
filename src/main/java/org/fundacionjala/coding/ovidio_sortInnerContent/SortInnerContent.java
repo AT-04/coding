@@ -36,10 +36,12 @@ public class SortInnerContent {
         final int positionLastLetter = word.length() - 1;
         final String firstLetter = word.substring(0, 1);
         final String lastLetter = word.substring(positionLastLetter);
-        String[] wordDescendingOrder = word.substring(1, positionLastLetter).split("");
-        Arrays.sort(wordDescendingOrder, Collections.reverseOrder());
         StringBuilder newString = new StringBuilder(firstLetter);
-        newString.append(String.join("", wordDescendingOrder)).append(lastLetter);
+        if (positionLastLetter > 0) {
+            String[] wordDescendingOrder = word.substring(1, positionLastLetter).split("");
+            Arrays.sort(wordDescendingOrder, Collections.reverseOrder());
+            newString.append(String.join("", wordDescendingOrder)).append(lastLetter);
+        }
         return newString.toString();
     }
 

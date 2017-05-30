@@ -1,6 +1,7 @@
 package org.fundacionjala.coding.ovidio_sortInnerContent;
 
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,12 +12,38 @@ import static org.junit.Assert.assertEquals;
  */
 public class SortInnerContentTest {
 
+    private SortInnerContent sortInnerContent;
+
+    /**
+     * Initial setup.
+     */
+    @Before
+    public void setUp() {
+        sortInnerContent = new SortInnerContent();
+    }
+
+    /**
+     * Will be tested the sorted with only a character.
+     */
+    @Test
+    public void sortedWithOnlyACharacter() {
+        assertEquals("I", sortInnerContent.sort("I"));
+    }
+
+    /**
+     * Will be tested the sorted with only a character more one word.
+     */
+    @Test
+    public void sortedWithOnlyACharacterMoreAWord() {
+        assertEquals("I am", sortInnerContent.sort("I am"));
+    }
+
+
     /**
      * Will be tested the sorted with only a word.
      */
     @Test
     public void sortedWithOnlyWord() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
         assertEquals("ctonnet", sortInnerContent.sort("content"));
     }
 
@@ -25,7 +52,6 @@ public class SortInnerContentTest {
      */
     @Test
     public void sortedWithSixWords() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
         String sentence = "sort the inner content in descending order";
         assertEquals("srot the inner ctonnet in dsnnieedcg oredr", sortInnerContent.sort(sentence));
     }
@@ -35,7 +61,6 @@ public class SortInnerContentTest {
      */
     @Test
     public void sortedWithThreeWords() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
         String sentence = "wait for me";
         assertEquals("wiat for me", sortInnerContent.sort(sentence));
     }
@@ -45,7 +70,6 @@ public class SortInnerContentTest {
      */
     @Test
     public void sortedWithFourWords() {
-        SortInnerContent sortInnerContent = new SortInnerContent();
         String sentence = "this kata is easy";
         assertEquals("tihs ktaa is esay", sortInnerContent.sort(sentence));
     }
