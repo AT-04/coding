@@ -24,7 +24,7 @@ public class MainTest {
         assertEquals("otro nombre", comprador.getName());
     }
     @Test
-    public void pruebadeStatement() {
+    public void pruebaDeStatement() {
         Customer customer = new Customer("Test");
         customer.addRental(new Rental(new Movie("The Revenant", 1), 2));
         customer.addRental(new Rental(new Movie("Terminator", 0), 2));
