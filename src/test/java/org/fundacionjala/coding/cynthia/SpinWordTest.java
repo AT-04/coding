@@ -45,5 +45,4 @@ public class SpinWordTest {
         assertEquals("noicadnuf jala oiraceb", spin.result("fundacion jala becario"));
     }
 
-
 }

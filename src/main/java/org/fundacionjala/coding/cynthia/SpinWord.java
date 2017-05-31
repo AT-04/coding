@@ -20,12 +20,7 @@ public class SpinWord {
         StringJoiner cadena = new StringJoiner(" ");
         String[] setWords = sentencia.split(" ");
         for (String word : setWords) {
-            if (word.length() >= LIMIT) {
-                StringBuilder cad = new StringBuilder(word);
-                cadena.add(cad.reverse().toString());
-            } else {
-                cadena.add(word);
-            }
+            cadena.add(word.length() >= LIMIT ? new StringBuilder(word).reverse().toString() : word);
         }
         return cadena.toString();
     }
