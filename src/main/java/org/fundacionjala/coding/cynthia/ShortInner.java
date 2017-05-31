@@ -10,6 +10,7 @@ import java.util.List;
 public class ShortInner {
     /**
      * this method build the correct sentence.
+     *
      * @param cadena is the enter to the method.
      * @return cadenaTotal is the final result.
      */
@@ -25,21 +26,27 @@ public class ShortInner {
 
     /**
      * this method order and changed the string.
+     *
      * @param word is the enter to this method.
      * @return cadena with initial position and final position.
      */
     private String change(String word) {
-        char ini = word.charAt(0);
-        char fin = word.charAt(word.length() - 1);
-        StringBuilder cadena = new StringBuilder();
-        List<Character> lista = new ArrayList<>();
-        for (int i = 1; i < word.length() - 1; i++) {
-            lista.add(word.charAt(i));
+        if (word.length() == 1) {
+            return word;
+        } else {
+            char ini = word.charAt(0);
+            char fin = word.charAt(word.length() - 1);
+            StringBuilder cadena = new StringBuilder();
+            List<Character> lista = new ArrayList<>();
+            for (int i = 1; i < word.length() - 1; i++) {
+                lista.add(word.charAt(i));
+            }
+            Collections.sort(lista);
+            for (char letra : lista) {
+                cadena.append(letra);
+            }
+            return ini + cadena.reverse().toString() + fin;
         }
-        Collections.sort(lista);
-        for (char letra : lista) {
-            cadena.append(letra);
-        }
-        return ini + cadena.reverse().toString() + fin;
     }
 }
+

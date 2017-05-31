@@ -43,6 +43,15 @@ public class ShortInnerTest {
         ShortInner inner = new ShortInner();
         assertEquals("srot the inner ctonnet in dsnnieedcg", inner.result("sort the inner content in descending"));
     }
+     /**
+      * this test is for test a short sentence with  words.
+      */
+     @Test
+     public void changeASentencesWithMoreWords2() {
+         ShortInner inner = new ShortInner();
+         assertEquals("I am", inner.result("I am"));
+     }
 }
+
 
 
