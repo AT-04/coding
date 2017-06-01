@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.Marcan;
+package org.fundacionjala.coding.marcan;
 
 import java.util.Arrays;
 import java.util.StringJoiner;
@@ -7,6 +7,9 @@ import java.util.StringJoiner;
  * Created by MarcandeaCabrera on 5/23/2017.
  */
 public class SortContent {
+
+    public static final int THREE = 3;
+
     /**
      * The following method is for reverse one word.
      *
@@ -17,14 +20,18 @@ public class SortContent {
         String[] words = string.split(" ");
         StringJoiner stringJoiner = new StringJoiner(" ");
         for (String word : words) {
-            char[] wordInChar = word.substring(1, word.length() - 1).toCharArray();
-            Arrays.sort(wordInChar);
-            StringBuilder str = new StringBuilder();
-            str.append(word.substring(word.length() - 1, word.length()));
-            str.append(wordInChar);
-            str.append(word.substring(0, 1));
-            String reversed = str.reverse().toString();
-            stringJoiner.add(reversed);
+            if (word.length() < THREE) {
+                stringJoiner.add(word);
+            } else {
+                char[] wordInChar = word.substring(1, word.length() - 1).toCharArray();
+                Arrays.sort(wordInChar);
+                StringBuilder str = new StringBuilder();
+                str.append(word.substring(word.length() - 1, word.length()));
+                str.append(wordInChar);
+                str.append(word.substring(0, 1));
+                String reversed = str.reverse().toString();
+                stringJoiner.add(reversed);
+            }
         }
         return stringJoiner.toString();
     }
