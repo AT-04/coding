@@ -1,5 +1,6 @@
-package org.fundacionjala.coding.richard.severich.spinwords;
+package org.fundacionjala.coding.richardsverich;
 
+import org.fundacionjala.coding.richardseverich.SpinWords;
 import org.junit.Before;
 import org.junit.Test;
 

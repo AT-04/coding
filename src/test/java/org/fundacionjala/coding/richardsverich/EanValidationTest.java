@@ -1,6 +1,6 @@
-package org.fundacionjala.coding.richard;
+package org.fundacionjala.coding.richardsverich;
 
-
+import org.fundacionjala.coding.richardseverich.EanValidation;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -20,6 +20,7 @@ public class EanValidationTest {
         String firstCad = "4003301018398";
         assertTrue(ean.eanValidationCod(firstCad));
     }
+
     /**
      * This test checks the string that returns the method  returns the expected boolean.
      */
