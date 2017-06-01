@@ -3,8 +3,10 @@ package org.fundacionjala.coding.abel;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -34,18 +36,17 @@ public final class BankOCR {
             new Number(SEVEN, 7),
             new Number(EIGHT, 8),
             new Number(NINE, 9));
-    public static final int TOTAL_CHARS = 9;
-    public static final int CHAR_LENGTH = 3;
-    public static final int FIRST_LINE_AT_ZERO = 0;
-    public static final int FIRST_LINE_AT_ONE = 1;
-    public static final int FIRST_LINE_AT_TWO = 2;
-    public static final int SECOND_LINE_AT_ZERO = 27;
-    public static final int SECOND_LINE_AT_ONE = 28;
-    public static final int SECOND_LINE_AT_TWO = 29;
-    public static final int THIRD_LINE_AT_ZERO = 54;
-    public static final int THIRD_LINE_AT_ONE = 55;
-    public static final int THIRD_LINE_AT_TWO = 56;
-    public static final int ELEVEN = 11;
+    private static final int TOTAL_CHARS = 9;
+    private static final int CHAR_LENGTH = 3;
+    private static final int FIRST_LINE_AT_ZERO = 0;
+    private static final int FIRST_LINE_AT_THREE = 3;
+    private static final int SECOND_LINE_AT_ZERO = 27;
+    private static final int SECOND_LINE_AT_THREE = 30;
+    private static final int THIRD_LINE_AT_ZERO = 54;
+    private static final int THIRD_LINE_AT_THREE = 57;
+    private static final int ELEVEN = 11;
+
+    private static List<String> stringNumbers;
 
     /**
      *
@@ -59,45 +60,20 @@ public final class BankOCR {
      * @return String
      */
     public static String convertEntryToNumber(String entry) {
-        char[] charArray = entry.toCharArray();
-
-        String[] positionNumbers = numbersByPosition(charArray);
-
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for (String string: positionNumbers) {
-            stringBuilder.append(checkString(string));
-        }
-
-        return stringBuilder.toString();
-    }
-
-    /**
-     *
-     * @param charArray parameter
-     * @return String[]
-     */
-    private static String[] numbersByPosition(char[] charArray) {
-        String[] numbersByPosition = new String[TOTAL_CHARS];
-
+        stringNumbers = new ArrayList<>();
         for (int i = 0; i < TOTAL_CHARS; i++) {
-            numbersByPosition[i] = extractNumbers(charArray, i);
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(entry.substring(FIRST_LINE_AT_ZERO + i * CHAR_LENGTH,
+                    FIRST_LINE_AT_THREE + i * CHAR_LENGTH));
+            stringBuilder.append(entry.substring(SECOND_LINE_AT_ZERO + i * CHAR_LENGTH,
+                    SECOND_LINE_AT_THREE + i * CHAR_LENGTH));
+            stringBuilder.append(entry.substring(THIRD_LINE_AT_ZERO + i * CHAR_LENGTH,
+                    THIRD_LINE_AT_THREE + i * CHAR_LENGTH));
+            stringNumbers.add(stringBuilder.toString());
         }
-
-        return numbersByPosition;
-    }
-
-    /**
-     *
-     * @param string parameter
-     * @return String
-     */
-    private static String checkString(String string) {
-        String result = "";
-        for (int i = 0; i < TOTAL_CHARS; i++) {
-            result = getNumberValue(string);
-        }
-        return result;
+        return stringNumbers.stream()
+                .map(number -> getNumberValue(number))
+                .collect(Collectors.joining());
     }
 
     /**
@@ -112,28 +88,6 @@ public final class BankOCR {
                 .orElse(null);
 
         return (result == null) ? "?" : String.valueOf(result.getIntValue());
-    }
-
-    /**
-     *
-     * @param charArray parameter
-     * @param position parameter
-     * @return String
-     */
-    private static String extractNumbers(char[] charArray, int position) {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        stringBuilder.append(charArray[FIRST_LINE_AT_ZERO + position * CHAR_LENGTH]);
-        stringBuilder.append(charArray[FIRST_LINE_AT_ONE + position * CHAR_LENGTH]);
-        stringBuilder.append(charArray[FIRST_LINE_AT_TWO + position * CHAR_LENGTH]);
-        stringBuilder.append(charArray[SECOND_LINE_AT_ZERO + position * CHAR_LENGTH]);
-        stringBuilder.append(charArray[SECOND_LINE_AT_ONE + position * CHAR_LENGTH]);
-        stringBuilder.append(charArray[SECOND_LINE_AT_TWO + position * CHAR_LENGTH]);
-        stringBuilder.append(charArray[THIRD_LINE_AT_ZERO + position * CHAR_LENGTH]);
-        stringBuilder.append(charArray[THIRD_LINE_AT_ONE + position * CHAR_LENGTH]);
-        stringBuilder.append(charArray[THIRD_LINE_AT_TWO + position * CHAR_LENGTH]);
-
-        return stringBuilder.toString();
     }
 
     /**
