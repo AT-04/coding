@@ -5,13 +5,22 @@ package org.fundacionjala.coding.richardseverich.Movies;
  */
 public class MoviesNewRelease extends Movie {
 
-    public MoviesNewRelease(String title, int priceCode) {
-        super(title, priceCode);
+    public static final int TREE = 3;
+
+    /**
+     * @param title is the title of movie.
+     */
+    public MoviesNewRelease(String title) {
+        super(title);
     }
 
+    /**
+     * @param daysRented is the variable that keeps the days rented.
+     * @return It is the amount to pay for the movie rented.
+     */
     @Override
     public int generatePrice(int daysRented) {
-        thisAmount += daysRented * 3;
+        thisAmount += daysRented * TREE;
         return thisAmount;
     }
 }
