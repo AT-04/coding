@@ -1,6 +1,5 @@
 package org.fundacionjala.coding.abel.movies;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -10,6 +9,9 @@ import static org.junit.Assert.assertEquals;
  */
 public class MovieTest {
 
+    /**
+     *
+     */
     @Test
     public void canCreateAMovieForTerminator() {
         Movie movie = new Movie("Terminator", 1);
@@ -18,11 +20,14 @@ public class MovieTest {
         assertEquals(1, movie.getPriceCode());
     }
 
+    /**
+     *
+     */
     @Test
     public void canCreateAMovieForGuardiansOfTheGalaxy() {
-        Movie movie = new Movie("Guardians of the Galaxy", - 1);
+        Movie movie = new Movie("Guardians of the Galaxy", 0);
 
         assertEquals("Guardians of the Galaxy", movie.getTitle());
-        assertEquals(- 1, movie.getPriceCode());
+        assertEquals(0, movie.getPriceCode());
     }
 }

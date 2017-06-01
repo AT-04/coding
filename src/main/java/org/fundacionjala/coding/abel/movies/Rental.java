@@ -4,6 +4,7 @@ package org.fundacionjala.coding.abel.movies;
  * Created by Unknown on 5/26/2017.
  */
 public class Rental {
+
     private Movie movie;
     private int daysRented;
 

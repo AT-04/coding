@@ -10,11 +10,16 @@ import static org.junit.Assert.assertTrue;
  */
 public class RentalTest {
 
+    private static final int DAYS_RENTED = 3;
+
+    /**
+     *
+     */
     @Test
     public void canCreateARentalForTerminatorMovie() {
-        Rental rental = new Rental(new Movie("Terminator", 1), 3);
+        Rental rental = new Rental(new Movie("Terminator", 1), DAYS_RENTED);
 
-        assertTrue(rental.getMovie() instanceof Movie);
-        assertEquals(3, rental.getDaysRented());
+        assertTrue(Movie.class.isInstance(rental.getMovie()));
+        assertEquals(DAYS_RENTED, rental.getDaysRented());
     }
 }
