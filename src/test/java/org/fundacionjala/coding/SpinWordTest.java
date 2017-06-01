@@ -14,8 +14,8 @@ public class SpinWordTest {
      */
     @Test
     public void wordLessOrEqualsThanFiveCharacters() {
-        SpinWord cad = new SpinWord("Hola mundo");
-        assertEquals("Hola mundo", cad.reverseProcess());
+        SpinWord cad = new SpinWord();
+        assertEquals("Hola mundo", cad.reverseWord("Hola mundo"));
     }
 
     /**
@@ -23,8 +23,8 @@ public class SpinWordTest {
      */
     @Test
     public void wordLessEqualsOrLongerThanFiveCharacters() {
-        SpinWord cad = new SpinWord("Hola mundos marcandea");
-        assertEquals("Hola sodnum aednacram", cad.reverseProcess());
+        SpinWord cad = new SpinWord();
+        assertEquals("Hola sodnum aednacram mundos", cad.reverseWord("Hola mundos marcandea sodnum"));
     }
 
 
