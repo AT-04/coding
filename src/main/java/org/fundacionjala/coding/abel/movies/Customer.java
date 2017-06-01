@@ -1,6 +1,7 @@
 package org.fundacionjala.coding.abel.movies;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,6 +13,11 @@ public class Customer {
     private List<Rental> rentals;
     private double totalAmount;
     private int frequentRenterPoints;
+    private static final List<MovieType> MOVIE_TYPES = Arrays.asList(
+            new MovieType(Movie.REGULAR, new Regular()),
+            new MovieType(Movie.NEW_RELEASE, new NewRelease()),
+            new MovieType(Movie.CHILDREN, new Children())
+    );
 
     /**
      * This is the default constructor.
@@ -66,15 +72,11 @@ public class Customer {
      * @return Amount per movie.
      */
     private double calculateAmount(Rental rental) {
-        double thisAmount = 0;
-        if (rental.getMovie().getPriceCode() == Movie.CHILDREN) {
-            thisAmount = new Children().calculateAmount(rental.getDaysRented());
-        } else if (rental.getMovie().getPriceCode() == Movie.REGULAR) {
-            thisAmount = new Regular().calculateAmount(rental.getDaysRented());
-        } else if (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) {
-            thisAmount = new NewRelease().calculateAmount(rental.getDaysRented());
-        }
-        return thisAmount;
+        AbstractMovieType abstractMovieType = MOVIE_TYPES.stream()
+                .filter(movieType -> movieType.getType() == rental.getMovie().getPriceCode())
+                .findAny()
+                .orElse(null).getMovieType();
+        return abstractMovieType.calculateAmount(rental.getDaysRented());
     }
 
     /**
