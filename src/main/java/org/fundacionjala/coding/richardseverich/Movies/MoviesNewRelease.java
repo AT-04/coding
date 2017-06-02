@@ -5,8 +5,6 @@ package org.fundacionjala.coding.richardseverich.Movies;
  */
 public class MoviesNewRelease extends Movie {
 
-    public static final int TREE = 3;
-
     /**
      * @param title is the title of movie.
      */

@@ -6,8 +6,7 @@ package org.fundacionjala.coding.richardseverich.Movies;
 public class Rental {
     private Movie movie;
     private int daysRented;
-    private int frequentRenterPoints = 0;
-
+    private int frequentRenterPoints;
     /**
      * @param movie      Is movie for rented.
      * @param daysRented Is the variable that keeps the days rented.
@@ -38,6 +37,15 @@ public class Rental {
      */
     public int getFrequentRenterPoints() {
         return frequentRenterPoints;
+    }
+
+    /**
+     *
+     * @return return amount of rental.
+     */
+    public int getThisAmount() {
+        int thisAmount = getMovie().generatePrice(daysRented);
+        return thisAmount;
     }
 
 

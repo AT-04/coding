@@ -24,6 +24,8 @@ public class Customer {
      */
     public void addRental(Rental arg) {
         rentalList.add(arg);
+        calculateFrequent(arg);
+        calculateAmount(arg.getThisAmount());
     }
 
     /**
@@ -34,8 +36,7 @@ public class Customer {
         String result = String.format("Rental Record for %s %n", nameCustomer);
         resultBuilder.append(result);
         for (Rental itemRental : rentalList) {
-            calculateFrequent(itemRental);
-            result = String.format("\t %s \t %d %n", itemRental.getMovie().getTitle(), calculateThisAmount(itemRental));
+            result = String.format("\t %s \t %d %n", itemRental.getMovie().getTitle(), itemRental.getThisAmount());
             resultBuilder.append(result);
         }
         result = String.format("Amount owed is %d %n You earned %d frequent renter points",
@@ -45,14 +46,11 @@ public class Customer {
     }
 
     /**
-     * @param itemRental is a rental.
-     * @return Returns the amount for movie.
+     *
+     * @param thisAmount is amount of this Rental.
      */
-    private int calculateThisAmount(Rental itemRental) {
-        int daysRented = itemRental.getDaysRented();
-        int thisAmount = itemRental.getMovie().generatePrice(daysRented);
+    private void calculateAmount(int thisAmount) {
         totalAmount += thisAmount;
-        return thisAmount;
     }
 
     /**
