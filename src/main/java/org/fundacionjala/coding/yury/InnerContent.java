@@ -14,26 +14,18 @@ public class InnerContent {
      */
     public String innerWord(String string) {
         String[] splitWords = string.split(" ");
-        StringBuffer stringBuffer = new StringBuffer();
-        int i = 0;
-        for (String word : splitWords) {
-            char[] character = word.substring(1, word.length() - 1).toCharArray();
-            Arrays.sort(character);
-            if (i < splitWords.length - 1) {
-                stringBuffer.append(" ");
-            }
-            stringBuffer.append(word.charAt(word.length() - 1));
-            stringBuffer.append(character);
-            stringBuffer.append(word.charAt(0));
-            splitWords[i] = stringBuffer.reverse().toString();
-            i++;
-            stringBuffer.delete(0, stringBuffer.length());
-        }
+        StringBuilder stringBuilder = new StringBuilder();
 
-        for (String sentence : splitWords) {
-            stringBuffer.append(sentence);
+        for (int i = 0; i < splitWords.length; i++) {
+            char[] character = splitWords[i].substring(1, splitWords[i].length() - 1).toCharArray();
+            Arrays.sort(character);
+            stringBuilder.append(splitWords[i].charAt(splitWords[i].length() - 1));
+            stringBuilder.append(character);
+            stringBuilder.append(splitWords[i].charAt(0));
+            splitWords[i] = stringBuilder.reverse().toString();
+            stringBuilder.delete(0, stringBuilder.length());
         }
-        return stringBuffer.toString();
+        return String.join(" ", splitWords);
 
     }
 }

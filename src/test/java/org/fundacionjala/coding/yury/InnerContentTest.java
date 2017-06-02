@@ -1,6 +1,7 @@
 package test.java.org.fundacionjala.coding.yury;
 
 import main.java.org.fundacionjala.coding.yury.InnerContent;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,12 +10,21 @@ import static org.junit.Assert.assertEquals;
  * Created by YuryOrtuno on 5/25/2017.
  */
 public class InnerContentTest {
+    private InnerContent innerContent;
+
+    /**
+     */
+    @Before
+    public void before() {
+        innerContent = new InnerContent();
+    }
+
     /**
      *
      */
     @Test
     public void innerOneWord() {
-        InnerContent innerContent = new InnerContent();
+
         assertEquals("srot", innerContent.innerWord("sort"));
     }
 
@@ -23,7 +33,6 @@ public class InnerContentTest {
      */
     @Test
     public void innerTwoWord() {
-        InnerContent innerContent = new InnerContent();
         assertEquals("inner ctonnet", innerContent.innerWord("inner content"));
     }
 
@@ -32,7 +41,6 @@ public class InnerContentTest {
      */
     @Test
     public void innerSentence() {
-        InnerContent innerContent = new InnerContent();
         assertEquals("srot the inner ctonnet in dsnnieedcg oredr",
                 innerContent.innerWord("sort the inner content in descending order"));
     }
