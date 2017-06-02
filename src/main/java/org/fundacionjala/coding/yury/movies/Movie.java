@@ -1,4 +1,4 @@
-package main.java.org.fundacionjala.coding.yury.movies;
+package org.fundacionjala.coding.yury.movies;
 
 /**
  *
