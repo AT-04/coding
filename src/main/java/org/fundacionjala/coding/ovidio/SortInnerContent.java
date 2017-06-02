@@ -8,8 +8,7 @@ import java.util.StringJoiner;
  * Created by OvidioMiranda on 5/26/2017.
  */
 public class SortInnerContent {
-    private static final int THREE = 3;
-
+    private static final int TWO = 2;
     /**
      * Function the sort the inner content of every word of a string in descending
      * order The inner content is the content of a word without first and last char.
@@ -18,12 +17,11 @@ public class SortInnerContent {
      * @return returns the string but sort the inner content of every word in descending order.
      */
     public String sort(String sentence) {
-
         StringJoiner newSentence = new StringJoiner(" ");
         String[] wordsArray = sentence.split(" ");
         for (String word : wordsArray) {
-            int wordLength = word.length();
-            newSentence.add(wordLength > THREE ? sorTheInnerContent(word, wordLength) : word);
+            int wordLength = word.length() - 1;
+            newSentence.add(wordLength > TWO ? sorTheInnerContent(word, wordLength) : word);
         }
         return newSentence.toString();
     }
@@ -31,19 +29,17 @@ public class SortInnerContent {
     /**
      * Function the sort the inner content of only word of  in descending order without
      * first and last char.
-     * @param word Is a words.
-     * @param wordLength the string but sort the inner content
+     *
+     * @param word       Is a words.
+     * @param wordLength It is the length of the word.
      * @return return the string but sort the inner content
      * of every word in descending order.
      */
     public String sorTheInnerContent(String word, int wordLength) {
-        int positionLastLetter = wordLength - 1;
-        String firstLetter = word.substring(0, 1);
-        String lastLetter = word.substring(positionLastLetter);
-        String[] wordDescendingOrder = word.substring(1, positionLastLetter).split("");
+        String[] wordDescendingOrder = word.substring(1, wordLength).split("");
         Arrays.sort(wordDescendingOrder, Collections.reverseOrder());
         String middleLetters = String.join("", wordDescendingOrder);
-        return String.join("", firstLetter, middleLetters, lastLetter);
+        return String.join("", word.substring(0, 1), middleLetters, word.substring(wordLength));
     }
 }
 
