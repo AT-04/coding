@@ -55,37 +55,27 @@ public class Customer {
      * @return String.
      */
     private String bodyStatement() {
-        totalAmount = 0;
-        frequentRenterPoints = 0;
         StringBuilder bodyStatement = new StringBuilder();
         rentals.forEach(rental -> {
-            double thisAmount = calculateAmount(rental);
-            frequentRenterPoints = calculateFrequentRenterPoints(frequentRenterPoints, rental);
             bodyStatement.append("\t").append(rental.getMovie().getTitle()).append("\t")
-                    .append(thisAmount).append(System.lineSeparator());
-            totalAmount += thisAmount;
+                    .append(rental.getAmount()).append(System.lineSeparator());
         });
         return bodyStatement.toString();
     }
 
     /**
-     * This method calculates the amount according Movie price code.
-     * @param rental The Movie rented.
-     * @return Amount per movie.
+     * Calculate total amount of Rentals.
      */
-    private double calculateAmount(Rental rental) {
-        return rental.getMovie().calculateAmount(rental.getDaysRented());
+    public void calculateTotalAmount() {
+        rentals.forEach(rental -> totalAmount += rental.getAmount());
     }
 
     /**
      * This method calculates Frequent Renter Points.
-     * @param frequentRenterPoints The total Frequent Renter Points.
-     * @param rental The Movie rented.
-     * @return Frequent Renter Points
      */
-    private int calculateFrequentRenterPoints(int frequentRenterPoints, Rental rental) {
-        return ((rental.getMovie() instanceof NewRelease) && rental.getDaysRented() > 1)
-                ? frequentRenterPoints + 2 : frequentRenterPoints + 1;
+    public void calculateFrequentRenterPoints() {
+        rentals.forEach(rent -> frequentRenterPoints = ((rent.getMovie() instanceof NewRelease)
+                && rent.getDaysRented() > 1) ? frequentRenterPoints + 2 : frequentRenterPoints + 1);
     }
 
     /**

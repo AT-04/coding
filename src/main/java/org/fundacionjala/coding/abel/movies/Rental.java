@@ -33,4 +33,12 @@ public class Rental {
     public Movie getMovie() {
         return movie;
     }
+
+    /**
+     * Getter for amount per Rental.
+     * @return Amount per Rental.
+     */
+    public double getAmount() {
+        return getMovie().calculateAmount(getDaysRented());
+    }
 }

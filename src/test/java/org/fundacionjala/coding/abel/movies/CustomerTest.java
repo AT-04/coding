@@ -48,6 +48,9 @@ public class CustomerTest {
         customer.addRental(new Rental(new NewRelease("The Revenant"), 2));
         customer.addRental(new Rental(new Regular("Terminator"), 2));
 
+        customer.calculateFrequentRenterPoints();
+        customer.calculateTotalAmount();
+
         String expectedResult = "Rental Record for Test\n"
                 + "\tThe Revenant\t6.0\n"
                 + "\tTerminator\t2.0\n"
