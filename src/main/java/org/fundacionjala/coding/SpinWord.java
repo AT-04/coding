@@ -11,6 +11,7 @@ public class SpinWord {
 
     /**
      * Reverse Word major to five character.
+     *
      * @param string that is to the return.
      * @return String
      */
@@ -18,11 +19,7 @@ public class SpinWord {
         String[] auxWord = string.split(" ");
         StringJoiner stringJoiner = new StringJoiner(" ");
         for (String word : auxWord) {
-            if (word.length() > LENGTH_REVERSE) {
-                stringJoiner.add(new StringBuffer(word).reverse());
-            } else {
-                stringJoiner.add(word);
-            }
+                stringJoiner.add(word.length() >= LENGTH_REVERSE ? new StringBuffer(word).reverse() : word);
         }
         return stringJoiner.toString();
     }
