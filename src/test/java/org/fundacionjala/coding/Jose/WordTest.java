@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.Jose;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,15 +10,20 @@ import static org.junit.Assert.assertEquals;
  * Created by JoseTorrez on 5/19/2017.
  */
 public class WordTest {
+    private Word spinwords;
+
+    @Before
+    public void initObjects() {
+        spinwords = new Word();
+    }
 
     /**
      *
      */
     @Test
     public void HelloisolleH() {
-        Word spinWords = new Word();
 
-        assertEquals("olleH", spinWords.Words("Hello"));
+        assertEquals("olleH", spinwords.words("Hello"));
     }
 
     /**
@@ -25,27 +31,27 @@ public class WordTest {
      */
     @Test
     public void longWord() {
-        Word spinWords = new Word();
 
-        assertEquals("detcepxE", spinWords.Words("Expected"));
+
+        assertEquals("detcepxE", spinwords.words("Expected"));
     }
 
     /**
      *
-     */    @Test
+     */
+    @Test
     public void threeWord() {
-        Word spinWords = new Word();
 
-        assertEquals("Yes", spinWords.Words("Yes"));
+        assertEquals("Yes", spinwords.words("Yes"));
     }
+
     /**
      *
      */
     @Test
     public void fiveWord() {
-        Word spinWords = new Word();
 
-        assertEquals("yppaH", spinWords.Words("Happy"));
+        assertEquals("yppaH", spinwords.words("Happy"));
     }
 
     /**
@@ -53,9 +59,8 @@ public class WordTest {
      */
     @Test
     public void twoSentence() {
-        Word spinWords = new Word();
 
-        assertEquals("olleH guy", spinWords.Words("Hello guy"));
+        assertEquals("olleH guy", spinwords.words("Hello guy"));
     }
 
     /**
@@ -63,9 +68,8 @@ public class WordTest {
      */
     @Test
     public void spinWordsFromFirstExample() {
-        Word spinWords = new Word();
 
-        assertEquals("Hey elttit seiggod", spinWords.Words("Hey little doggies"));
+        assertEquals("Hey elttil seiggod", spinwords.words("Hey little doggies"));
     }
 
     /**
@@ -73,9 +77,8 @@ public class WordTest {
      */
     @Test
     public void spinWordsFromSecondExample() {
-        Word spinWords = new Word();
 
-        assertEquals("tahW neppaH ereH", spinWords.Words("What Happen Here"));
+        assertEquals("tahW neppaH ereH", spinwords.words("What Happen Here"));
     }
 
     /**
@@ -83,8 +86,7 @@ public class WordTest {
      */
     @Test
     public void spinWordsFromThirdExample() {
-        Word spinWords = new Word();
 
-        assertEquals("steL take it now", spinWords.Words("Lets take it now"));
+        assertEquals("Lets take it now", spinwords.words("Lets take it now"));
     }
 }
