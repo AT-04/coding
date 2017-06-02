@@ -13,8 +13,8 @@ public class SpinWord {
     public String invertedWords(String string) {
         String[] listWords = string.split(" ");
         for (int i = 0; i < listWords.length; i++) {
-            if (listWords[1].length() > REVERSE_LENGTH) {
-                listWords[1] = new StringBuilder(listWords[1]).reverse().toString();
+            if (listWords[i].length() >= REVERSE_LENGTH) {
+                listWords[i] = new StringBuilder(listWords[i]).reverse().toString();
             }
         }
         return String.join(" ", listWords);

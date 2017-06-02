@@ -17,7 +17,7 @@ public class SpinWordTests {
     @Test
     public void theWordsMost5Inverted() {
         SpinWord spinWord = new SpinWord();
-        assertEquals("hello sdlrow new", spinWord.invertedWords("hello worlds new"));
+        assertEquals("yury onutro ovlac", spinWord.invertedWords("yury ortuno calvo"));
     }
 
 
