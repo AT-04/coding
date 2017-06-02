@@ -19,6 +19,16 @@ public class SortContent {
     public String sortContent(String string) {
         String[] words = string.split(" ");
         StringJoiner stringJoiner = new StringJoiner(" ");
+        stringRound(words, stringJoiner);
+        return stringJoiner.toString();
+    }
+
+    /**
+     * This method is for a round of the word.
+     * @param words is the string divided.
+     * @param stringJoiner is the result with append.
+     */
+    private void stringRound(String[] words, StringJoiner stringJoiner) {
         for (String word : words) {
             if (word.length() < THREE) {
                 stringJoiner.add(word);
@@ -33,6 +43,5 @@ public class SortContent {
                 stringJoiner.add(reversed);
             }
         }
-        return stringJoiner.toString();
     }
 }
