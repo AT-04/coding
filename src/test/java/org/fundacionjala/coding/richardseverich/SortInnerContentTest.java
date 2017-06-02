@@ -1,5 +1,6 @@
-package org.fundacionjala.coding.Richard_Severich_Sort_Inner_Content;
+package org.fundacionjala.coding.richardseverich;
 
+import org.fundacionjala.coding.richardseverich.SortInnerContent;
 import org.junit.Before;
 import org.junit.Test;
 

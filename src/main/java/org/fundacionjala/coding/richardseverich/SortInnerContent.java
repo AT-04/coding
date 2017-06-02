@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.Richard_Severich_Sort_Inner_Content;
+package org.fundacionjala.coding.richardseverich;
 
 import java.util.Comparator;
 import java.util.StringJoiner;
@@ -14,7 +14,6 @@ public class SortInnerContent {
 
     /**
      * This method descrambles the inner contents of a string.
-     *
      * @param cad This is the chain to which we will change its internal content to a descending order.
      * @return Returns the string to which we will change its internal contents to a descending order.
      */
@@ -26,9 +25,7 @@ public class SortInnerContent {
         String cadDescending;
         StringJoiner stringJoiner = new StringJoiner(" ");
         String word;
-
         for (String itemWord : partsWords) {
-
             if (partsWords.length < THREE) {
                 word = itemWord;
             } else {
