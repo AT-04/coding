@@ -53,4 +53,5 @@ public class Customer {
         stringBuilder.append(String.format(" frequent renter points"));
         return stringBuilder.toString();
     }
+    
 }

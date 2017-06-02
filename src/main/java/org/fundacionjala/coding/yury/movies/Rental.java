@@ -49,6 +49,5 @@ public class Rental {
         }
         return thisAmount;
     }
-
 }
 

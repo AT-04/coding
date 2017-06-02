@@ -25,8 +25,5 @@ public class MovieTest {
                 + "You earned 3 frequent renter points";
         assertEquals(expectedResult, customer.statement());
         System.out.println(customer.statement());
-
     }
-
-
 }
