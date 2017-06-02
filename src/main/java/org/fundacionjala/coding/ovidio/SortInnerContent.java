@@ -16,11 +16,12 @@ public class SortInnerContent {
      * @param sentence Is a sentence with words.
      * @return returns the string but sort the inner content of every word in descending order.
      */
-    public String sort(String sentence) {
+    public  String sort(String sentence) {
         StringJoiner newSentence = new StringJoiner(" ");
         String[] wordsArray = sentence.split(" ");
         for (String word : wordsArray) {
-            newSentence.add(sorTheInnerContent(word));
+            int wordLength = word.length();
+            newSentence.add(wordLength > 3 ? sorTheInnerContent(word,wordLength) : word);
         }
         return newSentence.toString();
     }
@@ -32,19 +33,14 @@ public class SortInnerContent {
      * @param word Is a words.
      * @return returns the string but sort the inner content of every word in descending order.
      */
-    public String sorTheInnerContent(String word) {
-        final int positionLastLetter = word.length() - 1;
-        final String firstLetter = word.substring(0, 1);
-        final String lastLetter = word.substring(positionLastLetter);
-        StringJoiner newString = new StringJoiner("");
-        newString.add(firstLetter);
-        if (positionLastLetter > 0) {
-            String[] wordDescendingOrder = word.substring(1, positionLastLetter).split("");
-            Arrays.sort(wordDescendingOrder, Collections.reverseOrder());
-            newString.add(String.join("", wordDescendingOrder)).add(lastLetter);
-        }
-        return newString.toString();
-
+    public  String sorTheInnerContent(String word,int wordLength) {
+        int positionLastLetter = wordLength - 1;
+        String firstLetter = word.substring(0,1);
+        String lastLetter = word.substring(positionLastLetter);
+        String[] wordDescendingOrder = word.substring(1, positionLastLetter).split("");
+        Arrays.sort(wordDescendingOrder, Collections.reverseOrder());
+        String middleLetters = String.join("", wordDescendingOrder);
+        return String.join("", firstLetter, middleLetters, lastLetter);
     }
 
 
