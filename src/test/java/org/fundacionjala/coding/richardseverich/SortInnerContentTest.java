@@ -1,6 +1,5 @@
 package org.fundacionjala.coding.richardseverich;
 
-import org.fundacionjala.coding.richardseverich.SortInnerContent;
 import org.junit.Before;
 import org.junit.Test;
 

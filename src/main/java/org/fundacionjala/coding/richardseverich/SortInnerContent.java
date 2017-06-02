@@ -17,7 +17,6 @@ public class SortInnerContent {
      * @param cad This is the chain to which we will change its internal content to a descending order.
      * @return Returns the string to which we will change its internal contents to a descending order.
      */
-
     public String sortInner(String cad) {
 
         String[] partsWords;
