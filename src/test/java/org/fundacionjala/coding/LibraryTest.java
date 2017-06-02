@@ -1,5 +1,6 @@
-package org.fundacionjala.coding;
+package test.java.org.fundacionjala.coding;
 
+import main.java.org.fundacionjala.coding.Library;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
