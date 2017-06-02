@@ -3,6 +3,7 @@ package org.fundacionjala.coding.cynthia;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
+import static org.fundacionjala.coding.cynthia.SpinWord.result;
 
 /**
  * Created by CynthiaTerrazas on 5/19/2017.
@@ -14,8 +15,7 @@ public class SpinWordTest {
      */
     @Test
     public void volcarOneWordOfMoreThan5Caracters() {
-        SpinWord spin = new SpinWord();
-        assertEquals("aihtnyc", spin.result("cynthia"));
+        assertEquals("aihtnyc", result("cynthia"));
     }
 
     /**
@@ -23,8 +23,7 @@ public class SpinWordTest {
      */
     @Test
     public void volcarOneOfCadenaOfLessThan5Caracters() {
-        SpinWord spin = new SpinWord();
-        assertEquals("jala", spin.result("jala"));
+        assertEquals("jala", result("jala"));
     }
 
     /**
@@ -32,8 +31,7 @@ public class SpinWordTest {
      */
     @Test
     public void volcarOneCadenaOfWordsWithTwoWords() {
-        SpinWord spin = new SpinWord();
-        assertEquals("hola aihtnyc", spin.result("hola cynthia"));
+        assertEquals("hola aihtnyc", result("hola cynthia"));
     }
 
     /**
@@ -41,8 +39,7 @@ public class SpinWordTest {
      */
     @Test
     public void volcarOneCadenaOfWordsWithThreeWords() {
-        SpinWord spin = new SpinWord();
-        assertEquals("noicadnuf jala oiraceb", spin.result("fundacion jala becario"));
+        assertEquals("noicadnuf jala oiraceb", result("fundacion jala becario"));
     }
 
 }

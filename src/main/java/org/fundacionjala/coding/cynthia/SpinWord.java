@@ -6,17 +6,24 @@ import java.util.StringJoiner;
 /**
  * clase spin words.
  */
-public class SpinWord {
+public final class SpinWord {
 
-    public static final int LIMIT = 5;
+    private static final int LIMIT = 5;
+
+    /**
+     * this is empty contructor.
+     */
+    private SpinWord() {
+    }
+
     /**
      * este metodo vuelca una cadena de las palabras que tienen mas de cinco caracteres.
      *
-     * @param    sentencia sample parameter for a method
-     * @return     cadena
+     * @param sentencia sample parameter for a method
+     * @return cadena
      */
 
-    public String result(String sentencia) {
+    public static String result(String sentencia) {
         StringJoiner cadena = new StringJoiner(" ");
         String[] setWords = sentencia.split(" ");
         for (String word : setWords) {
