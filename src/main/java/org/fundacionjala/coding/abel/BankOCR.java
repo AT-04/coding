@@ -4,8 +4,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -24,18 +25,6 @@ public final class BankOCR {
     private static final String SEVEN = " _   |  |";
     private static final String EIGHT = " _ |_||_|";
     private static final String NINE  = " _ |_| _|";
-
-    private static final List<Number> ALL_NUMBERS = Arrays.asList(
-            new Number(ZERO, 0),
-            new Number(ONE, 1),
-            new Number(TWO, 2),
-            new Number(THREE, 3),
-            new Number(FOUR, 4),
-            new Number(FIVE, 5),
-            new Number(SIX, 6),
-            new Number(SEVEN, 7),
-            new Number(EIGHT, 8),
-            new Number(NINE, 9));
     private static final int TOTAL_CHARS = 9;
     private static final int CHAR_LENGTH = 3;
     private static final int FIRST_LINE_AT_ZERO = 0;
@@ -45,6 +34,30 @@ public final class BankOCR {
     private static final int THIRD_LINE_AT_ZERO = 54;
     private static final int THIRD_LINE_AT_THREE = 57;
     private static final int ELEVEN = 11;
+    private static final int INT_ZERO = 0;
+    private static final int INT_ONE = 1;
+    private static final int INT_TWO = 2;
+    private static final int INT_THREE = 3;
+    private static final int INT_FOUR = 4;
+    private static final int INT_FIVE = 5;
+    private static final int INT_SIX = 6;
+    private static final int INT_SEVEN = 7;
+    private static final int INT_EIGHT = 8;
+    private static final int INT_NINE = 9;
+    private static final Map<String, Integer> ALL_NUMBERS = new HashMap<String, Integer>() {
+        {
+            put(ZERO, INT_ZERO);
+            put(ONE, INT_ONE);
+            put(TWO, INT_TWO);
+            put(THREE, INT_THREE);
+            put(FOUR, INT_FOUR);
+            put(FIVE, INT_FIVE);
+            put(SIX, INT_SIX);
+            put(SEVEN, INT_SEVEN);
+            put(EIGHT, INT_EIGHT);
+            put(NINE, INT_NINE);
+        }
+    };
 
     private static List<String> stringNumbers;
 
@@ -52,6 +65,7 @@ public final class BankOCR {
      *
      */
     private BankOCR() {
+
     }
 
     /**
@@ -82,12 +96,12 @@ public final class BankOCR {
      * @return String
      */
     private static String getNumberValue(String string) {
-        Number result = ALL_NUMBERS.stream()
-                .filter(number -> string.equals(number.getStringRepresentation()))
-                .findAny()
-                .orElse(null);
+        String result = ALL_NUMBERS.entrySet().stream()
+                .filter(map -> string.equals(map.getKey()))
+                .map(map -> String.valueOf(map.getValue()))
+                .collect(Collectors.joining());
 
-        return (result == null) ? "?" : String.valueOf(result.getIntValue());
+        return (result.equals("")) ? "?" : String.valueOf(result);
     }
 
     /**

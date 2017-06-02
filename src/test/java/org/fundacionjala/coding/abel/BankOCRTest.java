@@ -268,30 +268,4 @@ public class BankOCRTest {
         assertFalse(validateAccountNumber("86110??36"));
         assertEquals(expectedResult, lineOutPut(convertEntryToNumber(entry)));
     }
-
-    /**
-     *
-     */
-    @Test
-    public void testBankOCRStoryThreeAllInputs() {
-        String entryOne =  "    _  _  _  _  _  _  _  _ "
-                         + "|_||_   ||_ | ||_|| || || |"
-                         + "  | _|  | _||_||_||_||_||_|";
-        String entryTwo =  " _  _     _  _        _  _ "
-                         + "|_ |_ |_| _|  |  ||_||_||_ "
-                         + "|_||_|  | _|  |  |  | _| _|";
-        String entryThree =  " _  _        _        _  _ "
-                           + "|_||_   |  || | _| _| _||_ "
-                           + "|_||_|  |  ||_|  |  | _||_|";
-
-        String expectedResultOne = "457508000";
-        String expectedResultTwo = "664371495 ERR";
-        String expectedResultThree = "86110??36 ILL";
-        assertTrue(validateAccountNumber("457508000"));
-        assertFalse(validateAccountNumber("664371495"));
-        assertFalse(validateAccountNumber("86110??36"));
-        assertEquals(expectedResultOne, lineOutPut(convertEntryToNumber(entryOne)));
-        assertEquals(expectedResultTwo, lineOutPut(convertEntryToNumber(entryTwo)));
-        assertEquals(expectedResultThree, lineOutPut(convertEntryToNumber(entryThree)));
-    }
 }
