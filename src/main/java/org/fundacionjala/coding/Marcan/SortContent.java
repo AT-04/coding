@@ -8,7 +8,7 @@ import java.util.StringJoiner;
  */
 public class SortContent {
 
-    public static final int THREE = 3;
+    private static final int THREE = 3;
 
     /**
      * The following method is for reverse one word.
@@ -25,23 +25,30 @@ public class SortContent {
 
     /**
      * This method is for a round of the word.
+     *
      * @param words is the string divided.
      * @param stringJoiner is the result with append.
      */
     private void stringRound(String[] words, StringJoiner stringJoiner) {
         for (String word : words) {
-            if (word.length() < THREE) {
+            /*if (word.length() < THREE) {
                 stringJoiner.add(word);
             } else {
-                char[] wordInChar = word.substring(1, word.length() - 1).toCharArray();
-                Arrays.sort(wordInChar);
-                StringBuilder str = new StringBuilder();
-                str.append(word.substring(word.length() - 1, word.length()));
-                str.append(wordInChar);
-                str.append(word.substring(0, 1));
-                String reversed = str.reverse().toString();
-                stringJoiner.add(reversed);
-            }
+                sortInnerContent(stringJoiner, word);
+            }*/
+            stringJoiner.add(word.length() < THREE ? word : sortInnerContent(stringJoiner, word));
+
         }
+    }
+
+    private String sortInnerContent(StringJoiner stringJoiner, String word) {
+        char[] wordInChar = word.substring(1, word.length() - 1).toCharArray();
+        Arrays.sort(wordInChar);
+        StringBuilder str = new StringBuilder();
+        str.append(word.substring(word.length() - 1, word.length()));
+        str.append(wordInChar);
+        str.append(word.substring(0, 1));
+        String reversed = str.reverse().toString();
+        return reversed;
     }
 }
