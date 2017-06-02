@@ -5,7 +5,7 @@ package org.fundacionjala.coding.abel.movies;
  */
 class NewRelease extends Movie {
 
-    public static final int DEFAULT_INITIAL_AMOUNT = 3;
+    private static final int DEFAULT_INITIAL_AMOUNT = 3;
     private double thisAmount;
 
     /**

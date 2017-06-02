@@ -43,6 +43,36 @@ public class CustomerTest {
      *
      */
     @Test
+    public void canGetFrequentRenterPoints() {
+        Customer customer = new Customer("Test");
+        customer.addRental(new Rental(new NewRelease("The Revenant"), 2));
+        customer.addRental(new Rental(new Regular("Terminator"), 2));
+
+        customer.calculateFrequentRenterPoints();
+
+        final int expectedResult = 3;
+        assertEquals(expectedResult, customer.getFrequentRenterPoints());
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void canGetTotalAmount() {
+        Customer customer = new Customer("Test");
+        customer.addRental(new Rental(new NewRelease("The Revenant"), 2));
+        customer.addRental(new Rental(new Regular("Terminator"), 2));
+
+        customer.calculateTotalAmount();
+
+        final double expectedResult = 8;
+        assertEquals(expectedResult, customer.getTotalAmount(), 0.00);
+    }
+
+    /**
+     *
+     */
+    @Test
     public void canGetAStatementForAllRentals() {
         Customer customer = new Customer("Test");
         customer.addRental(new Rental(new NewRelease("The Revenant"), 2));

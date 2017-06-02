@@ -5,8 +5,8 @@ package org.fundacionjala.coding.abel.movies;
  */
 class Regular extends Movie {
 
-    public static final int DEFAULT_INITIAL_AMOUNT = 2;
-    public static final int MAX_DAYS = 2;
+    private static final int DEFAULT_INITIAL_AMOUNT = 2;
+    private static final int MAX_DAYS = 2;
 
     /**
      * This is the default constructor.

@@ -39,6 +39,22 @@ public class Customer {
     }
 
     /**
+     * Getter for Total Amount.
+     * @return Total Amount.
+     */
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    /**
+     * Getter for Frequent Renter Points.
+     * @return Frequent Renter Points.
+     */
+    public int getFrequentRenterPoints() {
+        return frequentRenterPoints;
+    }
+
+    /**
      * .
      * @return Statement.
      */
@@ -74,8 +90,8 @@ public class Customer {
      * This method calculates Frequent Renter Points.
      */
     public void calculateFrequentRenterPoints() {
-        rentals.forEach(rent -> frequentRenterPoints = ((rent.getMovie() instanceof NewRelease)
-                && rent.getDaysRented() > 1) ? frequentRenterPoints + 2 : frequentRenterPoints + 1);
+        rentals.forEach(rental -> frequentRenterPoints = ((rental.getMovie() instanceof NewRelease)
+                && rental.getDaysRented() > 1) ? frequentRenterPoints + 2 : frequentRenterPoints + 1);
     }
 
     /**
