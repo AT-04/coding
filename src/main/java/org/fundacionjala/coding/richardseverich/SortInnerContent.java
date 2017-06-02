@@ -10,32 +10,30 @@ import java.util.stream.Stream;
  */
 public class SortInnerContent {
 
-    public static final int THREE = 3;
+    private static final int THREE = 3;
 
     /**
-     * This method descrambles the inner contents of a string.
      * @param cad This is the chain to which we will change its internal content to a descending order.
      * @return Returns the string to which we will change its internal contents to a descending order.
      */
     public String sortInner(String cad) {
-
-        String[] partsWords;
-        partsWords = cad.split(" ");
-        String cadDescending;
+        String[] partsWords = cad.split(" ");
         StringJoiner stringJoiner = new StringJoiner(" ");
-        String word;
         for (String itemWord : partsWords) {
-            if (partsWords.length < THREE) {
-                word = itemWord;
-            } else {
-                cadDescending = itemWord.substring(1, itemWord.length() - 1);
-                cadDescending = Stream.of(cadDescending.split("")).sorted(Comparator.reverseOrder())
-                        .collect(Collectors.joining());
-                word = String.join("", itemWord.substring(0, 1), cadDescending,
-                        itemWord.substring(itemWord.length() - 1));
-            }
-            stringJoiner.add(word);
+            stringJoiner.add(partsWords.length < THREE ? itemWord : sortDescInnerContent(itemWord));
         }
         return stringJoiner.toString();
+    }
+
+    /**
+     * @param itemWord This is the chain to which we will change content to a descending order.
+     * @return Returns the changed string in descending order.
+     */
+    private String sortDescInnerContent(String itemWord) {
+        String cadDescending = Stream.of(itemWord.substring(1, itemWord.length() - 1).split(""))
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.joining());
+        return String.join("", itemWord.substring(0, 1), cadDescending,
+                itemWord.substring(itemWord.length() - 1));
     }
 }
