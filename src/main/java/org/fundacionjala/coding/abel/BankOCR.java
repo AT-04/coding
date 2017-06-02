@@ -58,8 +58,7 @@ public final class BankOCR {
             put(NINE, INT_NINE);
         }
     };
-
-    private static List<String> stringNumbers;
+    public static final String QUESTION_MARK = "?";
 
     /**
      *
@@ -74,6 +73,7 @@ public final class BankOCR {
      * @return String
      */
     public static String convertEntryToNumber(String entry) {
+        List<String> stringNumbers;
         stringNumbers = new ArrayList<>();
         for (int i = 0; i < TOTAL_CHARS; i++) {
             StringBuilder stringBuilder = new StringBuilder();
@@ -101,7 +101,7 @@ public final class BankOCR {
                 .map(map -> String.valueOf(map.getValue()))
                 .collect(Collectors.joining());
 
-        return (result.equals("")) ? "?" : String.valueOf(result);
+        return (result.isEmpty()) ? QUESTION_MARK : result;
     }
 
     /**
@@ -128,7 +128,7 @@ public final class BankOCR {
      * @return Boolean
      */
     public static boolean validateAccountNumber(String accountNumber) {
-        if (accountNumber.contains("?")) {
+        if (accountNumber.contains(QUESTION_MARK)) {
             return false;
         }
         char[] charArray = new StringBuilder(accountNumber).reverse().toString().toCharArray();
@@ -146,8 +146,9 @@ public final class BankOCR {
      * @return String
      */
     public static String lineOutPut(String entryToNumber) {
-        return (validateAccountNumber(entryToNumber)) ? entryToNumber : ((entryToNumber.contains("?"))
-                ? String.join("", entryToNumber, " ILL")
-                : String.join("", entryToNumber, " ERR"));
+        if (entryToNumber.contains(QUESTION_MARK)) {
+            return String.join("", entryToNumber, " ILL");
+        }
+        return (validateAccountNumber(entryToNumber)) ? entryToNumber : String.join("", entryToNumber, " ERR");
     }
 }
