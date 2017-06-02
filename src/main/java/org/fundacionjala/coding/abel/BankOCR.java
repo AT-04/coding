@@ -73,20 +73,18 @@ public final class BankOCR {
      * @return String
      */
     public static String convertEntryToNumber(String entry) {
-        List<String> stringNumbers;
-        stringNumbers = new ArrayList<>();
+        List<String> stringNumbers = new ArrayList<>();
         for (int i = 0; i < TOTAL_CHARS; i++) {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(entry.substring(FIRST_LINE_AT_ZERO + i * CHAR_LENGTH,
-                    FIRST_LINE_AT_THREE + i * CHAR_LENGTH));
-            stringBuilder.append(entry.substring(SECOND_LINE_AT_ZERO + i * CHAR_LENGTH,
-                    SECOND_LINE_AT_THREE + i * CHAR_LENGTH));
-            stringBuilder.append(entry.substring(THIRD_LINE_AT_ZERO + i * CHAR_LENGTH,
-                    THIRD_LINE_AT_THREE + i * CHAR_LENGTH));
-            stringNumbers.add(stringBuilder.toString());
+            String firstLine = entry.substring(FIRST_LINE_AT_ZERO + i * CHAR_LENGTH,
+                    FIRST_LINE_AT_THREE + i * CHAR_LENGTH);
+            String secondLine = entry.substring(SECOND_LINE_AT_ZERO + i * CHAR_LENGTH,
+                    SECOND_LINE_AT_THREE + i * CHAR_LENGTH);
+            String thirdLine = entry.substring(THIRD_LINE_AT_ZERO + i * CHAR_LENGTH,
+                    THIRD_LINE_AT_THREE + i * CHAR_LENGTH);
+            stringNumbers.add(String.join("", firstLine, secondLine, thirdLine));
         }
         return stringNumbers.stream()
-                .map(number -> getNumberValue(number))
+                .map(BankOCR::getNumberValue)
                 .collect(Collectors.joining());
     }
 
@@ -96,12 +94,8 @@ public final class BankOCR {
      * @return String
      */
     private static String getNumberValue(String string) {
-        String result = ALL_NUMBERS.entrySet().stream()
-                .filter(map -> string.equals(map.getKey()))
-                .map(map -> String.valueOf(map.getValue()))
-                .collect(Collectors.joining());
-
-        return (result.isEmpty()) ? QUESTION_MARK : result;
+        Integer result = ALL_NUMBERS.get(string);
+        return result == null ? QUESTION_MARK : String.valueOf(result);
     }
 
     /**
@@ -113,13 +107,11 @@ public final class BankOCR {
         final StringBuilder stringBuilder = new StringBuilder();
         try {
             Stream<String> stream = Files.lines(Paths.get(fileName));
-            stream.forEach(st -> stringBuilder.append(st));
-
-            return stringBuilder.toString();
+            stream.forEach(stringBuilder::append);
         } catch (IOException e) {
             System.out.println(e);
         }
-        return null;
+        return stringBuilder.toString();
     }
 
     /**
@@ -128,9 +120,6 @@ public final class BankOCR {
      * @return Boolean
      */
     public static boolean validateAccountNumber(String accountNumber) {
-        if (accountNumber.contains(QUESTION_MARK)) {
-            return false;
-        }
         char[] charArray = new StringBuilder(accountNumber).reverse().toString().toCharArray();
         int sum = 0;
         for (int i = 0; i <= charArray.length - 1; i++) {
@@ -149,6 +138,6 @@ public final class BankOCR {
         if (entryToNumber.contains(QUESTION_MARK)) {
             return String.join("", entryToNumber, " ILL");
         }
-        return (validateAccountNumber(entryToNumber)) ? entryToNumber : String.join("", entryToNumber, " ERR");
+        return validateAccountNumber(entryToNumber) ? entryToNumber : String.join("", entryToNumber, " ERR");
     }
 }

@@ -237,7 +237,6 @@ public class BankOCRTest {
                       + "  | _|  | _||_||_||_||_||_|";
 
         String expectedResult = "457508000";
-        assertTrue(validateAccountNumber("457508000"));
         assertEquals(expectedResult, lineOutPut(convertEntryToNumber(entry)));
     }
 
@@ -251,7 +250,6 @@ public class BankOCRTest {
                       + "|_||_|  | _|  |  |  | _| _|";
 
         String expectedResult = "664371495 ERR";
-        assertFalse(validateAccountNumber("664371495"));
         assertEquals(expectedResult, lineOutPut(convertEntryToNumber(entry)));
     }
 
@@ -265,7 +263,6 @@ public class BankOCRTest {
                       + "|_||_|  |  ||_|  |  | _||_|";
 
         String expectedResult = "86110??36 ILL";
-        assertFalse(validateAccountNumber("86110??36"));
         assertEquals(expectedResult, lineOutPut(convertEntryToNumber(entry)));
     }
 }
