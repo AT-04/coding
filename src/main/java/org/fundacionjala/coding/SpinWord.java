@@ -19,7 +19,7 @@ public class SpinWord {
         String[] auxWord = string.split(" ");
         StringJoiner stringJoiner = new StringJoiner(" ");
         for (String word : auxWord) {
-                stringJoiner.add(word.length() >= LENGTH_REVERSE ? new StringBuffer(word).reverse() : word);
+            stringJoiner.add(word.length() >= LENGTH_REVERSE ? new StringBuffer(word).reverse() : word);
         }
         return stringJoiner.toString();
     }

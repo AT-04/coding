@@ -15,11 +15,12 @@ public class SpinWordTest {
      * This is a method Before.
      */
     @Before
-    public void methodBefore(){
+    public void methodBefore() {
         string = new SpinWord();
     }
+
     /**
-     *Verify words less than or equal to five characters.
+     * Verify words less than or equal to five characters.
      */
     @Test
     public void wordLessOrEqualsThanFiveCharacters() {
@@ -27,7 +28,7 @@ public class SpinWordTest {
     }
 
     /**
-     *Verify words smaller or longer or equals than five characters.
+     * Verify words smaller or longer or equals than five characters.
      */
     @Test
     public void wordLessEqualsOrLongerThanFiveCharacters() {
