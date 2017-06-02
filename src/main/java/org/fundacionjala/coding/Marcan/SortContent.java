@@ -26,22 +26,22 @@ public class SortContent {
     /**
      * This method is for a round of the word.
      *
-     * @param words is the string divided.
+     * @param words        is the string divided.
      * @param stringJoiner is the result with append.
      */
     private void stringRound(String[] words, StringJoiner stringJoiner) {
         for (String word : words) {
-            /*if (word.length() < THREE) {
-                stringJoiner.add(word);
-            } else {
-                sortInnerContent(stringJoiner, word);
-            }*/
-            stringJoiner.add(word.length() < THREE ? word : sortInnerContent(stringJoiner, word));
-
+            stringJoiner.add(word.length() < THREE ? word : sortInnerContent(word));
         }
     }
 
-    private String sortInnerContent(StringJoiner stringJoiner, String word) {
+    /**
+     * This is a process for else.
+     *
+     * @param word         is the round for is process.
+     * @return string
+     */
+    private String sortInnerContent(String word) {
         char[] wordInChar = word.substring(1, word.length() - 1).toCharArray();
         Arrays.sort(wordInChar);
         StringBuilder str = new StringBuilder();
