@@ -12,7 +12,6 @@ public class Word {
     /**
      * This method is used to spin the sentence, where words with length above
      * five letters are reversed.
-     *
      * @param sentence This is the string parameter to spin.
      * @return String This returns the sentence with spin words.
      */

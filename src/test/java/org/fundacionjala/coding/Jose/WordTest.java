@@ -5,13 +5,15 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-
 /**
  * Created by JoseTorrez on 5/19/2017.
  */
 public class WordTest {
     private Word spinwords;
 
+    /**
+     *
+     */
     @Before
     public void initObjects() {
         spinwords = new Word();
@@ -21,7 +23,7 @@ public class WordTest {
      *
      */
     @Test
-    public void HelloisolleH() {
+    public void helloIs() {
 
         assertEquals("olleH", spinwords.words("Hello"));
     }
@@ -78,7 +80,7 @@ public class WordTest {
     @Test
     public void spinWordsFromSecondExample() {
 
-        assertEquals("tahW neppaH ereH", spinwords.words("What Happen Here"));
+        assertEquals("What neppaH Here", spinwords.words("What Happen Here"));
     }
 
     /**
