@@ -1,4 +1,4 @@
-package main.java.org.fundacionjala.coding.yury;
+package org.fundacionjala.coding.yury;
 
 import java.util.Arrays;
 

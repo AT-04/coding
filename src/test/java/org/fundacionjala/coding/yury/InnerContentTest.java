@@ -1,6 +1,5 @@
-package test.java.org.fundacionjala.coding.yury;
+package org.fundacionjala.coding.yury;
 
-import main.java.org.fundacionjala.coding.yury.InnerContent;
 import org.junit.Before;
 import org.junit.Test;
 
