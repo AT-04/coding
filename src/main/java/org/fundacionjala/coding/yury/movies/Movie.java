@@ -1,26 +1,35 @@
 package main.java.org.fundacionjala.coding.yury.movies;
 
+/**
+ *
+ */
 public class Movie {
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
-    private String _title;
-    private int _priceCode;
+    private String title;
+    private int priceCode;
 
+    /**
+     * @param title     title of movie
+     * @param priceCode cost of the movie
+     */
     public Movie(String title, int priceCode) {
-        _title = title;
-        _priceCode = priceCode;
+        this.title = title;
+        this.priceCode = priceCode;
     }
 
+    /**
+     * @return cots of code
+     */
     public int getPriceCode() {
-        return _priceCode;
+        return priceCode;
     }
 
-    public void setPriceCode(int arg) {
-        _priceCode = arg;
-    }
-
+    /**
+     * @return title of movie
+     */
     public String getTitle() {
-        return _title;
+        return title;
     }
 }
