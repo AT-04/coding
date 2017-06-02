@@ -17,8 +17,6 @@ public class Customer {
     public Customer(String name) {
         nameCustomer = name;
         rentalList = new ArrayList<>();
-        totalAmount = 0;
-        frequentRenterPoints = 0;
     }
 
     /**
@@ -32,23 +30,37 @@ public class Customer {
      * @return Returns the string to be displayed.
      */
     public String statement() {
-
         StringBuilder resultBuilder = new StringBuilder();
         String result = String.format("Rental Record for %s %n", nameCustomer);
         resultBuilder.append(result);
         for (Rental itemRental : rentalList) {
-            int daysRented = itemRental.getDaysRented();
-            int thisAmount = itemRental.getMovie().generatePrice(daysRented);
-            frequentRenterPoints++;
-            frequentRenterPoints += itemRental.getFrequentRenterPoints();
-            result = String.format("\t %s \t %d %n", itemRental.getMovie().getTitle(), thisAmount);
+            calculateFrequent(itemRental);
+            result = String.format("\t %s \t %d %n", itemRental.getMovie().getTitle(), calculateThisAmount(itemRental));
             resultBuilder.append(result);
-            totalAmount += thisAmount;
         }
         result = String.format("Amount owed is %d %n You earned %d frequent renter points",
                 totalAmount, frequentRenterPoints);
         resultBuilder.append(result);
         return resultBuilder.toString();
+    }
+
+    /**
+     * @param itemRental is a rental.
+     * @return Returns the amount for movie.
+     */
+    private int calculateThisAmount(Rental itemRental) {
+        int daysRented = itemRental.getDaysRented();
+        int thisAmount = itemRental.getMovie().generatePrice(daysRented);
+        totalAmount += thisAmount;
+        return thisAmount;
+    }
+
+    /**
+     * @param itemRental is a rental.
+     */
+    private void calculateFrequent(Rental itemRental) {
+        frequentRenterPoints++;
+        frequentRenterPoints += itemRental.getFrequentRenterPoints();
     }
 
     /**
