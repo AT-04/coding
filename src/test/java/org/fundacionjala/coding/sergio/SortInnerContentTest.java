@@ -12,10 +12,37 @@ public class SortInnerContentTest {
      *
      */
     @Test
-    public void wordIsMinorThan3() {
-        String sentence = "hi all folks";
+    public void sentenceWithWordsLengthlessThan3() {
+       String sentence = "I am a cat";
 
-        assertEquals("hi all floks", SortInnerContent.sortReverse(sentence));
+       assertEquals("I am a cat", SortInnerContent.reverseSort(sentence));
+    }
+    /**
+     *
+     */
+    @Test
+    public void firstTestCaseExample() {
+        String sentence = "sort the inner content in descending order";
+
+        assertEquals("srot the inner ctonnet in dsnnieedcg oredr", SortInnerContent.reverseSort(sentence));
+    }
+    /**
+     *
+     */
+    @Test
+    public void secondTestCaseExample() {
+        String sentence = "wait for me";
+
+        assertEquals("wiat for me", SortInnerContent.reverseSort(sentence));
+    }
+    /**
+     *
+     */
+    @Test
+    public void thirdTestCaseExample() {
+        String sentence = "this kata is easy";
+
+        assertEquals("tihs ktaa is esay", SortInnerContent.reverseSort(sentence));
     }
 
 }
