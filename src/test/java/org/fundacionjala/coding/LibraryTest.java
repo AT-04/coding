@@ -1,4 +1,4 @@
-package org.fundacionjala.coding;
+package main.java.org.fundacionjala.coding;
 
 import org.junit.Test;
 
