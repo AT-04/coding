@@ -1,7 +1,6 @@
 package org.fundacionjala.coding.abel.movies;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -13,11 +12,6 @@ public class Customer {
     private List<Rental> rentals;
     private double totalAmount;
     private int frequentRenterPoints;
-    private static final List<MovieType> MOVIE_TYPES = Arrays.asList(
-            new MovieType(Movie.REGULAR, new Regular()),
-            new MovieType(Movie.NEW_RELEASE, new NewRelease()),
-            new MovieType(Movie.CHILDREN, new Children())
-    );
 
     /**
      * This is the default constructor.
@@ -49,34 +43,38 @@ public class Customer {
      * @return Statement.
      */
     public String statement() {
-        totalAmount = 0;
-        frequentRenterPoints = 0;
-        String headerStatement = String.format("Rental Record for %s %s", getName(), System.lineSeparator());
-        StringBuilder result = new StringBuilder();
-        rentals.forEach(rental -> {
-            double thisAmount = calculateAmount(rental);
-            frequentRenterPoints = calculateFrequentRenterPoints(frequentRenterPoints, rental);
-            //show figures for this rental
-            result.append("\t").append(rental.getMovie().getTitle()).append("\t")
-                    .append(thisAmount).append(System.lineSeparator());
-            totalAmount += thisAmount;
-        });
-        String footerStatement = String.format("Amount owed is %.1f %sYou earned %d frequent renter points",
+        String headerStatement = String.format("Rental Record for %s%s", getName(), System.lineSeparator());
+        String bodyStatement = bodyStatement();
+        String footerStatement = String.format("Amount owed is %.1f%sYou earned %d frequent renter points",
                 totalAmount, System.lineSeparator(), frequentRenterPoints);
-        return String.join("", headerStatement, result.toString(), footerStatement);
+        return String.join("", headerStatement, bodyStatement.toString(), footerStatement);
     }
 
     /**
-     * This method calculates the amount acoording Movie price code.
+     * Something.
+     * @return String.
+     */
+    private String bodyStatement() {
+        totalAmount = 0;
+        frequentRenterPoints = 0;
+        StringBuilder bodyStatement = new StringBuilder();
+        rentals.forEach(rental -> {
+            double thisAmount = calculateAmount(rental);
+            frequentRenterPoints = calculateFrequentRenterPoints(frequentRenterPoints, rental);
+            bodyStatement.append("\t").append(rental.getMovie().getTitle()).append("\t")
+                    .append(thisAmount).append(System.lineSeparator());
+            totalAmount += thisAmount;
+        });
+        return bodyStatement.toString();
+    }
+
+    /**
+     * This method calculates the amount according Movie price code.
      * @param rental The Movie rented.
      * @return Amount per movie.
      */
     private double calculateAmount(Rental rental) {
-        AbstractMovieType abstractMovieType = MOVIE_TYPES.stream()
-                .filter(movieType -> movieType.getType() == rental.getMovie().getPriceCode())
-                .findAny()
-                .orElse(null).getMovieType();
-        return abstractMovieType.calculateAmount(rental.getDaysRented());
+        return rental.getMovie().calculateAmount(rental.getDaysRented());
     }
 
     /**
@@ -86,9 +84,7 @@ public class Customer {
      * @return Frequent Renter Points
      */
     private int calculateFrequentRenterPoints(int frequentRenterPoints, Rental rental) {
-        // add frequent renter points
-        // add bonus for a two day new release rental
-        return ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1)
+        return ((rental.getMovie() instanceof NewRelease) && rental.getDaysRented() > 1)
                 ? frequentRenterPoints + 2 : frequentRenterPoints + 1;
     }
 

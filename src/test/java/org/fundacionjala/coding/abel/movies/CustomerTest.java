@@ -34,8 +34,8 @@ public class CustomerTest {
      */
     @Test
     public void canAddRentalsToTheCustomer() {
-        customer.addRental(new Rental(new Movie("Terminator", 1), DAYS_RENTED));
-        customer.addRental(new Rental(new Movie("Alien: Covenant", 1), DAYS_RENTED));
+        customer.addRental(new Rental(new Regular("Terminator"), DAYS_RENTED));
+        customer.addRental(new Rental(new NewRelease("Alien: Covenant"), DAYS_RENTED));
         assertEquals(2, customer.size());
     }
 
@@ -45,13 +45,13 @@ public class CustomerTest {
     @Test
     public void canGetAStatementForAllRentals() {
         Customer customer = new Customer("Test");
-        customer.addRental(new Rental(new Movie("The Revenant", 1), 2));
-        customer.addRental(new Rental(new Movie("Terminator", 0), 2));
+        customer.addRental(new Rental(new NewRelease("The Revenant"), 2));
+        customer.addRental(new Rental(new Regular("Terminator"), 2));
 
-        String expectedResult = "Rental Record for Test \n"
+        String expectedResult = "Rental Record for Test\n"
                 + "\tThe Revenant\t6.0\n"
                 + "\tTerminator\t2.0\n"
-                + "Amount owed is 8.0 \n"
+                + "Amount owed is 8.0\n"
                 + "You earned 3 frequent renter points";
         assertEquals(expectedResult, customer.statement());
     }

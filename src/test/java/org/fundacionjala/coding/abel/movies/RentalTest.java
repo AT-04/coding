@@ -16,10 +16,12 @@ public class RentalTest {
      *
      */
     @Test
-    public void canCreateARentalForTerminatorMovie() {
-        Rental rental = new Rental(new Movie("Terminator", 1), DAYS_RENTED);
+    public void canCreateARentalForRegularMovie() {
+        Rental rental = new Rental(new Regular("Terminator"), DAYS_RENTED);
 
+        final double expectedResult = 4.00;
         assertTrue(Movie.class.isInstance(rental.getMovie()));
         assertEquals(DAYS_RENTED, rental.getDaysRented());
+        assertEquals(expectedResult, rental.getMovie().calculateAmount(DAYS_RENTED), 0.0);
     }
 }
