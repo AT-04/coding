@@ -31,17 +31,16 @@ public class Customer {
     /**
      * @return Returns the string to be displayed.
      */
+    @Deprecated
     public String statement() {
         StringBuilder resultBuilder = new StringBuilder();
-        String result = String.format("Rental Record for %s %n", nameCustomer);
-        resultBuilder.append(result);
+        resultBuilder.append(String.format("Rental Record for %s %n", nameCustomer));
         for (Rental itemRental : rentalList) {
-            result = String.format("\t %s \t %d %n", itemRental.getMovie().getTitle(), itemRental.getThisAmount());
-            resultBuilder.append(result);
+            resultBuilder.append(String.format("\t %s \t %d %n", itemRental.getMovie().getTitle(),
+                    itemRental.getThisAmount()));
         }
-        result = String.format("Amount owed is %d %n You earned %d frequent renter points",
-                totalAmount, frequentRenterPoints);
-        resultBuilder.append(result);
+        resultBuilder.append(String.format("Amount owed is %d %n You earned %d frequent renter points",
+                totalAmount, frequentRenterPoints));
         return resultBuilder.toString();
     }
 
@@ -56,8 +55,7 @@ public class Customer {
      * @param itemRental is a rental.
      */
     private void calculateFrequent(Rental itemRental) {
-        frequentRenterPoints++;
-        frequentRenterPoints += itemRental.getFrequentRenterPoints();
+        frequentRenterPoints += itemRental.getFrequentRenterPoints() + 1;
     }
 
     /**

@@ -10,7 +10,6 @@ public class MoviesChildren extends Movie {
      */
     public MoviesChildren(String title) {
         super(title);
-        thisAmount = 0;
     }
 
     /**
@@ -19,8 +18,6 @@ public class MoviesChildren extends Movie {
      */
     @Override
     public int generatePrice(int daysRented) {
-        thisAmount += ONE_FIVE;
-        thisAmount += (daysRented > TREE) ? (daysRented - TREE) * ONE_FIVE : 0;
-        return thisAmount;
+        return (int) ((daysRented > TREE) ? ONE_FIVE + (daysRented - TREE) * ONE_FIVE : ONE_FIVE);
     }
 }

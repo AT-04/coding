@@ -18,7 +18,6 @@ public class MoviesNewRelease extends Movie {
      */
     @Override
     public int generatePrice(int daysRented) {
-        thisAmount += daysRented * TREE;
-        return thisAmount;
+        return daysRented * TREE;
     }
 }

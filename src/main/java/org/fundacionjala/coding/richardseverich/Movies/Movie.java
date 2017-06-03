@@ -6,7 +6,6 @@ package org.fundacionjala.coding.richardseverich.movies;
 public class Movie {
 
     private String title;
-    protected int thisAmount;
     protected static final int TWO = 2;
     public static final double ONE_FIVE = 1.5;
     public static final int TREE = 3;
@@ -16,7 +15,6 @@ public class Movie {
      */
     public Movie(String title) {
         this.title = title;
-        thisAmount = 0;
     }
 
     /**

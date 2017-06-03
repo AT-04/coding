@@ -28,7 +28,6 @@ public class MoviesTest {
         int expectedFrequentRenterPoints = TREE;
         customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
         customer.addRental(new Rental(new MoviesNewRelease("Pelicula Estreno"), 2));
-        customer.statement();
         assertEquals(expectedTotalAmount, customer.getTotalAmount());
         assertEquals(expectedFrequentRenterPoints, customer.getFrequentRenterPoints());
     }
@@ -44,7 +43,6 @@ public class MoviesTest {
         int expectedFrequentRenterPoints = TREE;
         customer.addRental(new Rental(new MoviesChildren("Pelicula Regular"), 2));
         customer.addRental(new Rental(new MoviesRegular("Pelicula Children"), 2));
-        customer.statement();
         assertEquals(expectedTotalAmount, customer.getTotalAmount());
         assertEquals(expectedFrequentRenterPoints, customer.getFrequentRenterPoints());
     }

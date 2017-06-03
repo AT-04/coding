@@ -5,7 +5,6 @@ package org.fundacionjala.coding.richardseverich.movies;
  */
 public class MoviesRegular extends Movie {
 
-
     /**
      * @param title is the title of movie.
      */
@@ -19,9 +18,7 @@ public class MoviesRegular extends Movie {
      */
     @Override
     public int generatePrice(int daysRented) {
-        thisAmount += TWO;
-        thisAmount += (daysRented > TWO) ? (daysRented - TWO) * ONE_FIVE : 0;
-        return thisAmount;
+        return (int) ((daysRented > TWO) ? TWO + (daysRented - TWO) * ONE_FIVE : TWO);
     }
 
     /**
@@ -30,10 +27,7 @@ public class MoviesRegular extends Movie {
      */
     @Override
     public int generateFrequent(int daysRented) {
-        int frequentRenterPoints = 0;
-        frequentRenterPoints += (daysRented > 1) ? 1 : 0;
-        return frequentRenterPoints;
+        return (daysRented > 1) ? 1 : 0;
     }
-
 
 }

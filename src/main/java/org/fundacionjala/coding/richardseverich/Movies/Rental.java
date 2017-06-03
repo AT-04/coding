@@ -13,7 +13,6 @@ public class Rental {
      * @param daysRented Is the variable that keeps the days rented.
      */
     public Rental(Movie movie, int daysRented) {
-
         this.movie = movie;
         this.daysRented = daysRented;
         frequentRenterPoints = movie.generateFrequent(daysRented);
@@ -37,9 +36,6 @@ public class Rental {
      * @return return amount of rental.
      */
     public int getThisAmount() {
-        int thisAmount = getMovie().generatePrice(daysRented);
-        return thisAmount;
+        return getMovie().generatePrice(daysRented);
     }
-
-
 }
