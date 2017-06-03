@@ -1,8 +1,10 @@
 package org.fundacionjala.coding.cynthia;
 
-import java.util.ArrayList;
+
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.StringJoiner;
 
 /**
  * Created by CynthiaTerrazas on 5/30/2017.
@@ -15,11 +17,10 @@ public class ShortInner {
      * @return cadenaTotal is the final result.
      */
     public String result(String cadena) {
-        StringBuilder cadenaTotal = new StringBuilder();
+        StringJoiner cadenaTotal = new StringJoiner(" ");
         String[] arrayCadena = cadena.split(" ");
         for (String word : arrayCadena) {
-            cadenaTotal.append(" ");
-            cadenaTotal.append(this.change(word));
+            cadenaTotal.add(this.change(word));
         }
         return cadenaTotal.toString().trim();
     }
@@ -34,18 +35,15 @@ public class ShortInner {
         if (word.length() == 1) {
             return word;
         } else {
-            char ini = word.charAt(0);
-            char fin = word.charAt(word.length() - 1);
+            String ini = word.substring(0, 1);
+            String fin = word.substring(word.length() - 1);
             StringBuilder cadena = new StringBuilder();
-            List<Character> lista = new ArrayList<>();
-            for (int i = 1; i < word.length() - 1; i++) {
-                lista.add(word.charAt(i));
-            }
+            List<String> lista = Arrays.asList(word.substring(1, word.length() - 1).split(""));
             Collections.sort(lista);
-            for (char letra : lista) {
+            for (String letra : lista) {
                 cadena.append(letra);
             }
-            return ini + cadena.reverse().toString() + fin;
+            return String.join("", ini, cadena.reverse().toString(), fin);
         }
     }
 }
