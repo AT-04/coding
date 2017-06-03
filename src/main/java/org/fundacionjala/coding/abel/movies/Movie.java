@@ -30,4 +30,10 @@ abstract class Movie {
      * @return Amount.
      */
     public abstract double calculateAmount(int daysRented);
+
+    /**
+     * This method calculates the frequent renter points for Movie.
+     * @return Frequent Renter Points.
+     */
+    public abstract int calculateFrequentRenterPoints();
 }

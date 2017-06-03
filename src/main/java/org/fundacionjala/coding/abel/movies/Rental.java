@@ -8,6 +8,7 @@ public class Rental {
     private Movie movie;
     private int daysRented;
     private double amount;
+    private int frequentRenterPoints;
 
     /**
      * This is the Constructor for Rental.
@@ -18,6 +19,7 @@ public class Rental {
         this.movie = movie;
         this.daysRented = daysRented;
         amount = getMovie().calculateAmount(daysRented);
+        frequentRenterPoints = getMovie().calculateFrequentRenterPoints();
     }
 
     /**
@@ -42,5 +44,13 @@ public class Rental {
      */
     public double getAmount() {
         return amount;
+    }
+
+    /**
+     * Getter for Renter points.
+     * @return Frequent Renter Points.
+     */
+    public int getFrequentRenterPoints() {
+        return frequentRenterPoints;
     }
 }

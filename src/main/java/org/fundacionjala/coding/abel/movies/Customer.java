@@ -90,8 +90,7 @@ public class Customer {
      * This method calculates Frequent Renter Points.
      */
     public void calculateFrequentRenterPoints() {
-        rentals.forEach(rental -> frequentRenterPoints = ((rental.getMovie() instanceof NewRelease)
-                && rental.getDaysRented() > 1) ? frequentRenterPoints + 2 : frequentRenterPoints + 1);
+        rentals.forEach(rental -> frequentRenterPoints += rental.getFrequentRenterPoints());
     }
 
     /**

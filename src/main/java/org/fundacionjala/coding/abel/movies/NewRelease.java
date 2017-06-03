@@ -6,6 +6,7 @@ package org.fundacionjala.coding.abel.movies;
 class NewRelease extends Movie {
 
     private static final int DEFAULT_INITIAL_AMOUNT = 3;
+    private static final int NEW_RELEASE_RENTER_POINTS = 2;
     private double thisAmount;
 
     /**
@@ -25,5 +26,14 @@ class NewRelease extends Movie {
     public double calculateAmount(int daysRented) {
         thisAmount += daysRented * DEFAULT_INITIAL_AMOUNT;
         return thisAmount;
+    }
+
+    /**
+     * This method calculates the frequent renter points for New Release.
+     * @return Frequent Renter Points.
+     */
+    @Override
+    public int calculateFrequentRenterPoints() {
+        return NEW_RELEASE_RENTER_POINTS;
     }
 }
