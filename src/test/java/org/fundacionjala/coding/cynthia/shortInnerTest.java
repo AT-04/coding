@@ -8,7 +8,7 @@ import static junit.framework.TestCase.assertEquals;
 /**
  * Created by CynthiaTerrazas on 5/29/2017.
  */
-public class ShortInnerTest {
+public class shortInnerTest {
     private ShortInner inner;
 
     /**
