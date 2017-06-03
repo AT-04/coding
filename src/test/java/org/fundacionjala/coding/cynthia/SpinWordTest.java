@@ -2,8 +2,8 @@ package org.fundacionjala.coding.cynthia;
 
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
 import static org.fundacionjala.coding.cynthia.SpinWord.result;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by CynthiaTerrazas on 5/19/2017.
