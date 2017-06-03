@@ -44,6 +44,13 @@ public class InnerContentTest {
                 innerContent.innerWord("sort the inner content in descending order"));
     }
 
+    /**
+     *
+     */
+    @Test
+    public void minusOfTwoCharacter() {
+        assertEquals("I am", innerContent.innerWord("I am"));
+    }
 
 }
 

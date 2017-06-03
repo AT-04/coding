@@ -17,13 +17,15 @@ public class InnerContent {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (int i = 0; i < splitWords.length; i++) {
-            char[] character = splitWords[i].substring(1, splitWords[i].length() - 1).toCharArray();
-            Arrays.sort(character);
-            stringBuilder.append(splitWords[i].charAt(splitWords[i].length() - 1));
-            stringBuilder.append(character);
-            stringBuilder.append(splitWords[i].charAt(0));
-            splitWords[i] = stringBuilder.reverse().toString();
-            stringBuilder.delete(0, stringBuilder.length());
+            if (splitWords[i].length() > 2) {
+                char[] character = splitWords[i].substring(1, splitWords[i].length() - 1).toCharArray();
+                Arrays.sort(character);
+                stringBuilder.append(splitWords[i].charAt(splitWords[i].length() - 1));
+                stringBuilder.append(character);
+                stringBuilder.append(splitWords[i].charAt(0));
+                splitWords[i] = stringBuilder.reverse().toString();
+                stringBuilder.delete(0, stringBuilder.length());
+            }
         }
         return String.join(" ", splitWords);
 
