@@ -1,10 +1,10 @@
 package org.fundacionjala.coding.ovidio;
 
+import java.util.Arrays;
 
 /**
  * Created by OvidioMiranda on 6/2/2017.
  */
-
 public class EanValidation {
     static final int TWO = 2;
     static final int TREE = 3;
@@ -18,17 +18,13 @@ public class EanValidation {
      */
     public Boolean validate(String eanCode) {
         int calcChecksum;
-        int positionLastNumber = eanCode.length() - 1;
-        int lastNumber = Integer.parseInt(eanCode.substring(positionLastNumber));
-        String twelveDigits = eanCode.substring(0, positionLastNumber);
-        int[] digits;
-        digits = twelveDigits.chars().map(c -> c -= '0').toArray();
-        int result = 0;
-        for (int d : digits) {
-            result += d % TWO == 0 ? d : d * TREE;
-        }
+        int lastNumber = Integer.parseInt(eanCode.substring(eanCode.length() - 1));
+        String twelveDigits = eanCode.substring(0, eanCode.length() - 1);
+        int[] digits = twelveDigits.chars().map(c -> c -= '0').toArray();
+        int result = Arrays.stream(digits).map(d -> d % TWO == 0 ? d : d * TREE).sum();
         calcChecksum = (result % TEN == 0) ? 0 : TEN - (result % TEN);
         return calcChecksum == lastNumber;
     }
+
 }
 
