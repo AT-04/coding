@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.richardseverich.Movies;
+package org.fundacionjala.coding.richardseverich.movies;
 
 /**
  * Created by RichardSeverich on 5/31/2017.
@@ -7,6 +7,7 @@ public class Rental {
     private Movie movie;
     private int daysRented;
     private int frequentRenterPoints;
+
     /**
      * @param movie      Is movie for rented.
      * @param daysRented Is the variable that keeps the days rented.
@@ -16,13 +17,6 @@ public class Rental {
         this.movie = movie;
         this.daysRented = daysRented;
         frequentRenterPoints = movie.generateFrequent(daysRented);
-    }
-
-    /**
-     * @return the variable that keeps the days rented.
-     */
-    public int getDaysRented() {
-        return daysRented;
     }
 
     /**
@@ -40,7 +34,6 @@ public class Rental {
     }
 
     /**
-     *
      * @return return amount of rental.
      */
     public int getThisAmount() {

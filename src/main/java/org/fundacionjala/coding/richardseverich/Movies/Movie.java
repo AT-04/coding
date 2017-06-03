@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.richardseverich.Movies;
+package org.fundacionjala.coding.richardseverich.movies;
 
 /**
  * Created by RichardSeverich on 5/31/2017.
@@ -12,7 +12,7 @@ public class Movie {
     public static final int TREE = 3;
 
     /**
-     * @param title     is the title of movie.
+     * @param title is the title of movie.
      */
     public Movie(String title) {
         this.title = title;

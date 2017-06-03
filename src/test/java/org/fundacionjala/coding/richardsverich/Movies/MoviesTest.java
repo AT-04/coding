@@ -1,10 +1,10 @@
-package org.fundacionjala.coding.richardsverich.Movies;
+package org.fundacionjala.coding.richardsverich.movies;
 
-import org.fundacionjala.coding.richardseverich.Movies.MoviesNewRelease;
-import org.fundacionjala.coding.richardseverich.Movies.MoviesRegular;
-import org.fundacionjala.coding.richardseverich.Movies.MoviesChildren;
-import org.fundacionjala.coding.richardseverich.Movies.Customer;
-import org.fundacionjala.coding.richardseverich.Movies.Rental;
+import org.fundacionjala.coding.richardseverich.movies.MoviesNewRelease;
+import org.fundacionjala.coding.richardseverich.movies.MoviesRegular;
+import org.fundacionjala.coding.richardseverich.movies.MoviesChildren;
+import org.fundacionjala.coding.richardseverich.movies.Customer;
+import org.fundacionjala.coding.richardseverich.movies.Rental;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

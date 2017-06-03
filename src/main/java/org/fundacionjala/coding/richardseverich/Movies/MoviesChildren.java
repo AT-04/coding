@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.richardseverich.Movies;
+package org.fundacionjala.coding.richardseverich.movies;
 
 /**
  * Created by RichardSeverich on 5/31/2017.
@@ -6,7 +6,7 @@ package org.fundacionjala.coding.richardseverich.Movies;
 public class MoviesChildren extends Movie {
 
     /**
-     * @param title     is the title of movie.
+     * @param title is the title of movie.
      */
     public MoviesChildren(String title) {
         super(title);
@@ -24,5 +24,3 @@ public class MoviesChildren extends Movie {
         return thisAmount;
     }
 }
-
-

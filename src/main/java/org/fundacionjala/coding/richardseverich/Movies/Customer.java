@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.richardseverich.Movies;
+package org.fundacionjala.coding.richardseverich.movies;
 
 import java.util.ArrayList;
 
@@ -20,12 +20,12 @@ public class Customer {
     }
 
     /**
-     * @param arg is a rental.
+     * @param rental is a rental.
      */
-    public void addRental(Rental arg) {
-        rentalList.add(arg);
-        calculateFrequent(arg);
-        calculateAmount(arg.getThisAmount());
+    public void addRental(Rental rental) {
+        rentalList.add(rental);
+        calculateFrequent(rental);
+        calculateAmount(rental.getThisAmount());
     }
 
     /**
@@ -46,7 +46,6 @@ public class Customer {
     }
 
     /**
-     *
      * @param thisAmount is amount of this Rental.
      */
     private void calculateAmount(int thisAmount) {

@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.richardseverich.Movies;
+package org.fundacionjala.coding.richardseverich.movies;
 
 /**
  * Created by RichardSeverich on 5/31/2017.
