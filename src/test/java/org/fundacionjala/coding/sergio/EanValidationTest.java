@@ -30,4 +30,14 @@ public class EanValidationTest {
         assertFalse(EanValidation.validation(entry));
     }
 
+    /**
+     *
+     */
+    @Test
+    public void otherTestEntry() {
+        String entry = "6298752047129";
+
+        assertTrue(EanValidation.validation(entry));
+    }
+
 }
