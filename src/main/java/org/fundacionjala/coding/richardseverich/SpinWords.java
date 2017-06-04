@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.richard.severich.spinwords;
+package org.fundacionjala.coding.richardseverich;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

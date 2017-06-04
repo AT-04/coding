@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.richardseverich.eanvalidation;
+package org.fundacionjala.coding.richardseverich;
 
 /**
  * Created by RichardSeverich on 5/26/2017.
