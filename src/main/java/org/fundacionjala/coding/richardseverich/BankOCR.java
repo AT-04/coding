@@ -1,5 +1,7 @@
 package org.fundacionjala.coding.richardseverich;
 
+import java.util.ArrayList;
+
 /**
  * Created by Richard on 6/4/2017.
  */
@@ -14,8 +16,9 @@ public class BankOCR {
     private static final int TWO = 2;
     private static final int ONE = 1;
     private static final int ZERO = 0;
+    private static final String QUESTION_MARK = "?";
 
-    private StringBuilder[] num = new StringBuilder[NINE];
+    private ArrayList<StringBuilder> num = new ArrayList<>();
     private String[] numDynamic = new String[NINE];
     private String[] numStatic = {" _ | ||_|", "     |  |", " _  _||_ ", " _  _| _|", "   |_|  |",
             " _ |_  _|", " _ |_ |_|", " _   |  |", " _ |_||_|", " _ |_| _|"};
@@ -24,7 +27,6 @@ public class BankOCR {
      * This method is the constructor.
      */
     public BankOCR() {
-        this.initializeNumberDynamicBuilder();
     }
 
     /**
@@ -46,7 +48,7 @@ public class BankOCR {
                     band = false;
                 }
             }
-            resultNumber = (band) ? resultNumber.append("?") : resultNumber.append("");
+            resultNumber = (band) ? resultNumber.append(QUESTION_MARK) : resultNumber.append("");
         }
         return resultNumber.toString();
     }
@@ -55,10 +57,10 @@ public class BankOCR {
      * @param num Is the number already converted.
      * @return Returns the number with Err, ILL.
      */
-    public String lineOutPut(String num) {
+    public String identifyErrOrIll(String num) {
         StringBuilder resultNumber = new StringBuilder();
         resultNumber.append(num);
-        if (num.contains("?")) {
+        if (num.contains(QUESTION_MARK)) {
             resultNumber.append(" ILL");
         } else if (!isValidChecksum(num)) {
             resultNumber.append(" ERR");
@@ -86,17 +88,9 @@ public class BankOCR {
     private void extractString(String entryLine) {
         int j = ZERO;
         for (int i = 0; i < NINE; i++) {
-            numDynamic[i] = num[i].append(entryLine.substring(j, j + THREE)).toString();
+            num.add(new StringBuilder());
+            numDynamic[i] = num.get(i).append(entryLine.substring(j, j + THREE)).toString();
             j += THREE;
-        }
-    }
-
-    /**
-     *
-     */
-    public void initializeNumberDynamicBuilder() {
-        for (int i = 0; i < NINE; i++) {
-            num[i] = new StringBuilder();
         }
     }
 }

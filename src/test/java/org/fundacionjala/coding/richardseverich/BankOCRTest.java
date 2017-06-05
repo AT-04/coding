@@ -198,7 +198,7 @@ public class BankOCRTest {
         line2 = "|_||_   ||_ | ||_|| || || |";
         line3 = "  | _|  | _||_||_||_||_||_|";
         expectedResult = "457508000";
-        assertEquals(expectedResult, bankOrc.lineOutPut(bankOrc.convertEntryToNumber(line1, line2, line3)));
+        assertEquals(expectedResult, bankOrc.identifyErrOrIll(bankOrc.convertEntryToNumber(line1, line2, line3)));
     }
 
     /**
@@ -210,7 +210,7 @@ public class BankOCRTest {
         line2 = "|_ |_ |_| _|  |  ||_||_||_ ";
         line3 = "|_||_|  | _|  |  |  | _| _|";
         expectedResult = "664371495 ERR";
-        assertEquals(expectedResult, bankOrc.lineOutPut(bankOrc.convertEntryToNumber(line1, line2, line3)));
+        assertEquals(expectedResult, bankOrc.identifyErrOrIll(bankOrc.convertEntryToNumber(line1, line2, line3)));
 
     }
 
@@ -223,6 +223,6 @@ public class BankOCRTest {
         line2 = "|_||_   |  || | _| _| _||_ ";
         line3 = "|_||_|  |  ||_|  |  | _||_|";
         expectedResult = "86110??36 ILL";
-        assertEquals(expectedResult, bankOrc.lineOutPut(bankOrc.convertEntryToNumber(line1, line2, line3)));
+        assertEquals(expectedResult, bankOrc.identifyErrOrIll(bankOrc.convertEntryToNumber(line1, line2, line3)));
     }
 }
