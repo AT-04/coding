@@ -10,23 +10,20 @@ public class BankOCR {
     private static final int NINE = 9;
     private static final int EIGHT = 8;
     private static final int SEVEN = 7;
-    private static final int SIX = 6;
-    private static final int FIVE = 5;
-    private static final int FOUR = 4;
     private static final int THREE = 3;
     private static final int TWO = 2;
     private static final int ONE = 1;
     private static final int ZERO = 0;
 
     private StringBuilder[] num = new StringBuilder[NINE];
-    private String[] numStatic = new String[TEEN];
     private String[] numDynamic = new String[NINE];
+    private String[] numStatic = {" _ | ||_|", "     |  |", " _  _||_ ", " _  _| _|", "   |_|  |",
+            " _ |_  _|", " _ |_ |_|", " _   |  |", " _ |_||_|", " _ |_| _|"};
 
     /**
      * This method is the constructor.
      */
     public BankOCR() {
-        this.assignValuesNumStringArray();
         this.initializeNumberDynamicBuilder();
     }
 
@@ -92,23 +89,6 @@ public class BankOCR {
             numDynamic[i] = num[i].append(entryLine.substring(j, j + THREE)).toString();
             j += THREE;
         }
-    }
-
-    /**
-     *
-     */
-    private void assignValuesNumStringArray() {
-
-        numStatic[ZERO] = " _ | ||_|";
-        numStatic[ONE] = "     |  |";
-        numStatic[TWO] = " _  _||_ ";
-        numStatic[THREE] = " _  _| _|";
-        numStatic[FOUR] = "   |_|  |";
-        numStatic[FIVE] = " _ |_  _|";
-        numStatic[SIX] = " _ |_ |_|";
-        numStatic[SEVEN] = " _   |  |";
-        numStatic[EIGHT] = " _ |_||_|";
-        numStatic[NINE] = " _ |_| _|";
     }
 
     /**
