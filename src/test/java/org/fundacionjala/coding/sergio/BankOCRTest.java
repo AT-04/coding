@@ -3,6 +3,9 @@ package org.fundacionjala.coding.sergio;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 
 /**
  * Created by Administrator on 5/16/2017.
@@ -14,10 +17,10 @@ public class BankOCRTest {
     @Test
     public void comprobateEntryNumbersOneToZero() {
 
-        String firstLine = "    _  _     _  _  _  _  _  _ ";
-        String secndLine = "  | _| _||_||_ |_   ||_||_|| |";
-        String thirdLine = "  ||_  _|  | _||_|  ||_| _||_|";
-        Assert.assertEquals("1234567890", BankOCR.convertEntryToNumber(firstLine, secndLine, thirdLine));
+        String firstLine = "    _  _     _  _  _  _  _ ";
+        String secndLine = "  | _| _||_||_ |_   ||_||_|";
+        String thirdLine = "  ||_  _|  | _||_|  ||_| _|";
+        Assert.assertEquals("123456789", BankOCR.convertEntryToNumber(firstLine, secndLine, thirdLine));
     }
 
     /**
@@ -25,9 +28,27 @@ public class BankOCRTest {
      */
     @Test
     public void checkEntryOnlyZeros() {
-        String firstLine = " _  _  _  _  _  _  _  _  _  _ ";
-        String secndLine = "| || || || || || || || || || |";
-        String thirdLine = "|_||_||_||_||_||_||_||_||_||_|";
-        Assert.assertEquals("0000000000", BankOCR.convertEntryToNumber(firstLine, secndLine, thirdLine));
+        String firstLine = " _  _  _  _  _  _  _  _  _ ";
+        String secndLine = "| || || || || || || || || |";
+        String thirdLine = "|_||_||_||_||_||_||_||_||_|";
+        Assert.assertEquals("000000000", BankOCR.convertEntryToNumber(firstLine, secndLine, thirdLine));
+    }
+    /**
+     *
+     */
+    @Test
+    public void checkSumValidationTrue() {
+        String entry = "345882865";
+
+        assertTrue(BankOCR.validationCheckSum(entry));
+    }
+    /**
+     *
+     */
+    @Test
+    public void checkSumValidationFalse() {
+        String entry = "356987453";
+
+        assertFalse(BankOCR.validationCheckSum(entry));
     }
 }

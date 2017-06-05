@@ -14,7 +14,9 @@ final class BankOCR {
     private static final int SIX = 6;
     private static final int SEVEN = 7;
     private static final int EIGHT = 8;
-    private static final int MAXLENGTH = 30;
+    private static final int MAXLENGTH = 27;
+    private static final int ZEROCONDITION = 0;
+    public static final int CHECKSUMCONDITION = 11;
     private static Map<String, Integer> number;
     static {
         number = new HashMap<>();
@@ -57,10 +59,10 @@ final class BankOCR {
 
     /**
      *
-     * @param line1 IS THE FIRST LINE OF ENTRY
-     * @param line2 IS THE SECOND LINE OF ENTRY
-     * @param line3 IS THE THIRD LINE OF ENTRY
-     * @return THE NUMBER OF MAP IND
+     * @param line1 IS THE FIRST LINE OF ENTRY.
+     * @param line2 IS THE SECOND LINE OF ENTRY.
+     * @param line3 IS THE THIRD LINE OF ENTRY.
+     * @return THE NUMBER OF MAP IND.
      */
      static String convertEntryToNumber(String line1, String line2, String line3) {
         StringBuilder finalString = new StringBuilder();
@@ -69,5 +71,18 @@ final class BankOCR {
             finalString.append(number.get(line1.substring(i, j) + line2.substring(i, j) + line3.substring(i, j)));
         }
         return finalString.toString();
+    }
+    /**
+     *
+     * @param number is the a/c #.
+     * @return if the a/c is valid or not.
+     */
+    static boolean validationCheckSum(String number) {
+         String[] num = new StringBuilder(number).reverse().toString().split("");
+         int checkSum = 0;
+         for (int i = 0; i < number.length(); i++) {
+            checkSum += (i + 1) * (Integer.parseInt(num[i]));
+         }
+        return checkSum % CHECKSUMCONDITION == ZEROCONDITION;
     }
 }
