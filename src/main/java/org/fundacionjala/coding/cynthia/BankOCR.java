@@ -2,6 +2,7 @@ package org.fundacionjala.coding.cynthia;
 
 import java.util.HashMap;
 import java.util.Map;
+
 /**
  * Created by CynthiaTerrazas on 6/04/2017.
  */
@@ -50,13 +51,14 @@ public final class BankOCR {
         String firstLine = stringNumber.substring(0, FIRST_LINE);
         String secondLine = stringNumber.substring(FIRST_LINE, SECOND_LINE);
         String thirdLine = stringNumber.substring(SECOND_LINE);
-        int a = 0;
-        int b = LONG_LINE;
+        int positionFrom = 0;
+        int positionTo = LONG_LINE;
         StringBuffer number = new StringBuffer();
         for (int i = 1; i <= NUMBER_DIGITS; i++) {
-            String digit = firstLine.substring(a, b) + secondLine.substring(a, b) + thirdLine.substring(a, b);
-            a = b;
-            b = b + LONG_LINE;
+            String digit = firstLine.substring(positionFrom, positionTo)
+                    + secondLine.substring(positionFrom, positionTo) + thirdLine.substring(positionFrom, positionTo);
+            positionFrom = positionTo;
+            positionTo = positionTo + LONG_LINE;
             number = number.append(getNumberValue(digit));
         }
         return number.toString();
@@ -76,12 +78,12 @@ public final class BankOCR {
      * @param number number convert.
      * @return String if is valid number return the number if not return number with "ERR".
      */
-    private static String validNumber(String number) {
+    private static boolean validNumber(String number) {
         int checksum = 0;
         for (int i = 1; i <= number.length(); i++) {
-            checksum = checksum + (Integer.parseInt("" + number.charAt(number.length() - i))) * i;
+            checksum += Integer.parseInt(String.valueOf(number.charAt(number.length() - i))) * i;
         }
-        return checksum % MODULO == 0 ? number : number + " ERR";
+        return checksum % MODULO == 0;
     }
 
     /**
@@ -89,6 +91,9 @@ public final class BankOCR {
      * @return String if contain "?" return number with "ILL" if not number or Number with "ERR"
      */
     public static String output(String number) {
-        return number.contains("?") ? number + " ILL" : validNumber(number);
+        if (number.contains("?")) {
+            return number.concat(" ILL");
+        }
+        return validNumber(number) ? number : number.concat(" ERR");
     }
 }
