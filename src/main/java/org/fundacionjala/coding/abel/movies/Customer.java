@@ -39,23 +39,7 @@ public class Customer {
     }
 
     /**
-     * Getter for Total Amount.
-     * @return Total Amount.
-     */
-    public double getTotalAmount() {
-        return totalAmount;
-    }
-
-    /**
-     * Getter for Frequent Renter Points.
-     * @return Frequent Renter Points.
-     */
-    public int getFrequentRenterPoints() {
-        return frequentRenterPoints;
-    }
-
-    /**
-     * .
+     * Return the same as Main Class example.
      * @return Statement.
      */
     public String statement() {
@@ -67,7 +51,7 @@ public class Customer {
     }
 
     /**
-     * Something.
+     * The body string generated.
      * @return String.
      */
     private String bodyStatement() {
@@ -81,16 +65,20 @@ public class Customer {
 
     /**
      * Calculate total amount of Rentals.
+     * @return Double.
      */
-    public void calculateTotalAmount() {
+    public double calculateTotalAmount() {
         rentals.forEach(rental -> totalAmount += rental.getAmount());
+        return totalAmount;
     }
 
     /**
      * This method calculates Frequent Renter Points.
+     * @return Integer.
      */
-    public void calculateFrequentRenterPoints() {
+    public int calculateFrequentRenterPoints() {
         rentals.forEach(rental -> frequentRenterPoints += rental.getFrequentRenterPoints());
+        return frequentRenterPoints;
     }
 
     /**

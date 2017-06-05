@@ -7,7 +7,6 @@ class NewRelease extends Movie {
 
     private static final int DEFAULT_INITIAL_AMOUNT = 3;
     private static final int NEW_RELEASE_RENTER_POINTS = 2;
-    private double thisAmount;
 
     /**
      * This is the default constructor.
@@ -24,8 +23,7 @@ class NewRelease extends Movie {
      */
     @Override
     public double calculateAmount(int daysRented) {
-        thisAmount += daysRented * DEFAULT_INITIAL_AMOUNT;
-        return thisAmount;
+        return daysRented * DEFAULT_INITIAL_AMOUNT;
     }
 
     /**
