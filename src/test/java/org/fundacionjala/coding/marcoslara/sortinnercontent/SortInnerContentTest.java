@@ -13,9 +13,8 @@ public class SortInnerContentTest {
      */
     @Test
     public void getSortInnerContentOfAEmptyStringIsAEmptyString() {
-        SortInnerContent sortInnerContent = new SortInnerContent("");
-        String sentence="";
-        assertEquals("", sortInnerContent.getSortInnerContent());
+        String sentence = "";
+        assertEquals("", SortInnerContent.sortInnerContent(sentence));
     }
 
     /**
@@ -23,9 +22,8 @@ public class SortInnerContentTest {
      */
     @Test
     public void getSortInnerContentOfAStringWithOneLetterIsTheSameLetter() {
-        SortInnerContent sortInnerContent = new SortInnerContent("a");
-
-        assertEquals("a", sortInnerContent.getSortInnerContent());
+        String sentence = "a";
+        assertEquals("a", SortInnerContent.sortInnerContent(sentence));
     }
 
     /**
@@ -33,9 +31,9 @@ public class SortInnerContentTest {
      */
     @Test
     public void getSortInnerContentOfAStringWithThreeLettersIsTheSameString() {
-        SortInnerContent sortInnerContent = new SortInnerContent("abc");
+        String sentence = "abc";
 
-        assertEquals("abc", sortInnerContent.getSortInnerContent());
+        assertEquals("abc", SortInnerContent.sortInnerContent(sentence));
     }
 
     /**
@@ -43,9 +41,9 @@ public class SortInnerContentTest {
      */
     @Test
     public void getSortInnerContentOfAStringWithSixLetters() {
-        SortInnerContent sortInnerContent = new SortInnerContent("abcdef");
+        String sentence = "abcdef";
 
-        assertEquals("aedcbf", sortInnerContent.getSortInnerContent());
+        assertEquals("aedcbf", SortInnerContent.sortInnerContent(sentence));
     }
 
     /**
@@ -53,9 +51,9 @@ public class SortInnerContentTest {
      */
     @Test
     public void getSortInnerContentOfAStringWithTwoWords() {
-        SortInnerContent sortInnerContent = new SortInnerContent("time gaming");
+        String sentence = "gaming time";
 
-        assertEquals("tmie gnmiag", sortInnerContent.getSortInnerContent());
+        assertEquals("gnmiag tmie", SortInnerContent.sortInnerContent(sentence));
     }
 
     /**
@@ -63,9 +61,9 @@ public class SortInnerContentTest {
      */
     @Test
     public void getSortInnerContentOfAExampleStringNumberOne() {
-        SortInnerContent sortInnerContent = new SortInnerContent("sort the inner content in descending order");
+        String sentence = "sort the inner content in descending order";
 
-        assertEquals("srot the inner ctonnet in dsnnieedcg oredr", sortInnerContent.getSortInnerContent());
+        assertEquals("srot the inner ctonnet in dsnnieedcg oredr", SortInnerContent.sortInnerContent(sentence));
     }
 
     /**
@@ -73,9 +71,9 @@ public class SortInnerContentTest {
      */
     @Test
     public void getSortInnerContentOfAExampleStringNumberTwo() {
-        SortInnerContent sortInnerContent = new SortInnerContent("wait for me");
+        String sentence = "wait for me";
 
-        assertEquals("wiat for me", sortInnerContent.getSortInnerContent());
+        assertEquals("wiat for me", SortInnerContent.sortInnerContent(sentence));
     }
 
     /**
@@ -83,8 +81,8 @@ public class SortInnerContentTest {
      */
     @Test
     public void getSortInnerContentOfAExampleStringNumberThree() {
-        SortInnerContent sortInnerContent = new SortInnerContent("this kata is easy");
+        String sentence = "this kata is easy";
 
-        assertEquals("tihs ktaa is esay", sortInnerContent.getSortInnerContent());
+        assertEquals("tihs ktaa is esay", SortInnerContent.sortInnerContent(sentence));
     }
 }
