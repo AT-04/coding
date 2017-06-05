@@ -1,6 +1,6 @@
 package org.fundacionjala.coding.ovidio;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
 /**
  * Created by OvidioMiranda on 6/2/2017.
@@ -9,6 +9,7 @@ public class EanValidation {
     static final int TWO = 2;
     static final int TREE = 3;
     static final int TEN = 10;
+
     /**
      * Function Validate a given EAN-Code.
      *
@@ -17,13 +18,15 @@ public class EanValidation {
      * @return bool Return true if the given EAN-Code is valid, otherwise false.
      */
     public Boolean validate(String eanCode) {
-        int calcChecksum;
-        int lastNumber = Integer.parseInt(eanCode.substring(eanCode.length() - 1));
         String twelveDigits = eanCode.substring(0, eanCode.length() - 1);
-        int[] digits = twelveDigits.chars().map(c -> c -= '0').toArray();
-        int result = Arrays.stream(digits).map(d -> d % TWO == 0 ? d : d * TREE).sum();
-        calcChecksum = (result % TEN == 0) ? 0 : TEN - (result % TEN);
+        int result = Stream.of(twelveDigits.split(""))
+                .mapToInt(Integer::parseInt)
+                .map(number -> number % TWO == 0 ? number : number * TREE)
+                .sum();
+        int calcChecksum = (result % TEN == 0) ? 0 : TEN - (result % TEN);
+        int lastNumber = Integer.parseInt(eanCode.substring(eanCode.length() - 1));
         return calcChecksum == lastNumber;
+
     }
 
 }
