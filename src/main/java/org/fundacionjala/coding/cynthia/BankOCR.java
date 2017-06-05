@@ -52,14 +52,14 @@ public final class BankOCR {
         String thirdLine = stringNumber.substring(SECOND_LINE);
         int a = 0;
         int b = LONG_LINE;
-        String number = "";
+        StringBuffer number = new StringBuffer();
         for (int i = 1; i <= NUMBER_DIGITS; i++) {
             String digit = firstLine.substring(a, b) + secondLine.substring(a, b) + thirdLine.substring(a, b);
             a = b;
             b = b + LONG_LINE;
-            number = number + getNumberValue(digit);
+            number = number.append(getNumberValue(digit));
         }
-        return number;
+        return number.toString();
     }
 
 
