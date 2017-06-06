@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.ovidio_spinwords;
+package org.fundacionjala.coding.ovidio;
 
 import java.util.StringJoiner;
 
