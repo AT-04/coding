@@ -10,8 +10,6 @@ public class Customer {
 
     private String name;
     private List<Rental> rentals;
-    private double totalAmount;
-    private int frequentRenterPoints;
 
     /**
      * This is the default constructor.
@@ -46,7 +44,7 @@ public class Customer {
         String headerStatement = String.format("Rental Record for %s%s", getName(), System.lineSeparator());
         String bodyStatement = bodyStatement();
         String footerStatement = String.format("Amount owed is %.1f%sYou earned %d frequent renter points",
-                totalAmount, System.lineSeparator(), frequentRenterPoints);
+                calculateTotalAmount(), System.lineSeparator(), calculateFrequentRenterPoints());
         return String.join("", headerStatement, bodyStatement.toString(), footerStatement);
     }
 
@@ -68,8 +66,9 @@ public class Customer {
      * @return Double.
      */
     public double calculateTotalAmount() {
-        rentals.forEach(rental -> totalAmount += rental.getAmount());
-        return totalAmount;
+        return rentals.stream()
+                .map(rental -> rental.getAmount())
+                .reduce(0.0, Double::sum);
     }
 
     /**
@@ -77,8 +76,9 @@ public class Customer {
      * @return Integer.
      */
     public int calculateFrequentRenterPoints() {
-        rentals.forEach(rental -> frequentRenterPoints += rental.getFrequentRenterPoints());
-        return frequentRenterPoints;
+        return rentals.stream()
+                .map(rental -> rental.getFrequentRenterPoints())
+                .reduce(0, Integer::sum);
     }
 
     /**

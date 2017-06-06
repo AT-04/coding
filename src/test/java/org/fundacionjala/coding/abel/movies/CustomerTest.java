@@ -50,7 +50,7 @@ public class CustomerTest {
 
         customer.calculateFrequentRenterPoints();
 
-        final int expectedResult = 6;
+        final int expectedResult = 3;
         assertEquals(expectedResult, customer.calculateFrequentRenterPoints());
     }
 
@@ -65,7 +65,7 @@ public class CustomerTest {
 
         customer.calculateTotalAmount();
 
-        final double expectedResult = 16;
+        final double expectedResult = 8;
         assertEquals(expectedResult, customer.calculateTotalAmount(), 0.00);
     }
 
