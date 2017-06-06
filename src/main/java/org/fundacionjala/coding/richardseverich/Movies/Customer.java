@@ -24,14 +24,11 @@ public class Customer {
      */
     public void addRental(Rental rental) {
         rentalList.add(rental);
-        calculateFrequent(rental);
-        calculateAmount(rental.getThisAmount());
     }
 
     /**
      * @return Returns the string to be displayed.
      */
-    @Deprecated
     public String statement() {
         StringBuilder resultBuilder = new StringBuilder();
         resultBuilder.append(String.format("Rental Record for %s %n", nameCustomer));
@@ -39,23 +36,27 @@ public class Customer {
             resultBuilder.append(String.format("\t %s \t %d %n", itemRental.getMovie().getTitle(),
                     itemRental.getThisAmount()));
         }
-        resultBuilder.append(String.format("Amount owed is %d %n You earned %d frequent renter points",
+        resultBuilder.append(String.format("Amount owed is %d %nYou earned %d frequent renter points",
                 totalAmount, frequentRenterPoints));
         return resultBuilder.toString();
     }
 
     /**
-     * @param thisAmount is amount of this Rental.
+     *
      */
-    private void calculateAmount(int thisAmount) {
-        totalAmount += thisAmount;
+    public void calculateAmount() {
+        for (Rental itemRental : rentalList) {
+            totalAmount += itemRental.getThisAmount();
+        }
     }
 
     /**
-     * @param itemRental is a rental.
+     *
      */
-    private void calculateFrequent(Rental itemRental) {
-        frequentRenterPoints += itemRental.getFrequentRenterPoints() + 1;
+    public void calculateFrequent() {
+        for (Rental itemRental : rentalList) {
+            frequentRenterPoints += itemRental.getFrequentRenterPoints() + 1;
+        }
     }
 
     /**
@@ -71,5 +72,4 @@ public class Customer {
     public int getFrequentRenterPoints() {
         return frequentRenterPoints;
     }
-
 }
