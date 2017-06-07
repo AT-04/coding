@@ -1,6 +1,6 @@
-package org.fundacionjala.coding.richardseverich.eanvalidation;
+package org.fundacionjala.coding.richardsverich;
 
-
+import org.fundacionjala.coding.richardseverich.EanValidation;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;

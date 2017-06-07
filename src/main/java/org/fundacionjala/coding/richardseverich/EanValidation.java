@@ -1,10 +1,9 @@
-package org.fundacionjala.coding.richardseverich.eanvalidation;
+package org.fundacionjala.coding.richardseverich;
 
 /**
  * Created by RichardSeverich on 5/26/2017.
  */
 public class EanValidation {
-
 
     public static final int TREE = 3;
     public static final int TEN = 10;
@@ -15,8 +14,6 @@ public class EanValidation {
      */
 
     public boolean eanValidationCod(String firstNum) {
-
-
         char[] partsNum = firstNum.toCharArray();
         int numResult = 0;
         for (int i = 0; i < partsNum.length - 1; i = i + 2) {
@@ -24,7 +21,7 @@ public class EanValidation {
             numResult += TREE * Character.getNumericValue(partsNum[i + 1]);
         }
         int checksum = numResult % TEN == 0 ? 0 : TEN - (numResult % TEN);
-        return checksum == Character.getNumericValue(partsNum[partsNum.length - 1]);
 
+        return checksum == Character.getNumericValue(partsNum[partsNum.length - 1]);
     }
 }
