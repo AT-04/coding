@@ -26,8 +26,7 @@ public final class AveragesOfNumbers {
                 averages[i] = (double) (numbers[i] + numbers[i + 1]) / 2;
             }
             return averages;
-        } else {
-            return new double[0];
         }
+        return new double[0];
     }
 }
