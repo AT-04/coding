@@ -4,12 +4,12 @@ package org.fundacionjala.coding.ovidio;
 /**
  * Created by OvidioMiranda on 6/6/2017.
  */
-public final class Kata {
+public final class AveragesOfNumbers {
 
     /**
      * Constructor.
      */
-    private Kata() {
+    private AveragesOfNumbers() {
     }
 
     /**
