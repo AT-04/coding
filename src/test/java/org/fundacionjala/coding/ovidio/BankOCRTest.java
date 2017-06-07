@@ -1,116 +1,182 @@
 package org.fundacionjala.coding.ovidio;
-
-import org.fundacionjala.coding.ovidio.BanckOCR;
-import org.junit.Assert;
 import org.junit.Test;
+import static org.fundacionjala.coding.ovidio.BankOCR.convertEntryToNumber;
+import static org.fundacionjala.coding.ovidio.BankOCR.lineOutPut;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by OvidioMiranda on 5/16/2017.
  */
-public class BanckOCRTest {
+public class BankOCRTest {
 
     //http://codingdojo.org/kata/BankOCR/
-    /*
+    /**
+     *
+     */
     @Test
-    public void testBanckOCRStoryOne(){
-        String entry="    _  _     _  _  _  _  _ " +
-                     "  | _| _||_||_ |_   ||_||_|" +
-                     "  ||_  _|  | _||_|  ||_| _|";
+    public void bankOCRtoTryWith9DifferentNumbers() {
+        String entryLine = "    _  _     _  _  _  _  _ "
+                + "  | _| _||_||_ |_   ||_||_|"
+                + "  ||_  _|  | _||_|  ||_| _|";
 
-        String expectedResult="123456789";
-        //Assert.assertEquals(expectedResult,BanckOCR.convertyEntryToNumber(entry));
-    }
-    */
-    @Test
-    public void isValueEqualOne() {
-        String entryOneNumber = "   " +
-                "  |" +
-                "  |";
-        String expectedResult = "1";
-        Assert.assertEquals(expectedResult, BanckOCR.convertyEntryToNumber(entryOneNumber));
+        assertEquals("123456789", convertEntryToNumber(entryLine));
     }
 
-
+    /**
+     *
+     */
     @Test
-    public void isValueEqualTwo() {
-        String entryOneNumber = " _ " +
-                " _|" +
-                "|_ ";
-        String expectedResult = "2";
-        Assert.assertEquals(expectedResult, BanckOCR.convertyEntryToNumber(entryOneNumber));
+    public void testBankOCRForJustZeros() {
+        String entryLine = " _  _  _  _  _  _  _  _  _ "
+                + "| || || || || || || || || |"
+                + "|_||_||_||_||_||_||_||_||_|";
+
+        assertEquals("000000000", convertEntryToNumber(entryLine));
     }
 
+    /**
+     *
+     */
     @Test
-    public void isValueEqualTree() {
-        String entryOneNumber = " _ " +
-                " _|" +
-                " _|";
-        String expectedResult = "3";
-        Assert.assertEquals(expectedResult, BanckOCR.convertyEntryToNumber(entryOneNumber));
+    public void testBankOCRSForJustOnes() {
+        String entryLine = "                           "
+                + "  |  |  |  |  |  |  |  |  |"
+                + "  |  |  |  |  |  |  |  |  |";
+
+        assertEquals("111111111", convertEntryToNumber(entryLine));
     }
 
+    /**
+     *
+     */
     @Test
-    public void isValueEqualFour() {
-        String entryOneNumber = "   " +
-                "|_|" +
-                "  |";
-        String expectedResult = "4";
-        Assert.assertEquals(expectedResult, BanckOCR.convertyEntryToNumber(entryOneNumber));
+    public void testBankOCRSForJustTwos() {
+        String entryLine = " _  _  _  _  _  _  _  _  _ "
+                + " _| _| _| _| _| _| _| _| _|"
+                + "|_ |_ |_ |_ |_ |_ |_ |_ |_ ";
+
+        assertEquals("222222222", convertEntryToNumber(entryLine));
     }
 
+    /**
+     *
+     */
     @Test
-    public void isValueEqualFive() {
-        String entryOneNumber = " _ " +
-                "|_ " +
-                " _|";
-        String expectedResult = "5";
-        Assert.assertEquals(expectedResult, BanckOCR.convertyEntryToNumber(entryOneNumber));
+    public void testBankOCRForJustThrees() {
+        String entryLine = " _  _  _  _  _  _  _  _  _ "
+                + " _| _| _| _| _| _| _| _| _|"
+                + " _| _| _| _| _| _| _| _| _| ";
+
+        assertEquals("333333333", convertEntryToNumber(entryLine));
     }
 
+    /**
+     *
+     */
     @Test
-    public void isValueEqualSix() {
-        String entryOneNumber = " _ " +
-                "|_ " +
-                "|_|";
-        String expectedResult = "6";
-        Assert.assertEquals(expectedResult, BanckOCR.convertyEntryToNumber(entryOneNumber));
+    public void testBankOCRForJustFours() {
+        String entryLine = "                           "
+                + "|_||_||_||_||_||_||_||_||_|"
+                + "  |  |  |  |  |  |  |  |  |";
+
+        assertEquals("444444444", convertEntryToNumber(entryLine));
     }
 
+    /**
+     *
+     */
     @Test
-    public void isValueEqualSeven() {
-        String entryOneNumber = "_ " +
-                " |" +
-                " |";
-        String expectedResult = "7";
-        Assert.assertEquals(expectedResult, BanckOCR.convertyEntryToNumber(entryOneNumber));
+    public void testBankOCRForJustFives() {
+        String entryLine = " _  _  _  _  _  _  _  _  _ "
+                + "|_ |_ |_ |_ |_ |_ |_ |_ |_ "
+                + " _| _| _| _| _| _| _| _| _|";
+
+        assertEquals("555555555", convertEntryToNumber(entryLine));
     }
 
+    /**
+     *
+     */
     @Test
-    public void isValueEqualEight() {
-        String entryOneNumber = " _ " +
-                "|_|" +
-                "|_|";
-        String expectedResult = "8";
-        Assert.assertEquals(expectedResult, BanckOCR.convertyEntryToNumber(entryOneNumber));
+    public void testBankOCRForJustSixs() {
+        String entryLine = " _  _  _  _  _  _  _  _  _ "
+                + "|_ |_ |_ |_ |_ |_ |_ |_ |_ "
+                + "|_||_||_||_||_||_||_||_||_|";
+
+        assertEquals("666666666", convertEntryToNumber(entryLine));
     }
 
+    /**
+     *
+     */
     @Test
-    public void isValueEqualNine() {
-        String entryOneNumber = " _ " +
-                "|_|" +
-                " _|";
-        String expectedResult = "9";
-        Assert.assertEquals(expectedResult, BanckOCR.convertyEntryToNumber(entryOneNumber));
+    public void testBankOCRForJustSevens() {
+        String entryLine = " _  _  _  _  _  _  _  _  _ "
+                + "  |  |  |  |  |  |  |  |  |"
+                + "  |  |  |  |  |  |  |  |  |";
+
+        assertEquals("777777777", convertEntryToNumber(entryLine));
     }
 
+    /**
+     *
+     */
     @Test
-    public void isValueEqualAlfabet() {
-        String entryOneNumber = " _ " +
-                "| |" +
-                " _|";
-        String expectedResult = "Invalid";
-        Assert.assertEquals(expectedResult, BanckOCR.convertyEntryToNumber(entryOneNumber));
+    public void testBankOCRForJustEights() {
+        String entryLine = " _  _  _  _  _  _  _  _  _ "
+                + "|_||_||_||_||_||_||_||_||_|"
+                + "|_||_||_||_||_||_||_||_||_|";
+
+        assertEquals("888888888", convertEntryToNumber(entryLine));
     }
 
+    /**
+     *
+     */
+    @Test
+    public void testBankOCRForJustNines() {
+        String entryLine = " _  _  _  _  _  _  _  _  _ "
+                + "|_||_||_||_||_||_||_||_||_|"
+                + " _| _| _| _| _| _| _| _| _|";
 
+        assertEquals("999999999", convertEntryToNumber(entryLine));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testBankOCRForCorrectNumberCount() {
+        String entryLine = "    _  _  _  _  _  _  _  _ "
+                + "|_||_   ||_ | ||_|| || || |"
+                + "  | _|  | _||_||_||_||_||_|";
+
+        assertEquals("457508000", lineOutPut(convertEntryToNumber(entryLine)));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testBankOCRForIncorrectNumberCount() {
+        String entryLine = " _  _     _  _        _  _ "
+                + "|_ |_ |_| _|  |  ||_||_||_ "
+                + "|_||_|  | _|  |  |  | _| _|";
+
+        assertEquals("664371495 ERR", lineOutPut(convertEntryToNumber(entryLine)));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testBankOCRForInvalidNumberCount() {
+        String entry =  " _  _        _        _  _ "
+                + "|_||_   |  || | _| _| _||_ "
+                + "|_||_|  |  ||_|  |  | _||_|";
+
+        assertEquals("86110??36 ILL", lineOutPut(convertEntryToNumber(entry)));
+
+    }
 }
+
