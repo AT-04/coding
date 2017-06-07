@@ -26,7 +26,7 @@ public class SortInner {
      */
     public String innerContent(String sentence) {
         return Stream.of(sentence.split(" "))
-                .map(word -> sort(word))
+                .map(word -> word.length() <= 2 ? word : sort(word))
                 .collect(Collectors.joining(" "));
     }
 }

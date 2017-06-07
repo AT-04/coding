@@ -62,4 +62,13 @@ public class SortInnerTest {
 
         assertEquals("evrey tnihg is fnie for me", sortInner.innerContent("every thing is fine for me"));
     }
+
+    /**
+     *
+     */
+    @Test
+    public void wordSorted6() {
+
+        assertEquals("I am", sortInner.innerContent("I am"));
+    }
 }
