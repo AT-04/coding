@@ -29,8 +29,11 @@ public class KataTest {
      */
     @Test
     public void nullEmptyTests() {
-        assertEquals("input 'null' should return an empty array", 0, Kata.averages(null).length);
-        assertEquals("Empty array as input should return an empty array", 0, Kata.averages(new int[0]).length);
-        assertEquals("Array with only one value as input should return an empty array", 0, Kata.averages(new int[]{2}).length);
+        assertEquals("input 'null' should return an empty array", 0,
+                Kata.averages(null).length);
+        assertEquals("Empty array as input should return an empty array", 0,
+                Kata.averages(new int[0]).length);
+        assertEquals("Array with only one value as input should return an empty array", 0,
+                Kata.averages(new int[]{2}).length);
     }
 }
