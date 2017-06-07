@@ -19,14 +19,17 @@ public final class Kata {
      * @return The array of averages numbers.
      */
     public static double[] averages(int[] ints) {
-        if (ints == null || ints.length <= 1) {
+        if (ints != null && ints.length > 1) {
+            double[] result = new double[ints.length - 1];
+            int i = 0;
+            while (i < ints.length - 1) {
+                result[i] = (ints[i] + ints[i + 1]) / 2.0;
+                i++;
+            }
+            return result;
+        } else {
             return new double[0];
         }
-        double[] result = new double[ints.length - 1];
-        for (int i = 0; i < ints.length - 1; i++) {
-            result[i] = (ints[i] + ints[i + 1]) / 2.0;
-        }
-        return result;
     }
 }
 
