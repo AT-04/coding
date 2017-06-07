@@ -6,7 +6,6 @@ package org.fundacionjala.coding.abel.movies;
 abstract class Movie {
 
     private String title;
-    protected double thisAmount;
 
     /**
      * This is the default constructor.

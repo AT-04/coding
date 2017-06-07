@@ -24,7 +24,7 @@ class Children extends Movie {
      */
     @Override
     public double calculateAmount(int daysRented) {
-        thisAmount += DEFAULT_INITIAL_AMOUNT;
+        double thisAmount = DEFAULT_INITIAL_AMOUNT;
         if (daysRented > MAX_DAYS) {
             thisAmount += (daysRented - MAX_DAYS) * DEFAULT_INITIAL_AMOUNT;
         }

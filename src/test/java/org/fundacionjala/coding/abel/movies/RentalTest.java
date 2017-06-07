@@ -22,6 +22,6 @@ public class RentalTest {
         final double expectedResult = 4.00;
         assertTrue(Movie.class.isInstance(rental.getMovie()));
         assertEquals(DAYS_RENTED, rental.getDaysRented());
-        assertEquals(expectedResult, rental.getAmount(), 0.0);
+        assertEquals(expectedResult, rental.calculateRentalAmount(), 0.0);
     }
 }

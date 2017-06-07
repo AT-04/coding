@@ -66,7 +66,8 @@ public class CustomerTest {
         customer.calculateTotalAmount();
 
         final double expectedResult = 8;
-        assertEquals(expectedResult, customer.calculateTotalAmount(), 0.00);
+        final double zero = 0.00;
+        assertEquals(expectedResult, customer.calculateTotalAmount(), zero);
     }
 
     /**
