@@ -1,14 +1,22 @@
 package org.fundacionjala.coding.cynthia;
 
+import org.junit.Before;
 import org.junit.Test;
-
 import static junit.framework.TestCase.assertEquals;
 
 /**
  * Created by USUARIO on 05/06/2017.
  */
 public class EanValidationTest {
-    private EanValidation eanValidation = new EanValidation();
+    private EanValidation eanValidation;
+
+    /**
+     * Initial setup.
+     */
+    @Before
+    public void setUp() {
+        eanValidation = new EanValidation();
+    }
 
     /**
      * verify the checkSum valid.

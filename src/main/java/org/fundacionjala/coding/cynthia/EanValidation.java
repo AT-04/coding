@@ -14,27 +14,13 @@ public class EanValidation {
      * @param cadena is the enter to the method.
      * @return checksum number.
      */
-    public int getCheckSum(String cadena) {
-        int suma = 0;
+    public boolean isValidEANCode(String cadena) {
+        int sum = 0;
         for (int i = 1; i < cadena.length(); i++) {
-            if (i % 2 == 0) {
-                int aux = Integer.parseInt(cadena.substring(i - 1, i));
-                suma = suma + (aux * EVEN_POSITION);
-            } else {
-                int aux = Integer.parseInt(cadena.substring(i - 1, i));
-                suma = suma + aux;
-            }
+            int aux = Integer.parseInt(cadena.substring(i - 1, i));
+            sum += i % 2 == 0 ? aux * EVEN_POSITION : aux;
         }
-        return TEN_NUMBER - (suma % TEN_NUMBER);
-    }
-
-    /**
-     * this method build the correct sentence.
-     *
-     * @param cad is the enter to the method.
-     * @return true if the checksum is valid or false if not.
-     */
-    public boolean isValidEANCode(String cad) {
-        return getCheckSum(cad) == Integer.parseInt(cad.substring(cad.length() - 1)) ? true : false;
+        int checkSum = TEN_NUMBER - (sum % TEN_NUMBER);
+        return checkSum == Integer.parseInt(cadena.substring(cadena.length() - 1));
     }
 }
