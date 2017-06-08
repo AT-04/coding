@@ -3,7 +3,6 @@ package org.fundacionjala.coding.ovidio;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
  * Created by OvidioMiranda on 5/16/2017.
  */
@@ -16,7 +15,7 @@ public final class BankOCR {
             put(" _ | ||_|", "0");
             put("     |  |", "1");
             put(" _  _||_ ", "2");
-            put(" _  _| _|",  "3");
+            put(" _  _| _|", "3");
             put("   |_|  |", "4");
             put(" _ |_  _|", "5");
             put(" _ |_ |_|", "6");
@@ -38,14 +37,14 @@ public final class BankOCR {
      */
     public static String convertEntryToNumber(String entry) {
         String[] row = getLinesTheEntry(entry);
-        StringBuilder finalString = new StringBuilder();
+        String newString;
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < MAX_LENGTH; i = i + THREE) {
             int j = i + THREE;
-            String newString;
             newString = String.format("%s%s%s", row[0].substring(i, j), row[1].substring(i, j), row[2].substring(i, j));
-            finalString.append(NUMBERS.get(newString) == null ? "?" : NUMBERS.get(newString));
+            stringBuilder.append(NUMBERS.get(newString) == null ? "?" : NUMBERS.get(newString));
         }
-        return finalString.toString();
+        return stringBuilder.toString();
     }
 
     /**
@@ -62,7 +61,6 @@ public final class BankOCR {
         }
         return row;
     }
-
 
     /**
      * @param accountNumber parameter.
@@ -85,7 +83,5 @@ public final class BankOCR {
             return String.format("%s%s", number, " ILL");
         }
         return validateAccountNumber(number) ? number : String.format("%s%s", number, " ERR");
-
     }
-
 }
