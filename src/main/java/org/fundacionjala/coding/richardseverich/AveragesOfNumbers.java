@@ -6,18 +6,18 @@ package org.fundacionjala.coding.richardseverich;
 public class AveragesOfNumbers {
 
     /**
-     * @param numbers Int Array.
+     * @param intArray Int Array.
      * @return Double Array
      */
-    public double[] averages(int[] numbers) {
-        if (numbers != null && numbers.length > 2) {
-            double[] averageNumbers;
-            averageNumbers = new double[numbers.length - 1];
-            for (int i = 0; i < numbers.length - 1; i++) {
-                averageNumbers[i] = (double) (numbers[i] + numbers[i + 1]) / 2;
-            }
-            return averageNumbers;
+    public double[] averages(int[] intArray) {
+        int sizeArray = (intArray == null || intArray.length <= 1) ? 0 : intArray.length - 1;
+        double[] averagesArray = (sizeArray == 0) ? new double[0] : new double[sizeArray];
+        int i = 0;
+        while (sizeArray > 0) {
+            averagesArray[i] = (double) (intArray[i] + intArray[i + 1]) / 2;
+            i++;
+            sizeArray--;
         }
-        return new double[0];
+        return averagesArray;
     }
 }
