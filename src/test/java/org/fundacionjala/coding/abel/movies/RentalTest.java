@@ -18,10 +18,7 @@ public class RentalTest {
     @Test
     public void canCreateARentalForRegularMovie() {
         Rental rental = new Rental(new Regular("Terminator"), DAYS_RENTED);
-
-        final double expectedResult = 4.00;
         assertTrue(Movie.class.isInstance(rental.getMovie()));
         assertEquals(DAYS_RENTED, rental.getDaysRented());
-        assertEquals(expectedResult, rental.calculateRentalAmount(), 0.0);
     }
 }

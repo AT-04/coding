@@ -11,6 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class CustomerTest {
 
     private static final int DAYS_RENTED = 3;
+    public static final double DELTA = 0.0;
     private Customer customer;
 
     /**
@@ -66,8 +67,7 @@ public class CustomerTest {
         customer.calculateTotalAmount();
 
         final double expectedResult = 8;
-        final double zero = 0.00;
-        assertEquals(expectedResult, customer.calculateTotalAmount(), zero);
+        assertEquals(expectedResult, customer.calculateTotalAmount(), DELTA);
     }
 
     /**

@@ -56,7 +56,7 @@ public class Customer {
         StringBuilder bodyStatement = new StringBuilder();
         rentals.forEach(rental -> {
             bodyStatement.append("\t").append(rental.getMovie().getTitle()).append("\t")
-                    .append(rental.calculateRentalAmount()).append(System.lineSeparator());
+                    .append(rental.getMovie().calculateAmount(rental.getDaysRented())).append(System.lineSeparator());
         });
         return bodyStatement.toString();
     }
@@ -67,7 +67,7 @@ public class Customer {
      */
     public double calculateTotalAmount() {
         return rentals.stream()
-                .map(rental -> rental.calculateRentalAmount())
+                .map(rental -> rental.getMovie().calculateAmount(rental.getDaysRented()))
                 .reduce(0.0, Double::sum);
     }
 
@@ -77,7 +77,7 @@ public class Customer {
      */
     public int calculateFrequentRenterPoints() {
         return rentals.stream()
-                .map(rental -> rental.calculateRentalFrequentRenterPoints())
+                .map(rental -> rental.getMovie().calculateFrequentRenterPoints())
                 .reduce(0, Integer::sum);
     }
 

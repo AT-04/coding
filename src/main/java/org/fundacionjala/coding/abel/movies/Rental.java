@@ -33,20 +33,4 @@ public class Rental {
     public Movie getMovie() {
         return movie;
     }
-
-    /**
-     * Calculate the total Amount per Rental.
-     * @return Amount per Rental.
-     */
-    public double calculateRentalAmount() {
-        return getMovie().calculateAmount(daysRented);
-    }
-
-    /**
-     * Calculate the total Frequent Renter Points per Rental.
-     * @return Frequent Renter Points.
-     */
-    public int calculateRentalFrequentRenterPoints() {
-        return getMovie().calculateFrequentRenterPoints();
-    }
 }
