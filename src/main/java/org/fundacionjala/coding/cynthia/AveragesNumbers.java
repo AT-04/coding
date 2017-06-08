@@ -19,12 +19,11 @@ public final class AveragesNumbers {
     public static double[] arrayAverage(int[] array) {
         if (array == null || array.length <= 1) {
             return new double[0];
-        } else {
-            double[] arrayProm = new double[array.length - 1];
-            for (int i = 0; i < array.length - 1; i++) {
-                arrayProm[i] = (double) (array[i] + array[i + 1]) / 2;
-            }
-            return arrayProm;
         }
+        double[] arrayProm = new double[array.length - 1];
+        for (int i = 0; i < array.length - 1; i++) {
+            arrayProm[i] = (double) (array[i] + array[i + 1]) / 2;
+        }
+        return arrayProm;
     }
 }
