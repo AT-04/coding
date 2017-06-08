@@ -1,5 +1,4 @@
-package org.fundacionjala.coding.richardseverich.eanvalidation;
-
+package org.fundacionjala.coding.richardseverich;
 
 import org.junit.Test;
 
@@ -15,7 +14,7 @@ public class EanValidationTest {
      * This test checks the string that returns the method returns the expected boolean.
      */
     @Test
-    public void verifyEANtrue() {
+    public void verifyEANTrue() {
         EanValidation ean = new EanValidation();
         String firstCad = "4003301018398";
         assertTrue(ean.eanValidationCod(firstCad));
