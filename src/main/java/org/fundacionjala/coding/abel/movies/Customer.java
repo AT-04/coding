@@ -67,7 +67,7 @@ public class Customer {
      */
     public double calculateTotalAmount() {
         return rentals.stream()
-                .map(rental -> rental.getMovie().calculateAmount(rental.getDaysRented()))
+                .map(rental -> rental.calculateRentalAmount())
                 .reduce(0.0, Double::sum);
     }
 
@@ -77,7 +77,7 @@ public class Customer {
      */
     public int calculateFrequentRenterPoints() {
         return rentals.stream()
-                .map(rental -> rental.getMovie().calculateFrequentRenterPoints())
+                .map(rental -> rental.calculateRentalFrequentRenterPoints())
                 .reduce(0, Integer::sum);
     }
 
