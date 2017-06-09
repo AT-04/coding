@@ -18,6 +18,9 @@ final class BankOCR {
     private static final int ZEROCONDITION = 0;
     private static final int CHECKSUMCONDITION = 11;
     private static final int ONE = 1;
+    private static final String S_ERR = "%s ERR";
+    private static final String S_ILL = "%s ILL";
+    private static final String NON_VALID_NUMBER = "?";
     private static Map<String, Integer> number;
 
     static {
@@ -53,6 +56,7 @@ final class BankOCR {
                 + "| |"
                 + "|_|", 0);
     }
+
     /**
      * CONSTRUCTOR.
      */
@@ -60,13 +64,12 @@ final class BankOCR {
     }
 
     /**
-     *
      * @param line1 IS THE FIRST LINE OF ENTRY.
      * @param line2 IS THE SECOND LINE OF ENTRY.
      * @param line3 IS THE THIRD LINE OF ENTRY.
      * @return THE NUMBER OF MAP IND.
      */
-     static String convertEntryToNumber(String line1, String line2, String line3) {
+    static String convertEntryToNumber(String line1, String line2, String line3) {
         StringBuilder finalString = new StringBuilder();
         for (int i = 0; i < MAXLENGTH; i = i + THREE) {
             int j = i + THREE;
@@ -74,36 +77,28 @@ final class BankOCR {
         }
         return finalString.toString();
     }
+
     /**
-     *
      * @param number is the a/c #.
      * @return if the a/c is valid or not.
      */
     static boolean validationCheckSum(String number) {
-         String[] num = new StringBuilder(number).reverse().toString().split("");
-         int checkSum = 0;
-         for (int i = 0; i < number.length(); i++) {
-            checkSum += (i + ONE) * (Integer.parseInt(num[i]));
-         }
+        String[] num = new StringBuilder(number).reverse().toString().split("");
+        int checkSum = 0;
+        for (int i = 0; i < number.length(); i++) {
+            checkSum += (i + ONE) * Integer.parseInt(num[i]);
+        }
         return checkSum % CHECKSUMCONDITION == ZEROCONDITION;
     }
 
     /**
-     *
      * @param entry String entry.
      * @return The comparation.
      */
-     static String errorAccount(String entry) {
-         String[] num = entry.split("");
-         for (int i = 0; i < entry.length() - ONE; i++) {
-             if (num[i].equals("?")) {
-                 return String.join("", entry + " ILL");
-             }
-
-         }
-         if (!validationCheckSum(entry)) {
-             return String.join("", entry + " ERR");
-         }
-         return entry;
-     }
+    static String errorAccount(String entry) {
+        if (entry.contains(NON_VALID_NUMBER)) {
+            return String.format(S_ILL, entry);
+        }
+        return !validationCheckSum(entry) ? String.format(S_ERR, entry) : entry;
+    }
 }
