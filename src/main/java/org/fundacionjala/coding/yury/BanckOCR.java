@@ -56,7 +56,7 @@ public class BanckOCR {
      * @param input number
      * @return sum number%11
      */
-    public int calculateSum(String input) {
+    public boolean validCheckSum(String input) {
         String numbers = input;
         int suma = 0;
         int j = 1;
@@ -65,7 +65,7 @@ public class BanckOCR {
             suma += number * j;
             j++;
         }
-        return suma % MODULE;
+        return suma % MODULE == 0;
     }
 
     /**
@@ -76,7 +76,7 @@ public class BanckOCR {
         if (input.contains("?")) {
             return String.format("%s ILL", input);
         }
-        return calculateSum(input) == 0 ? input : String.format("%s ERR", input);
+        return validCheckSum(input) ? input : String.format("%s ERR", input);
     }
 
     /**

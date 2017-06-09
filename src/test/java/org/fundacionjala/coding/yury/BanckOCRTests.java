@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by YuryOrtuno on 5/22/2017.
@@ -47,17 +48,9 @@ public class BanckOCRTests {
     @Test
     public void historyTwoCase1() {
         String input = "457508000";
-        assertEquals(0, banckOCR.calculateSum(input));
+        assertTrue(banckOCR.validCheckSum(input));
     }
 
-    /**
-     * Calculate sum of the value is different 0.
-     */
-    @Test
-    public void historyTwoCase2() {
-        String input = "664371495";
-        assertEquals(2, banckOCR.calculateSum(input));
-    }
 
     /**
      * Check contain question marc.
