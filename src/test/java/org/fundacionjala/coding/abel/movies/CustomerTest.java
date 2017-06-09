@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class CustomerTest {
 
     private static final int DAYS_RENTED = 3;
-    public static final double DELTA = 0.0;
+    private static final double DELTA = 0.0;
     private Customer customer;
 
     /**
@@ -19,15 +19,7 @@ public class CustomerTest {
      */
     @Before
     public void setUp() {
-        customer = new Customer("John Doe");
-    }
-
-    /**
-     *
-     */
-    @Test
-    public void canCreateACustomerWithJohnDoeName() {
-        assertEquals("John Doe", customer.getName());
+        customer = new Customer("Test");
     }
 
     /**
@@ -37,7 +29,8 @@ public class CustomerTest {
     public void canAddRentalsToTheCustomer() {
         customer.addRental(new Rental(new Regular("Terminator"), DAYS_RENTED));
         customer.addRental(new Rental(new NewRelease("Alien: Covenant"), DAYS_RENTED));
-        assertEquals(2, customer.size());
+        final int expectedResult = 2;
+        assertEquals(expectedResult, customer.size());
     }
 
     /**
@@ -45,7 +38,6 @@ public class CustomerTest {
      */
     @Test
     public void canGetFrequentRenterPoints() {
-        Customer customer = new Customer("Test");
         customer.addRental(new Rental(new NewRelease("The Revenant"), 2));
         customer.addRental(new Rental(new Regular("Terminator"), 2));
 
@@ -60,7 +52,6 @@ public class CustomerTest {
      */
     @Test
     public void canGetTotalAmount() {
-        Customer customer = new Customer("Test");
         customer.addRental(new Rental(new NewRelease("The Revenant"), 2));
         customer.addRental(new Rental(new Regular("Terminator"), 2));
 
@@ -75,12 +66,8 @@ public class CustomerTest {
      */
     @Test
     public void canGetAStatementForAllRentals() {
-        Customer customer = new Customer("Test");
         customer.addRental(new Rental(new NewRelease("The Revenant"), 2));
         customer.addRental(new Rental(new Regular("Terminator"), 2));
-
-        customer.calculateFrequentRenterPoints();
-        customer.calculateTotalAmount();
 
         String expectedResult = "Rental Record for Test\n"
                 + "\tThe Revenant\t6.0\n"

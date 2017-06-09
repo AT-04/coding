@@ -7,7 +7,6 @@ class Children extends Movie {
 
     private static final double DEFAULT_INITIAL_AMOUNT = 1.5;
     private static final int MAX_DAYS = 3;
-    private static final int CHILDREN_POINTS = 1;
 
     /**
      * This is the default constructor.
@@ -37,7 +36,7 @@ class Children extends Movie {
      * @return Frequent Renter Points.
      */
     @Override
-    public int calculateFrequentRenterPoints() {
-        return CHILDREN_POINTS;
+    public int calculateFrequentRenterPoints(int daysRented) {
+        return DEFAULT_FREQUENT_RENTER_POINTS;
     }
 }

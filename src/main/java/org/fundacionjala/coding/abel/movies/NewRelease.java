@@ -6,7 +6,6 @@ package org.fundacionjala.coding.abel.movies;
 class NewRelease extends Movie {
 
     private static final int DEFAULT_INITIAL_AMOUNT = 3;
-    private static final int NEW_RELEASE_RENTER_POINTS = 2;
 
     /**
      * This is the default constructor.
@@ -31,7 +30,7 @@ class NewRelease extends Movie {
      * @return Frequent Renter Points.
      */
     @Override
-    public int calculateFrequentRenterPoints() {
-        return NEW_RELEASE_RENTER_POINTS;
+    public int calculateFrequentRenterPoints(int daysRented) {
+        return daysRented > 1 ? DEFAULT_FREQUENT_RENTER_POINTS + 1 : DEFAULT_FREQUENT_RENTER_POINTS;
     }
 }

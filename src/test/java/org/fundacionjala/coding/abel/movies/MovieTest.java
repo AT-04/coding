@@ -9,36 +9,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class MovieTest {
 
-    public static final int DAYS_RENTED = 3;
-
-    /**
-     *
-     */
-    @Test
-    public void canCreateARegularMovie() {
-        Movie movie = new Regular("Terminator");
-
-        assertEquals("Terminator", movie.getTitle());
-    }
-
-    /**
-     *
-     */
-    @Test
-    public void canCreateAChildrenMovie() {
-        Movie movie = new Children("Guardians of the Galaxy");
-
-        assertEquals("Guardians of the Galaxy", movie.getTitle());
-    }
-    /**
-     *
-     */
-    @Test
-    public void canCreateANewReleaseMovie() {
-        Movie movie = new NewRelease("Pirates of the Caribbean");
-
-        assertEquals("Pirates of the Caribbean", movie.getTitle());
-    }
+    private static final int DAYS_RENTED = 3;
 
     /**
      *
@@ -71,5 +42,38 @@ public class MovieTest {
 
         final double expectedResult = 9.00;
         assertEquals(expectedResult, movie.calculateAmount(DAYS_RENTED), 0.0);
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void canCalculateFrequentRenterPointsOfARegularMovie() {
+        Movie movie = new Regular("The Revenant");
+
+        final int expectedResult = 1;
+        assertEquals(expectedResult, movie.calculateFrequentRenterPoints(DAYS_RENTED));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void canCalculateFrequentRenterPointsOfAChildrenMovie() {
+        Movie movie = new Children("MegaMind");
+
+        final int expectedResult = 1;
+        assertEquals(expectedResult, movie.calculateFrequentRenterPoints(DAYS_RENTED));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void canCalculateFrequentRenterPointsOfANewReleaseMovie() {
+        Movie movie = new NewRelease("Alien: Covenant");
+
+        final int expectedResult = 2;
+        assertEquals(expectedResult, movie.calculateFrequentRenterPoints(DAYS_RENTED));
     }
 }

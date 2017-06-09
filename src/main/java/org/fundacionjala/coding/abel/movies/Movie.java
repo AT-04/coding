@@ -5,6 +5,7 @@ package org.fundacionjala.coding.abel.movies;
  */
 abstract class Movie {
 
+    protected static final int DEFAULT_FREQUENT_RENTER_POINTS = 1;
     private String title;
 
     /**
@@ -34,5 +35,5 @@ abstract class Movie {
      * This method calculates the frequent renter points for Movie.
      * @return Frequent Renter Points.
      */
-    public abstract int calculateFrequentRenterPoints();
+    public abstract int calculateFrequentRenterPoints(int daysRented);
 }

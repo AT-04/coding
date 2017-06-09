@@ -7,7 +7,6 @@ class Regular extends Movie {
 
     private static final int DEFAULT_INITIAL_AMOUNT = 2;
     private static final int MAX_DAYS = 2;
-    private static final int REGULAR_POINTS = 1;
 
     /**
      * This is the default constructor.
@@ -37,7 +36,7 @@ class Regular extends Movie {
      * @return Frequent Renter Points.
      */
     @Override
-    public int calculateFrequentRenterPoints() {
-        return REGULAR_POINTS;
+    public int calculateFrequentRenterPoints(int daysRented) {
+        return DEFAULT_FREQUENT_RENTER_POINTS;
     }
 }
