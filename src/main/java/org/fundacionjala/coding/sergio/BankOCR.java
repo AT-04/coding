@@ -16,8 +16,10 @@ final class BankOCR {
     private static final int EIGHT = 8;
     private static final int MAXLENGTH = 27;
     private static final int ZEROCONDITION = 0;
-    public static final int CHECKSUMCONDITION = 11;
+    private static final int CHECKSUMCONDITION = 11;
+    private static final int ONE = 1;
     private static Map<String, Integer> number;
+
     static {
         number = new HashMap<>();
         number.put("   "
@@ -81,8 +83,27 @@ final class BankOCR {
          String[] num = new StringBuilder(number).reverse().toString().split("");
          int checkSum = 0;
          for (int i = 0; i < number.length(); i++) {
-            checkSum += (i + 1) * (Integer.parseInt(num[i]));
+            checkSum += (i + ONE) * (Integer.parseInt(num[i]));
          }
         return checkSum % CHECKSUMCONDITION == ZEROCONDITION;
     }
+
+    /**
+     *
+     * @param entry String entry.
+     * @return The comparation.
+     */
+     static String errorAccount(String entry) {
+         String[] num = entry.split("");
+         for (int i = 0; i < entry.length() - ONE; i++) {
+             if (num[i].equals("?")) {
+                 return String.join("", entry + " ILL");
+             }
+
+         }
+         if (!validationCheckSum(entry)) {
+             return String.join("", entry + " ERR");
+         }
+         return entry;
+     }
 }
