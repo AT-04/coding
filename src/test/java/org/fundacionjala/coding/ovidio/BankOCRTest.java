@@ -1,6 +1,9 @@
 package org.fundacionjala.coding.ovidio;
+
 import org.junit.Test;
+
 import static org.fundacionjala.coding.ovidio.BankOCR.convertEntryToNumber;
+import static org.fundacionjala.coding.ovidio.BankOCR.getNumberValue;
 import static org.fundacionjala.coding.ovidio.BankOCR.lineOutPut;
 import static org.junit.Assert.assertEquals;
 
@@ -10,6 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class BankOCRTest {
 
     //http://codingdojo.org/kata/BankOCR/
+
     /**
      *
      */
@@ -171,12 +175,119 @@ public class BankOCRTest {
      */
     @Test
     public void testBankOCRForInvalidNumberCount() {
-        String entry =  " _  _        _        _  _ "
+        String entry = " _  _        _        _  _ "
                 + "|_||_   |  || | _| _| _||_ "
                 + "|_||_|  |  ||_|  |  | _||_|";
 
         assertEquals("86110??36 ILL", lineOutPut(convertEntryToNumber(entry)));
 
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void isValueEqualOne() {
+        String entryNumber = "   "
+                + "  |"
+                + "  |";
+        String expectedResult = "1";
+        assertEquals(expectedResult, getNumberValue(entryNumber));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void isValueEqualTwo() {
+        String entryNumber = " _ "
+                + " _|"
+                + "|_ ";
+        String expectedResult = "2";
+        assertEquals(expectedResult, getNumberValue(entryNumber));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void isValueEqualTree() {
+        String entryNumber = " _ "
+                + " _|"
+                + " _|";
+        String expectedResult = "3";
+        assertEquals(expectedResult, getNumberValue(entryNumber));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void isValueEqualFour() {
+        String entryNumber = "   "
+                + "|_|"
+                + "  |";
+        String expectedResult = "4";
+        assertEquals(expectedResult, getNumberValue(entryNumber));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void isValueEqualFive() {
+        String entryNumber = " _ "
+                + "|_ "
+                + " _|";
+        String expectedResult = "5";
+        assertEquals(expectedResult, getNumberValue(entryNumber));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void isValueEqualSix() {
+        String entryNumber = " _ "
+                + "|_ "
+                + "|_|";
+        String expectedResult = "6";
+        assertEquals(expectedResult, getNumberValue(entryNumber));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void isValueEqualSeven() {
+        String entryNumber = " _   |  |";
+        String expectedResult = "7";
+        assertEquals(expectedResult, getNumberValue(entryNumber));
+    }
+
+
+    /**
+     *
+     */
+    @Test
+    public void isValueEqualEight() {
+        String entryNumber = " _ "
+                + "|_|"
+                + "|_|";
+        String expectedResult = "8";
+        assertEquals(expectedResult, getNumberValue(entryNumber));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void isValueEqualNine() {
+        String entryNumber = " _ "
+                + "|_|"
+                + " _|";
+        String expectedResult = "9";
+        assertEquals(expectedResult, getNumberValue(entryNumber));
     }
 }
 

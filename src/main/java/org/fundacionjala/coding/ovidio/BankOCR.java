@@ -42,9 +42,17 @@ public final class BankOCR {
         for (int i = 0; i < MAX_LENGTH; i = i + THREE) {
             int j = i + THREE;
             newString = String.format("%s%s%s", row[0].substring(i, j), row[1].substring(i, j), row[2].substring(i, j));
-            stringBuilder.append(NUMBERS.get(newString) == null ? "?" : NUMBERS.get(newString));
+            stringBuilder.append(getNumberValue(newString));
         }
         return stringBuilder.toString();
+    }
+
+    /**
+     * @param digit is Value.
+     * @return number.
+     */
+    public static String getNumberValue(String digit) {
+        return NUMBERS.get(digit) == null ? "?" : NUMBERS.get(digit);
     }
 
     /**
