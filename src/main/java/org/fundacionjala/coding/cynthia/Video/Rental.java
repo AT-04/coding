@@ -38,20 +38,7 @@ public class Rental {
      * @return Cost of the days rented by all movie.
      */
     public double costDaysRented() {
-        double thisAmount = 0;
-        switch (this.getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                thisAmount = this.getDaysRented() > 2 ? ((this.getDaysRented() - 2) * 1.5) + 2 : 2;
-                break;
-            case Movie.NEW_RELEASE:
-                thisAmount = this.getDaysRented() * 3;
-                break;
-            case Movie.CHILDRENS:
-                thisAmount = this.getDaysRented() > 2 ? ((this.getDaysRented() - 3) * 1.5) + 1.5 : 1.5;
-                break;
-                default: thisAmount = 0;
-        }
-        return thisAmount;
+        return movie.costDaysRented(this);
     }
 
     /**

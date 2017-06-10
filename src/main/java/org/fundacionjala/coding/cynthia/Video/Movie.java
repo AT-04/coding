@@ -3,7 +3,7 @@ package org.fundacionjala.coding.cynthia.Video;
 /**
  * movie class.
  */
-public class Movie {
+abstract class Movie {
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
@@ -15,7 +15,7 @@ public class Movie {
      * @param title movie.
      * @param priceCode movie.
      */
-    public Movie(String title, int priceCode) {
+    Movie(String title, int priceCode) {
         titleMovie = title;
         priceCodeMovie = priceCode;
     }
@@ -40,4 +40,11 @@ public class Movie {
     public String getTitle() {
         return titleMovie;
     }
+
+    /**
+     *
+     * @param rental to get the cost of days rented by movie.
+     * @return cost days by movies rented.
+     */
+    public abstract  double costDaysRented(Rental rental);
 }

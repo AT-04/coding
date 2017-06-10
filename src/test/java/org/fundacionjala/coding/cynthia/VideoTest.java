@@ -1,7 +1,9 @@
 package org.fundacionjala.coding.cynthia;
 
 import org.fundacionjala.coding.cynthia.Video.Customer;
-import org.fundacionjala.coding.cynthia.Video.Movie;
+import org.fundacionjala.coding.cynthia.Video.Regular;
+import org.fundacionjala.coding.cynthia.Video.Release;
+import org.fundacionjala.coding.cynthia.Video.Children;
 import org.fundacionjala.coding.cynthia.Video.Rental;
 import org.junit.Test;
 
@@ -18,8 +20,8 @@ public class VideoTest {
     @Test
     public void testVideoOnCustomer() {
         Customer customer = new Customer("Test");
-        customer.addRental(new Rental(new Movie("The Revenant", 1), 2));
-        customer.addRental(new Rental(new Movie("Terminator", 0), 2));
+        customer.addRental(new Rental(new Release("The Revenant", 1), 2));
+        customer.addRental(new Rental(new Regular("Terminator", 0), 2));
         assertEquals("Rental Record for Test\n"
                 + "\tThe Revenant\t6.0\n"
                 + "\tTerminator\t2.0\n"
@@ -33,7 +35,7 @@ public class VideoTest {
     @Test
     public void testVideoOneVideoRented() {
         Customer customer = new Customer("Juan");
-        customer.addRental(new Rental(new Movie("The Revenant", 1), 4));
+        customer.addRental(new Rental(new Release("The Revenant", 1), 4));
         assertEquals("Rental Record for Juan\n"
                 + "\tThe Revenant\t12.0\n"
                 + "Amount owed is 12.0\n"
@@ -46,7 +48,7 @@ public class VideoTest {
     @Test
     public void testVideoWithoutBonus() {
         Customer customer = new Customer("Pedro");
-        customer.addRental(new Rental(new Movie("The Revenant", 1), 1));
+        customer.addRental(new Rental(new Release("The Revenant", 1), 1));
         assertEquals("Rental Record for Pedro\n"
                 + "\tThe Revenant\t3.0\n"
                 + "Amount owed is 3.0\n"
@@ -59,11 +61,11 @@ public class VideoTest {
     @Test
     public void testVideoSeveralMovies() {
         Customer customer = new Customer("Oscar");
-        customer.addRental(new Rental(new Movie("The Revenant", 0), 1));
-        customer.addRental(new Rental(new Movie("Cars", 1), 2));
-        customer.addRental(new Rental(new Movie("king kong", 2), 5));
-        customer.addRental(new Rental(new Movie("Titanic", 0), 3));
-        customer.addRental(new Rental(new Movie("Galaxy", 2), 4));
+        customer.addRental(new Rental(new Regular("The Revenant", 0), 1));
+        customer.addRental(new Rental(new Release("Cars", 1), 2));
+        customer.addRental(new Rental(new Children("king kong", 2), 5));
+        customer.addRental(new Rental(new Regular("Titanic", 0), 3));
+        customer.addRental(new Rental(new Children("Galaxy", 2), 4));
         assertEquals("Rental Record for Oscar\n"
                 + "\tThe Revenant\t2.0\n"
                 + "\tCars\t6.0\n"
@@ -81,11 +83,11 @@ public class VideoTest {
     public void testVideoTwoCustomers() {
         Customer marcan = new Customer("marcan");
         Customer agustin = new Customer("Agustin");
-        marcan.addRental(new Rental(new Movie("The Revenant", 0), 1));
-        marcan.addRental(new Rental(new Movie("Cars", 1), 2));
-        marcan.addRental(new Rental(new Movie("king kong", 2), 5));
-        agustin.addRental(new Rental(new Movie("Titanic", 0), 3));
-        agustin.addRental(new Rental(new Movie("Galaxy", 2), 4));
+        marcan.addRental(new Rental(new Regular("The Revenant", 0), 1));
+        marcan.addRental(new Rental(new Release("Cars", 1), 2));
+        marcan.addRental(new Rental(new Children("king kong", 2), 5));
+        agustin.addRental(new Rental(new Regular("Titanic", 0), 3));
+        agustin.addRental(new Rental(new Children("Galaxy", 2), 4));
         assertEquals("Rental Record for marcan\n"
                 + "\tThe Revenant\t2.0\n"
                 + "\tCars\t6.0\n"

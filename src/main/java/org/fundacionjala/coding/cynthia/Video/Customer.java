@@ -1,14 +1,16 @@
 package org.fundacionjala.coding.cynthia.Video;
 
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * costumer class.
  */
 public class Customer {
     private String customerName;
-    private Vector movieRentals = new Vector();
+    private List<Rental> movieRentals;
+    private double totalAmount = 0;
+    private int frequentRenterPoints;
 
     /**
      * constumer constructor.
@@ -17,6 +19,7 @@ public class Customer {
      */
     public Customer(String name) {
         customerName = name;
+        movieRentals = new ArrayList<>();
     }
 
     /**
@@ -25,7 +28,7 @@ public class Customer {
      * @param arg rental that will added for the customer.
      */
     public void addRental(Rental arg) {
-        movieRentals.addElement(arg);
+        movieRentals.add(arg);
     }
 
     /**
@@ -40,11 +43,9 @@ public class Customer {
      */
     public String moviesRented() {
         StringBuffer result = new StringBuffer();
-        Enumeration rentals = movieRentals.elements();
-        while (rentals.hasMoreElements()) {
-            Rental each = (Rental) rentals.nextElement();
-            result.append("\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.costDaysRented()) + "\n");
-        }
+        movieRentals.forEach(rental -> {
+            result.append("\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.costDaysRented()) + "\n");
+        });
         return result.toString();
     }
 
@@ -53,13 +54,9 @@ public class Customer {
      */
     public String totalCostRented() {
         StringBuffer result = new StringBuffer();
-        double totalAmount = 0;
-        Enumeration rentals = movieRentals.elements();
-        while (rentals.hasMoreElements()) {
-            Rental each = (Rental) rentals.nextElement();
-            double thisAmount = each.costDaysRented();
-            totalAmount += thisAmount;
-        }
+        movieRentals.forEach(rental -> {
+            totalAmount += rental.costDaysRented();
+        });
         result.append("Amount owed is " + String.valueOf(totalAmount) + "\n");
         return result.toString();
     }
@@ -69,12 +66,9 @@ public class Customer {
      */
     public String totalBonusFrequencyRented() {
         StringBuffer result = new StringBuffer();
-        int frequentRenterPoints = 0;
-        Enumeration rentals = movieRentals.elements();
-        while (rentals.hasMoreElements()) {
-            Rental each = (Rental) rentals.nextElement();
-            frequentRenterPoints += 1 + each.bonusTwoDaysNewReleaseRental();
-        }
+        movieRentals.forEach(rental -> {
+            frequentRenterPoints += 1 + rental.bonusTwoDaysNewReleaseRental();
+        });
         result.append("You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points");
         return result.toString();
     }
