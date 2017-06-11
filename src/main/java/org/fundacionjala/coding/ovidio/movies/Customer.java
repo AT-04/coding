@@ -44,24 +44,15 @@ public class Customer {
         result.append(getName());
         result.append("\n");
         while (rentals.hasMoreElements()) {
-           // double thisAmount = 0;
+            // double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
-            //determine amounts for each line
-            //thisAmount = each.getCharge();
-            // add frequent renter points
-            // add bonus for a two day new release rental
             frequentRenterPoints += each.getFrequentRenterPoints();
-
-            // frequentRenterPoints += getFrequentRenterPoints(each);
-
-
             //show figures for this rental
             result.append("\t");
             result.append(each.getMovie().getTitle());
             result.append("\t");
             result.append(each.getCharge());
             result.append("\n");
-           // String.valueOf(thisAmount);
             totalAmount += each.getCharge();
         }
         //add footer lines
@@ -73,8 +64,6 @@ public class Customer {
         result.append(" frequent renter points");
         return result.toString();
     }
-
-     
 
 
 }
