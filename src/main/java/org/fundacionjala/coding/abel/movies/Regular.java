@@ -33,6 +33,7 @@ class Regular extends Movie {
 
     /**
      * This method calculates the frequent renter points for Regular.
+     * @param daysRented Number of days rented.
      * @return Frequent Renter Points.
      */
     @Override

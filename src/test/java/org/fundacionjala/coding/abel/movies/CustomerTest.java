@@ -41,8 +41,6 @@ public class CustomerTest {
         customer.addRental(new Rental(new NewRelease("The Revenant"), 2));
         customer.addRental(new Rental(new Regular("Terminator"), 2));
 
-        customer.calculateFrequentRenterPoints();
-
         final int expectedResult = 3;
         assertEquals(expectedResult, customer.calculateFrequentRenterPoints());
     }
@@ -54,8 +52,6 @@ public class CustomerTest {
     public void canGetTotalAmount() {
         customer.addRental(new Rental(new NewRelease("The Revenant"), 2));
         customer.addRental(new Rental(new Regular("Terminator"), 2));
-
-        customer.calculateTotalAmount();
 
         final double expectedResult = 8;
         assertEquals(expectedResult, customer.calculateTotalAmount(), DELTA);

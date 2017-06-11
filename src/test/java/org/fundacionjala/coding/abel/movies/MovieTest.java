@@ -10,6 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class MovieTest {
 
     private static final int DAYS_RENTED = 3;
+    private static final double DELTA = 0.0;
 
     /**
      *
@@ -19,7 +20,7 @@ public class MovieTest {
         Movie movie = new Regular("The Revenant");
 
         final double expectedResult = 4.00;
-        assertEquals(expectedResult, movie.calculateAmount(DAYS_RENTED), 0.0);
+        assertEquals(expectedResult, movie.calculateAmount(DAYS_RENTED), DELTA);
     }
 
     /**
@@ -30,7 +31,7 @@ public class MovieTest {
         Movie movie = new Children("MegaMind");
 
         final double expectedResult = 1.50;
-        assertEquals(expectedResult, movie.calculateAmount(DAYS_RENTED), 0.0);
+        assertEquals(expectedResult, movie.calculateAmount(DAYS_RENTED), DELTA);
     }
 
     /**
@@ -41,7 +42,7 @@ public class MovieTest {
         Movie movie = new NewRelease("Alien: Covenant");
 
         final double expectedResult = 9.00;
-        assertEquals(expectedResult, movie.calculateAmount(DAYS_RENTED), 0.0);
+        assertEquals(expectedResult, movie.calculateAmount(DAYS_RENTED), DELTA);
     }
 
     /**
