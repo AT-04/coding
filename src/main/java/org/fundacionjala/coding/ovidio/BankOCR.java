@@ -74,7 +74,7 @@ public final class BankOCR {
      * @param accountNumber parameter.
      * @return boolean.
      */
-    private static boolean validateAccountNumber(String accountNumber) {
+    public static boolean validateAccountNumber(String accountNumber) {
         int checksum = 0;
         for (int i = 1; i <= accountNumber.length(); i++) {
             checksum += Integer.parseInt(String.valueOf(accountNumber.charAt(accountNumber.length() - i))) * i;

@@ -1,11 +1,12 @@
 package org.fundacionjala.coding.ovidio;
-
 import org.junit.Test;
-
 import static org.fundacionjala.coding.ovidio.BankOCR.convertEntryToNumber;
+import static org.fundacionjala.coding.ovidio.BankOCR.validateAccountNumber;
 import static org.fundacionjala.coding.ovidio.BankOCR.getNumberValue;
 import static org.fundacionjala.coding.ovidio.BankOCR.lineOutPut;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 /**
  * Created by OvidioMiranda on 5/16/2017.
@@ -179,6 +180,7 @@ public class BankOCRTest {
                 + "|_||_   |  || | _| _| _||_ "
                 + "|_||_|  |  ||_|  |  | _||_|";
 
+
         assertEquals("86110??36 ILL", lineOutPut(convertEntryToNumber(entry)));
 
     }
@@ -289,5 +291,21 @@ public class BankOCRTest {
         String expectedResult = "9";
         assertEquals(expectedResult, getNumberValue(entryNumber));
     }
+    /**
+     *
+     */
+    @Test
+    public void validateTheCheckSumOfAKnowNumber() {
+        assertTrue(validateAccountNumber("345882865"));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void validateTheCheckSumOfAUnKnowNumber() {
+        assertFalse(validateAccountNumber("345882864"));
+    }
+
 }
 
