@@ -44,21 +44,25 @@ public class Customer {
         result.append(getName());
         result.append("\n");
         while (rentals.hasMoreElements()) {
-            double thisAmount = 0;
+           // double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
             //determine amounts for each line
-            thisAmount = getThisAmount(each);
+            //thisAmount = each.getCharge();
             // add frequent renter points
             // add bonus for a two day new release rental
-            frequentRenterPoints += getFrequentRenterPoints(each);
+            frequentRenterPoints += each.getFrequentRenterPoints();
+
+            // frequentRenterPoints += getFrequentRenterPoints(each);
+
+
             //show figures for this rental
             result.append("\t");
             result.append(each.getMovie().getTitle());
             result.append("\t");
-            result.append(String.valueOf(thisAmount));
+            result.append(each.getCharge());
             result.append("\n");
            // String.valueOf(thisAmount);
-            totalAmount += thisAmount;
+            totalAmount += each.getCharge();
         }
         //add footer lines
         result.append("Amount owed is ");
@@ -70,26 +74,7 @@ public class Customer {
         return result.toString();
     }
 
-    /**
-     * @param each param.
-     * @return integer.
-     */
-    private int getFrequentRenterPoints(Rental each) {
-        if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-                &&
-                each.getDaysRented() > 1) {
-            return 2;
-        }
-        return 1;
-    }
-
-    /**
-     * @param aRental param.
-     * @return double.
-     */
-    private double getThisAmount(Rental aRental) {
-        return aRental.getTypeRental();
-    }
+     
 
 
 }

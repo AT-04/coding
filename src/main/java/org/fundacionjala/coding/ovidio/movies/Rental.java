@@ -9,7 +9,7 @@ public class Rental {
     private int daysRented;
 
     /**
-     * @param movie movie.
+     * @param movie      movie.
      * @param daysRented day rented.
      */
     public Rental(Movie movie, int daysRented) {
@@ -32,10 +32,9 @@ public class Rental {
     }
 
     /**
-     *
      * @return double.
      */
-    double getTypeRental() {
+    double getCharge() {
         final int two = 2;
         final int three = 3;
         final float onePointFive = (float) 1.5;
@@ -63,4 +62,10 @@ public class Rental {
 
     }
 
+    int getFrequentRenterPoints() {
+        if ((getMovie().getPriceCode() == Movie.NEW_RELEASE)
+                && getDaysRented() > 1) return 2;
+        else return 1;
+
+    }
 }
