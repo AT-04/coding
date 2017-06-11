@@ -1,7 +1,7 @@
 package org.fundacionjala.coding.ovidio.movies;
 
+
 /**
- *
  * The class for Movie.
  */
 public class Movie {

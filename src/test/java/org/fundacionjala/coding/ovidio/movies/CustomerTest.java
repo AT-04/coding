@@ -17,12 +17,16 @@ public class CustomerTest {
         Customer customer = new Customer("Test");
         customer.addRental(new Rental(new Movie("The Revenant", 1), 2));
         customer.addRental(new Rental(new Movie("Terminator", 0), 2));
-        String statement = "Rental Record for Test\n" +
-                "\tThe Revenant\t6.0\n" +
-                "\tTerminator\t2.0\n" +
-                "Amount owed is 8.0\n" +
-                "You earned 3 frequent renter points";
-        assertEquals(statement, customer.statement());
+        StringBuilder newStatement = new StringBuilder("Rental Record for Test\n");
+        newStatement.append("\tThe Revenant\t");
+        newStatement.append("6.0\n");
+        newStatement.append("\tTerminator\t");
+        newStatement.append("2.0\n");
+        newStatement.append("Amount owed is 8.0\n");
+        newStatement.append("You earned 3 frequent renter points");
+        assertEquals(newStatement.toString(), customer.statement());
     }
 
 }
+
+
