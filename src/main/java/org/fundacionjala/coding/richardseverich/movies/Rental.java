@@ -42,6 +42,6 @@ public class Rental {
      * @return return amount of rental.
      */
     public int getThisAmount() {
-        return getMovie().generatePrice(daysRented);
+        return movie.generatePrice(daysRented);
     }
 }

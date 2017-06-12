@@ -24,7 +24,17 @@ public class MoviesTest {
     }
 
     /**
-     * This test checks the result that returns the method, returns the expected.
+     *
+     */
+    @Test
+    public void verifyStringPrint() {
+        customer.addRental(new Rental(new MoviesNewRelease("The Revenant"), 2));
+        customer.addRental(new Rental(new MoviesRegular("Terminator"), 2));
+        System.out.print(customer.statement());
+    }
+
+    /**
+     *
      */
     @Test
     public void verifyRegularAndRelease() {
@@ -32,16 +42,16 @@ public class MoviesTest {
         customer.addRental(new Rental(new MoviesNewRelease("Pelicula Estreno"), 2));
         assertEquals(EIGHT, customer.calculateAmount());
         assertEquals(TREE, customer.calculateFrequent());
-        System.out.print(customer.statement());
+
     }
 
     /**
-     * This test checks the result that returns the statement statement method, returns the expected.
+     *
      */
     @Test
     public void verifyRegularAndChildren() {
-        customer.addRental(new Rental(new MoviesChildren("Pelicula Regular"), 2));
-        customer.addRental(new Rental(new MoviesRegular("Pelicula Children"), 2));
+        customer.addRental(new Rental(new MoviesChildren("Pelicula Children"), 2));
+        customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
         assertEquals(TREE, customer.calculateAmount());
         assertEquals(TREE, customer.calculateFrequent());
     }

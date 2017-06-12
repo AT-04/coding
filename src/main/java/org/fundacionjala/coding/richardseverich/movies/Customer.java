@@ -9,8 +9,6 @@ import java.util.List;
 public class Customer {
     private String nameCustomer;
     private List<Rental> rentalList;
-    private int totalAmount;
-    private int frequentRenterPoints;
 
     /**
      * @param name is name of costumer.
@@ -32,21 +30,21 @@ public class Customer {
      */
     public String statement() {
         StringBuilder resultBuilder = new StringBuilder();
-        resultBuilder.append(String.format("Rental Record for %s %n", nameCustomer));
+        resultBuilder.append(String.format("Rental Record for %s%n", nameCustomer));
         for (Rental itemRental : rentalList) {
-            resultBuilder.append(String.format("\t %s \t %d %n", itemRental.getMovie().getTitle(),
+            resultBuilder.append(String.format("\t%s\t%d.0%n", itemRental.getMovie().getTitle(),
                     itemRental.getThisAmount()));
         }
-        resultBuilder.append(String.format("Amount owed is %d %nYou earned %d frequent renter points",
-                totalAmount, frequentRenterPoints));
+        resultBuilder.append(String.format("Amount owed is %d.0%n You earned %d frequent renter points",
+                calculateAmount(), calculateFrequent()));
         return resultBuilder.toString();
     }
 
     /**
-     *
      * @return Amount of rented.
      */
     public int calculateAmount() {
+        int totalAmount = 0;
         for (Rental itemRental : rentalList) {
             totalAmount += itemRental.getThisAmount();
         }
@@ -54,10 +52,10 @@ public class Customer {
     }
 
     /**
-     *
      * @return Frequent of Rented.
      */
     public int calculateFrequent() {
+        int frequentRenterPoints = 0;
         for (Rental itemRental : rentalList) {
             itemRental.frequentRenterPoints();
             frequentRenterPoints += itemRental.getFrequentRenterPoints() + 1;
