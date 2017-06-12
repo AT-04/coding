@@ -55,10 +55,8 @@ public class Customer {
     private String bodyStatement() {
         StringBuilder bodyStatement = new StringBuilder();
         rentals.forEach(rental -> {
-            bodyStatement.append("\t")
-                    .append(rental.getMovie().getTitle())
-                    .append("\t")
-                    .append(rental.getMovie().calculateAmount(rental.getDaysRented())).append(System.lineSeparator());
+            bodyStatement.append(String.format("\t%s\t%.1f%s", rental.getMovie().getTitle(),
+                    rental.getMovie().calculateAmount(rental.getDaysRented()), System.lineSeparator()));
         });
         return bodyStatement.toString();
     }
