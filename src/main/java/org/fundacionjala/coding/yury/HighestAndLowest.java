@@ -10,8 +10,8 @@ import java.util.LinkedList;
 public class HighestAndLowest {
 
     /**
-     * @param string
-     * @return
+     * @param string number.
+     * @return highest and lowest.
      */
     public String highAndLow(String string) {
 
