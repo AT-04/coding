@@ -12,12 +12,12 @@ public final class MultiplesOfThreeAndFive {
 
     /**
      *
-     * @param number adasd.
+     * @param max adasd.
      * @return asdas.
      */
-    public static int solution(int number) {
+    public static int solution(int max) {
         int result = 0;
-        for (int i = 0; i < number; i++) {
+        for (int i = 0; i < max; i++) {
             if (i % 3 == 0 || i % 5 == 0) {
                 result += i;
             }
