@@ -28,9 +28,14 @@ public class MoviesTest {
      */
     @Test
     public void verifyStringPrint() {
+        String expectResult = "Rental Record for Richard Severich\n"
+                + "\tThe Revenant\t6.0\n"
+                + "\tTerminator\t2.0\n"
+                + "Amount owed is 8.0\n"
+                + "You earned 3 frequent renter points";
         customer.addRental(new Rental(new MoviesNewRelease("The Revenant"), 2));
         customer.addRental(new Rental(new MoviesRegular("Terminator"), 2));
-        System.out.print(customer.statement());
+        assertEquals(expectResult, customer.statement());
     }
 
     /**

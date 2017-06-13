@@ -20,4 +20,13 @@ public class MoviesNewRelease extends Movie {
     public int generatePrice(int daysRented) {
         return daysRented * TREE;
     }
+
+    /**
+     * @param daysRented Is the variable that keeps the days rented.
+     * @return
+     */
+    @Override
+    public int generateFrequent(int daysRented) {
+        return ONE;
+    }
 }

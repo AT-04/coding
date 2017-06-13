@@ -20,4 +20,13 @@ public class MoviesChildren extends Movie {
     public int generatePrice(int daysRented) {
         return (int) ((daysRented > TREE) ? ONE_FIVE + (daysRented - TREE) * ONE_FIVE : ONE_FIVE);
     }
+
+    /**
+     * @param daysRented Is the variable that keeps the days rented.
+     * @return
+     */
+    @Override
+    public int generateFrequent(int daysRented) {
+        return ONE;
+    }
 }

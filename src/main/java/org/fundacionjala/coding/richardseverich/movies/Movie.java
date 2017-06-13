@@ -3,9 +3,10 @@ package org.fundacionjala.coding.richardseverich.movies;
 /**
  * Created by RichardSeverich on 5/31/2017.
  */
-public class Movie {
+abstract class Movie {
 
     private String title;
+    protected static final int ONE = 1;
     protected static final int TWO = 2;
     public static final double ONE_FIVE = 1.5;
     public static final int TREE = 3;
@@ -13,7 +14,7 @@ public class Movie {
     /**
      * @param title is the title of movie.
      */
-    public Movie(String title) {
+    Movie(String title) {
         this.title = title;
     }
 
@@ -21,17 +22,15 @@ public class Movie {
      * @param daysRented Is the variable that keeps the days rented.
      * @return Returns zero.
      */
-    public int generatePrice(int daysRented) {
-        return 0;
-    }
+    public abstract int generatePrice(int daysRented);
+
 
     /**
      * @param daysRented Is the variable that keeps the days rented.
      * @return Returns zero.
      */
-    public int generateFrequent(int daysRented) {
-        return 0;
-    }
+    public abstract int generateFrequent(int daysRented);
+
 
     /**
      * @return Returns title of movie.
