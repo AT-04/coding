@@ -41,10 +41,10 @@ public class Customer {
      * @return Statement.
      */
     public String statement() {
-        String headerStatement = String.format("Rental Record for %s%s", getName(), System.lineSeparator());
+        String headerStatement = String.format("Rental Record for %s%n", getName());
         String bodyStatement = bodyStatement();
-        String footerStatement = String.format("Amount owed is %.1f%sYou earned %d frequent renter points",
-                calculateTotalAmount(), System.lineSeparator(), calculateFrequentRenterPoints());
+        String footerStatement = String.format("Amount owed is %.1f%nYou earned %d frequent renter points",
+                calculateTotalAmount(), calculateFrequentRenterPoints());
         return String.join("", headerStatement, bodyStatement.toString(), footerStatement);
     }
 
@@ -55,8 +55,8 @@ public class Customer {
     private String bodyStatement() {
         StringBuilder bodyStatement = new StringBuilder();
         rentals.forEach(rental -> {
-            bodyStatement.append(String.format("\t%s\t%.1f%s", rental.getMovie().getTitle(),
-                    rental.getMovie().calculateAmount(rental.getDaysRented()), System.lineSeparator()));
+            bodyStatement.append(String.format("\t%s\t%.1f%n", rental.getMovie().getTitle(),
+                    rental.getMovie().calculateAmount(rental.getDaysRented())));
         });
         return bodyStatement.toString();
     }

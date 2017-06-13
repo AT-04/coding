@@ -11,7 +11,9 @@ import static org.junit.Assert.assertEquals;
 public class CustomerTest {
 
     private static final int DAYS_RENTED = 3;
+
     private static final double DELTA = 0.0;
+
     private Customer customer;
 
     /**
@@ -55,21 +57,5 @@ public class CustomerTest {
 
         final double expectedResult = 8;
         assertEquals(expectedResult, customer.calculateTotalAmount(), DELTA);
-    }
-
-    /**
-     *
-     */
-    @Test
-    public void canGetAStatementForAllRentals() {
-        customer.addRental(new Rental(new NewRelease("The Revenant"), 2));
-        customer.addRental(new Rental(new Regular("Terminator"), 2));
-
-        String expectedResult = "Rental Record for Test\n"
-                + "\tThe Revenant\t6.0\n"
-                + "\tTerminator\t2.0\n"
-                + "Amount owed is 8.0\n"
-                + "You earned 3 frequent renter points";
-        assertEquals(expectedResult, customer.statement());
     }
 }
