@@ -12,17 +12,20 @@ public final class MultiplesOfThreeAndFive {
 
     /**
      *
-     * @param max adasd.
-     * @return asdas.
+     * @param max number.
+     * @return number.
      */
     public static int solution(int max) {
-        int result = 0;
-        for (int i = 0; i < max; i++) {
-            if (i % 3 == 0 || i % 5 == 0) {
-                result += i;
-            }
+        int  sum=0, i=0;
+        while(i<max)
+        {
+            sum += (i % 3 == 0 || i % 5 == 0) ? i : 0;
+            i++;
         }
-        return result;
+        return sum;
     }
+
+
+
 
 }
