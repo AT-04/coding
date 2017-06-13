@@ -16,22 +16,32 @@ public class BanckOCR {
     public static final int LINE2 = 27;
     public static final int LINE3 = 54;
     public static final int MODULE = 11;
+    private static final String ZERO = "0";
+    private static final String ONE = "1";
+    private static final String TWO = "2";
+    private static final String THREE = "3";
+    private static final String FOUR = "4";
+    private static final String FIVE = "5";
+    private static final String SIX = "6";
+    private static final String SEVEN = "7";
+    private static final String EIGHT = "8";
+    private static final String NINE = "9";
     private static Map<String, String> map = new HashMap<>();
 
     /**
      * Constructed for default.
      */
     public BanckOCR() {
-        map.put(" _ | ||_|", "0");
-        map.put("     |  |", "1");
-        map.put(" _  _||_ ", "2");
-        map.put(" _  _| _|", "3");
-        map.put("   |_|  |", "4");
-        map.put(" _ |_  _|", "5");
-        map.put(" _ |_ |_|", "6");
-        map.put(" _   |  |", "7");
-        map.put(" _ |_||_|", "8");
-        map.put(" _ |_| _|", "9");
+        map.put(" _ | ||_|", ZERO);
+        map.put("     |  |", ONE);
+        map.put(" _  _||_ ", TWO);
+        map.put(" _  _| _|", THREE);
+        map.put("   |_|  |", FOUR);
+        map.put(" _ |_  _|", FIVE);
+        map.put(" _ |_ |_|", SIX);
+        map.put(" _   |  |", SEVEN);
+        map.put(" _ |_||_|", EIGHT);
+        map.put(" _ |_| _|", NINE);
     }
 
     /**
