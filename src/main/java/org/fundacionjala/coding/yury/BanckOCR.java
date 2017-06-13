@@ -16,6 +16,16 @@ public class BanckOCR {
     public static final int LINE2 = 27;
     public static final int LINE3 = 54;
     public static final int MODULE = 11;
+    private static final String ST_ZERO = " _ | ||_|";
+    private static final String ST_ONE = "     |  |";
+    private static final String ST_TWO = " _  _||_ ";
+    private static final String ST_THREE = " _  _| _|";
+    private static final String ST_FOUR = "   |_|  |";
+    private static final String ST_FIVE = " _ |_  _|";
+    private static final String ST_SIX = " _ |_ |_|";
+    private static final String ST_SEVEN = " _   |  |";
+    private static final String ST_EIGHT = " _ |_||_|";
+    private static final String ST_NINE = " _ |_| _|";
     private static final String ZERO = "0";
     private static final String ONE = "1";
     private static final String TWO = "2";
@@ -32,16 +42,16 @@ public class BanckOCR {
      * Constructed for default.
      */
     public BanckOCR() {
-        map.put(" _ | ||_|", ZERO);
-        map.put("     |  |", ONE);
-        map.put(" _  _||_ ", TWO);
-        map.put(" _  _| _|", THREE);
-        map.put("   |_|  |", FOUR);
-        map.put(" _ |_  _|", FIVE);
-        map.put(" _ |_ |_|", SIX);
-        map.put(" _   |  |", SEVEN);
-        map.put(" _ |_||_|", EIGHT);
-        map.put(" _ |_| _|", NINE);
+        map.put(ST_ZERO, ZERO);
+        map.put(ST_ONE, ONE);
+        map.put(ST_TWO, TWO);
+        map.put(ST_THREE, THREE);
+        map.put(ST_FOUR, FOUR);
+        map.put(ST_FIVE, FIVE);
+        map.put(ST_SIX, SIX);
+        map.put(ST_SEVEN, SEVEN);
+        map.put(ST_EIGHT, EIGHT);
+        map.put(ST_NINE, NINE);
     }
 
     /**
