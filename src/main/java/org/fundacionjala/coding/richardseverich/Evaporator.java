@@ -5,5 +5,22 @@ package org.fundacionjala.coding.richardseverich;
  */
 public class Evaporator {
 
-    int Content
+
+    private static final int HUNDRED = 100;
+
+    /**
+     * @param content content.
+     * @param pper    days.
+     * @param umbral  limit.
+     * @return days Life.
+     */
+    public int lifeEvaporator(double content, int pper, int umbral) {
+        double limit = (content * umbral) / HUNDRED;
+        int days = 0;
+        while (content > limit) {
+            content += -(content * pper) / HUNDRED;
+            days++;
+        }
+        return days;
+    }
 }
