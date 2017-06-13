@@ -21,11 +21,12 @@ final class HighAndLow {
         int min = Integer.parseInt(numbers[0]);
         int max = min;
         for (String number : numbers) {
-            if (Integer.parseInt(number) > max) {
-                max = Integer.parseInt(number);
+            int num = Integer.parseInt(number);
+            if (num > max) {
+                max = num;
             }
-            if (Integer.parseInt(number) < min) {
-                min = Integer.parseInt(number);
+            if (num < min) {
+                min = num;
             }
         }
         return String.format("%d %d", max, min);
