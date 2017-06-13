@@ -7,13 +7,19 @@ import java.util.LinkedList;
 /**
  * Created by YuryOrtuno on 6/12/2017.
  */
-public class HighestAndLowest {
+public final class HighestAndLowest {
+
+    /**
+     * Constructor.
+     */
+    private HighestAndLowest() {
+    }
 
     /**
      * @param string number.
      * @return highest and lowest.
      */
-    public String highAndLow(String string) {
+    public static String highAndLow(String string) {
 
         LinkedList<Integer> list = new LinkedList<>();
         String[] listNumber = string.split(" ");
