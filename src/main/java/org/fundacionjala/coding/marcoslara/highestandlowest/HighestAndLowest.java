@@ -24,6 +24,6 @@ public final class HighestAndLowest {
      */
     public static String highAndLow(String input) {
         List<Integer> numbers = Arrays.stream(input.split(" ")).map(Integer::valueOf).collect(Collectors.toList());
-        return String.join(" ", Collections.max(numbers).toString(), Collections.min(numbers).toString());
+        return String.format("%d %d", Collections.max(numbers), Collections.min(numbers));
     }
 }
