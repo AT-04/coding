@@ -1,18 +1,22 @@
 package org.fundacionjala.coding.MultipliesJoseTorrez;
 
-import java.util.stream.IntStream;
 
 /**
  * Created by JoseTorrez on 6/12/2017.
  */
-public class Multiplies {
+public final class Multiplies {
 
     /**
      * Constructor.
      */
-    public Multiplies() {
+    private Multiplies() {
     }
 
+    /**
+     * Method for obtain the addition of multiplies.
+     * @param number integer.
+     * @return Integer.
+     */
     public static int solutionMultiplies(int number) {
         int sum = 0;
         int i = 0;

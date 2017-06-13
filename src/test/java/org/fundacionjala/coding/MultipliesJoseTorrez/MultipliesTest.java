@@ -10,7 +10,7 @@ import static junit.framework.TestCase.assertEquals;
 public class MultipliesTest {
 
     /**
-     *
+     * Main Test.
      */
     @Test
     public void test() {
