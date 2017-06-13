@@ -20,7 +20,7 @@ public final class MultiplesOfThreeAndFive {
      */
     public static int solution(int number) {
         int sum = 0;
-        for (int i = 3; i <= (number - number % 3); i++) {
+        for (int i = 3; i < number; i++) {
             sum += (i % 3 == 0 || i % 5 == 0) ? i : 0;
         }
         return sum;
