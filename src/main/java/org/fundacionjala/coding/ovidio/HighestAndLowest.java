@@ -18,14 +18,8 @@ public final class HighestAndLowest {
      * @return new String.
      */
     public static String highAndLow(String sentence) {
-        String[] numbersArray = sentence.split(" ");
-        int[] arrayListInt = new int[numbersArray.length];
-        int i = 0;
-        for (String number : numbersArray) {
-            arrayListInt[i] = Integer.parseInt(number);
-            i++;
-        }
-        Arrays.sort(arrayListInt);
+         int[] arrayListInt = Arrays.asList(sentence.split(" ")).stream().mapToInt(Integer::parseInt).toArray();
+         Arrays.sort(arrayListInt);
         return String.format("%d %d", arrayListInt[arrayListInt.length - 1], arrayListInt[0]);
     }
 
