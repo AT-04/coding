@@ -24,13 +24,11 @@ abstract class Movie {
      */
     public abstract int generatePrice(int daysRented);
 
-
     /**
      * @param daysRented Is the variable that keeps the days rented.
      * @return Returns zero.
      */
     public abstract int generateFrequent(int daysRented);
-
 
     /**
      * @return Returns title of movie.
