@@ -17,8 +17,8 @@ public final class HighestAndLowest {
      */
     public static String calculated(String cadena) {
         String[] setNumbers = cadena.split(" ");
-        int mayor = -100;
-        int menor = 100;
+        int mayor = Integer.MIN_VALUE;
+        int menor = Integer.MAX_VALUE;
         for (String word : setNumbers) {
             int numero = Integer.parseInt(word);
             if (numero >= mayor) {
