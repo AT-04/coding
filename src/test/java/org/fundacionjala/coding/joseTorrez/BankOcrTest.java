@@ -3,8 +3,11 @@ package org.fundacionjala.coding.joseTorrez;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertTrue;
 import static org.fundacionjala.coding.joseTorrez.BankOcr.convertNumber;
+import static  org.fundacionjala.coding.joseTorrez.BankOcr.validNumber;
 import static org.fundacionjala.coding.joseTorrez.BankOcr.output;
+import static org.junit.Assert.assertFalse;
 
 /**
  * Created by JoseTorrez on 5/16/2017.
@@ -178,5 +181,22 @@ public class BankOcrTest {
 
         assertEquals("86110??36 ILL", output(convertNumber(entryLine)));
     }
+
+    /**
+     *
+     */
+    @Test
+    public void validateTheCheckSumOfAKnowNumber() {
+        assertTrue(validNumber("345882865"));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void validateTheCheckSumOfAUnKnowNumber() {
+        assertFalse(validNumber("345882864"));
+    }
+
 
 }

@@ -56,10 +56,10 @@ public final class BankOcr {
         String thirdLine = stringNumber.substring(SECOND_LINE);
         int positionFrom = 0;
         int positionTo = LONG_LINE;
-        StringBuffer number = new StringBuffer();
+        StringBuilder number = new StringBuilder();
         for (int i = 1; i <= NUMBER_DIGITS; i++) {
-            String digit = firstLine.substring(positionFrom, positionTo)
-                    + secondLine.substring(positionFrom, positionTo) + thirdLine.substring(positionFrom, positionTo);
+            String digit = String.join("", firstLine.substring(positionFrom, positionTo),
+                    secondLine.substring(positionFrom, positionTo), thirdLine.substring(positionFrom, positionTo));
             positionFrom = positionTo;
             positionTo = positionTo + LONG_LINE;
             number = number.append(getNumberValue(digit));
@@ -72,7 +72,7 @@ public final class BankOcr {
      * @param digit string.
      * @return String.
      */
-    private static String getNumberValue(String digit) {
+    public static String getNumberValue(String digit) {
         Integer number = STRING_NUMBERS.get(digit);
         return number == null ? "?" : number.toString();
     }
@@ -82,7 +82,7 @@ public final class BankOcr {
      * @return String.
      */
 
-    private static boolean validNumber(String number) {
+    public static boolean validNumber(String number) {
         int checksum = 0;
         for (int i = 1; i <= number.length(); i++) {
             checksum += Integer.parseInt(String.valueOf(number.charAt(number.length() - i))) * i;
