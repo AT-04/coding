@@ -14,7 +14,6 @@ public class MoviesNewReleaseTest {
     private static final int ZERO = 0;
     private static final int DAYS_RENTAL = 2;
 
-
     /**
      *
      */
