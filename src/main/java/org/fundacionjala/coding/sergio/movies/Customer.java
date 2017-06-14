@@ -1,44 +1,43 @@
 package org.fundacionjala.coding.sergio.movies;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.Vector;
+import java.util.List;
 
 class Customer {
-    private String _name;
-    private Vector _rentals = new Vector();
+    private String name;
+    private List rentals = new ArrayList();
 
     public Customer(String name) {
-        _name = name;
+        this.name = name;
     }
 
     public Customer() {
-
+        this("");
     }
 
-    public void addRental(Rental arg) {
-        _rentals.addElement(arg);
+    public void addRental(Rental rental) {
+        rentals.add(rental);
     }
 
     public String getName() {
-        return _name;
+        return name;
     }
 
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        Enumeration rentals = _rentals.elements();
+        Enumeration rentals = this.rentals.elements();
         StringBuilder result = new StringBuilder("Rental Record for " + getName() + "\n");
         while (rentals.hasMoreElements()) {
             double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
             //determine amounts for each line
             switch (each.getMovie().getPriceCode()) {
-
-
                 case Movie.REGULAR:
 
-                     thisAmount += 2;
-                     if (each.getDaysRented() > 2)
+                    thisAmount += 2;
+                    if (each.getDaysRented() > 2)
                         thisAmount += (each.getDaysRented() - 2) * 1.5;
                     break;
 
