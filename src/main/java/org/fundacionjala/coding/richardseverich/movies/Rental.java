@@ -34,7 +34,7 @@ public class Rental {
     /**
      * @return return amount of rental.
      */
-    public int getThisAmount() {
+    public double getThisAmount() {
         return movie.generatePrice(daysRented);
     }
 }

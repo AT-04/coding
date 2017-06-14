@@ -17,7 +17,7 @@ public class MoviesNewRelease extends Movie {
      * @return It is the amount to pay for the movie rented.
      */
     @Override
-    public int generatePrice(int daysRented) {
+    public double generatePrice(int daysRented) {
         return daysRented * TREE;
     }
 

@@ -22,7 +22,7 @@ abstract class Movie {
      * @param daysRented Is the variable that keeps the days rented.
      * @return Returns zero.
      */
-    public abstract int generatePrice(int daysRented);
+    public abstract double generatePrice(int daysRented);
 
     /**
      * @param daysRented Is the variable that keeps the days rented.

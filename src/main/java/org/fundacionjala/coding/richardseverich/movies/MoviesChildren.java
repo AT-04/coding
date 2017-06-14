@@ -17,8 +17,8 @@ public class MoviesChildren extends Movie {
      * @return It is the amount to pay for the movie rented.
      */
     @Override
-    public int generatePrice(int daysRented) {
-        return (int) ((daysRented > TREE) ? ONE_FIVE + (daysRented - TREE) * ONE_FIVE : ONE_FIVE);
+    public double generatePrice(int daysRented) {
+        return ((daysRented > TREE) ? ONE_FIVE + (daysRented - TREE) * ONE_FIVE : ONE_FIVE);
     }
 
     /**

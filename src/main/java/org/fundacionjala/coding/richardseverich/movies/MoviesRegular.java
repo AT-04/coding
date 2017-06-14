@@ -17,8 +17,8 @@ public class MoviesRegular extends Movie {
      * @return It is the amount to pay for the movie rented.
      */
     @Override
-    public int generatePrice(int daysRented) {
-        return (int) ((daysRented > TWO) ? TWO + (daysRented - TWO) * ONE_FIVE : TWO);
+    public double generatePrice(int daysRented) {
+        return ((daysRented > TWO) ? TWO + (daysRented - TWO) * ONE_FIVE : TWO);
     }
 
     /**
@@ -27,7 +27,6 @@ public class MoviesRegular extends Movie {
      */
     @Override
     public int generateFrequent(int daysRented) {
-        //return (daysRented > 1) ? 1 : 0;
         return (daysRented > 1) ? TWO : ONE;
     }
 }

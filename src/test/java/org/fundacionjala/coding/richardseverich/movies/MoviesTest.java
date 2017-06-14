@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class MoviesTest {
 
     private static final int EIGHT = 8;
+    private static final double TREE_FIVE = 3.5;
     private static final int TREE = 3;
     private Customer customer;
 
@@ -45,7 +46,7 @@ public class MoviesTest {
     public void verifyRegularAndRelease() {
         customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
         customer.addRental(new Rental(new MoviesNewRelease("Pelicula Estreno"), 2));
-        assertEquals(EIGHT, customer.calculateAmount());
+        assertEquals(EIGHT, customer.calculateAmount(), 0);
         assertEquals(TREE, customer.calculateFrequent());
 
     }
@@ -57,7 +58,7 @@ public class MoviesTest {
     public void verifyRegularAndChildren() {
         customer.addRental(new Rental(new MoviesChildren("Pelicula Children"), 2));
         customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
-        assertEquals(TREE, customer.calculateAmount());
+        assertEquals(TREE_FIVE, customer.calculateAmount(), 0);
         assertEquals(TREE, customer.calculateFrequent());
     }
 }
