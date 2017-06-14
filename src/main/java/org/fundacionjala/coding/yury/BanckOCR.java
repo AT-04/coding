@@ -36,23 +36,21 @@ public class BanckOCR {
     private static final String SEVEN = "7";
     private static final String EIGHT = "8";
     private static final String NINE = "9";
-    private static Map<String, String> map = new HashMap<>();
+    private static final Map<String, String> MAP = new HashMap<String, String>() {
+        {
+            put(ST_ZERO, ZERO);
+            put(ST_ONE, ONE);
+            put(ST_TWO, TWO);
+            put(ST_THREE, THREE);
+            put(ST_FOUR, FOUR);
+            put(ST_FIVE, FIVE);
+            put(ST_SIX, SIX);
+            put(ST_SEVEN, SEVEN);
+            put(ST_EIGHT, EIGHT);
+            put(ST_NINE, NINE);
+        }
+    };
 
-    /**
-     * Constructed for default.
-     */
-    public BanckOCR() {
-        map.put(ST_ZERO, ZERO);
-        map.put(ST_ONE, ONE);
-        map.put(ST_TWO, TWO);
-        map.put(ST_THREE, THREE);
-        map.put(ST_FOUR, FOUR);
-        map.put(ST_FIVE, FIVE);
-        map.put(ST_SIX, SIX);
-        map.put(ST_SEVEN, SEVEN);
-        map.put(ST_EIGHT, EIGHT);
-        map.put(ST_NINE, NINE);
-    }
 
     /**
      * @param input String de number
@@ -66,7 +64,7 @@ public class BanckOCR {
             stringBuilderAux.append(input.substring(i + LINE2, i + LINE2 + SPACE));
             stringBuilderAux.append(input.substring(i + LINE3, i + LINE3 + SPACE));
             String value;
-            value = map.get(stringBuilderAux.toString()) == null ? "?" : map.get(stringBuilderAux.toString());
+            value = MAP.get(stringBuilderAux.toString()) == null ? "?" : MAP.get(stringBuilderAux.toString());
             stringBuilder.append(value);
         }
         return stringBuilder.toString();
