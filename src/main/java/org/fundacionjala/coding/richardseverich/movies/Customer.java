@@ -32,11 +32,11 @@ public class Customer {
         StringBuilder resultBuilder = new StringBuilder();
         resultBuilder.append(String.format("Rental Record for %s%n", nameCustomer));
         for (Rental itemRental : rentalList) {
-            resultBuilder.append(String.format("\t%s\t%.1f%s", itemRental.getMovie().getTitle(),
-                    itemRental.getThisAmount(), System.lineSeparator()));
+            resultBuilder.append(String.format("\t%s\t%.1f%n", itemRental.getMovie().getTitle(),
+                    itemRental.getThisAmount()));
         }
-        resultBuilder.append(String.format("Amount owed is %.1f%sYou earned %d frequent renter points",
-                calculateAmount(), System.lineSeparator(), calculateFrequent()));
+        resultBuilder.append(String.format("Amount owed is %.1f%nYou earned %d frequent renter points",
+                calculateAmount(), calculateFrequent()));
         return resultBuilder.toString();
     }
 
