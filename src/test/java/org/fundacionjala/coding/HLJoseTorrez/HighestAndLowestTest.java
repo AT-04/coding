@@ -9,13 +9,13 @@ import static org.junit.Assert.assertEquals;
  * Created by JoseTorrez on 6/12/2017.
  */
 public class HighestAndLowestTest {
-
     /**
      *
      */
     @Test
     public void someTest() {
-        assertEquals(HighestAndLowest.getHightAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"), "542 -214");
+        assertEquals("542 -214",
+                HighestAndLowest.getHightAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"));
     }
 
     /**
@@ -23,15 +23,15 @@ public class HighestAndLowestTest {
      */
     @Test
     public void plusMinusTest() {
-        assertEquals(HighestAndLowest.getHightAndLow("1 -1"), "1 -1");
+        assertEquals("1 -1", HighestAndLowest.getHightAndLow("1 -1"));
     }
 
     /**
      *
-      */
+     */
     @Test
     public void plusPlusTest() {
-        assertEquals(HighestAndLowest.getHightAndLow("1 1"), "1 1");
+        assertEquals("1 1", HighestAndLowest.getHightAndLow("1 1"));
     }
 
     /**
@@ -39,7 +39,7 @@ public class HighestAndLowestTest {
      */
     @Test
     public void minusMinusTest() {
-        assertEquals(HighestAndLowest.getHightAndLow("-1 -1"), "-1 -1");
+        assertEquals("-1 -1", HighestAndLowest.getHightAndLow("-1 -1"));
     }
 
     /**
@@ -47,7 +47,7 @@ public class HighestAndLowestTest {
      */
     @Test
     public void plusMinusZeroTest() {
-        assertEquals(HighestAndLowest.getHightAndLow("1 -1 0"), "1 -1");
+        assertEquals("1 -1", HighestAndLowest.getHightAndLow("1 -1 0"));
     }
 
     /**
@@ -55,7 +55,7 @@ public class HighestAndLowestTest {
      */
     @Test
     public void plusPlusZeroTest() {
-        assertEquals(HighestAndLowest.getHightAndLow("1 1 0"), "1 0");
+        assertEquals("1 0", HighestAndLowest.getHightAndLow("1 1 0"));
     }
 
     /**
@@ -63,7 +63,7 @@ public class HighestAndLowestTest {
      */
     @Test
     public void minusMinusZeroTest() {
-        assertEquals(HighestAndLowest.getHightAndLow("-1 -1 0"), "0 -1");
+        assertEquals("0 -1", HighestAndLowest.getHightAndLow("-1 -1 0"));
     }
 
     /**
@@ -71,6 +71,6 @@ public class HighestAndLowestTest {
      */
     @Test
     public void singleTest() {
-        assertEquals(HighestAndLowest.getHightAndLow("42"), "42 42");
+        assertEquals("42 42", HighestAndLowest.getHightAndLow("42"));
     }
 }
