@@ -67,7 +67,6 @@ public class CustomerTest {
         customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
         final double expectResult = 3.5;
         assertEquals(expectResult, customer.calculateAmount(), DELTA);
-
     }
 
     /**
