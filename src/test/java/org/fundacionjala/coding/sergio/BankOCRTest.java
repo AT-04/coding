@@ -16,7 +16,7 @@ public class BankOCRTest {
      *
      */
     @Test
-    public void comprobateEntryNumbersOneToZero() {
+    public void comprobateEntryNumbersOneToNine() {
 
         String firstLine = "    _  _     _  _  _  _  _ ";
         String secndLine = "  | _| _||_||_ |_   ||_||_|";
