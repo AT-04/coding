@@ -4,9 +4,7 @@ package org.fundacionjala.coding.cynthia.Video;
  * movie class.
  */
 abstract class Movie {
-    public static final int CHILDRENS = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
+    private static final int DEFAULT_BONUS_DAY_RENTED = 0;
     private String titleMovie;
     private int priceCodeMovie;
 
@@ -47,4 +45,13 @@ abstract class Movie {
      * @return cost days by movies rented.
      */
     public abstract  double costDaysRented(Rental rental);
+
+    /**
+     *
+     * @param rental movie.
+     * @return bonus by movie rented.
+     */
+    public int bonusTwoDaysNewReleaseRental(Rental rental) {
+        return DEFAULT_BONUS_DAY_RENTED;
+    }
 }

@@ -22,4 +22,17 @@ public class Release extends Movie {
     public double costDaysRented(Rental rental) {
         return rental.getDaysRented() * 3;
     }
+
+    /**
+     *
+     * @param rental movie.
+     * @return bonus by movie rented.
+     */
+    @Override
+    public int bonusTwoDaysNewReleaseRental(Rental rental) {
+        if (rental.getDaysRented() > 1) {
+            return 1;
+        }
+        return 0;
+    }
 }

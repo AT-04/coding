@@ -45,9 +45,6 @@ public class Rental {
      * @return bonus for frequency.
      */
     public int bonusTwoDaysNewReleaseRental() {
-        if ((this.getMovie().getPriceCode() == Movie.NEW_RELEASE) && this.getDaysRented() > 1) {
-            return 1;
-        }
-        return 0;
+        return movie.bonusTwoDaysNewReleaseRental(this);
     }
 }

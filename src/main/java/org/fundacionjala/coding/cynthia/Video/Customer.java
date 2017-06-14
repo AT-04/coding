@@ -52,25 +52,21 @@ public class Customer {
     /**
      * @return total cost for all movies rented.
      */
-    public String totalCostRented() {
-        StringBuffer result = new StringBuffer();
+    public double totalCostRented() {
         movieRentals.forEach(rental -> {
             totalAmount += rental.costDaysRented();
         });
-        result.append("Amount owed is " + String.valueOf(totalAmount) + "\n");
-        return result.toString();
+        return totalAmount;
     }
 
     /**
      * @return return the bonus for all movies rented.
      */
-    public String totalBonusFrequencyRented() {
-        StringBuffer result = new StringBuffer();
+    public int totalBonusFrequencyRented() {
         movieRentals.forEach(rental -> {
             frequentRenterPoints += 1 + rental.bonusTwoDaysNewReleaseRental();
         });
-        result.append("You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points");
-        return result.toString();
+        return frequentRenterPoints;
     }
 
     /**
@@ -79,7 +75,9 @@ public class Customer {
     public String statement() {
         StringBuffer result = new StringBuffer();
         result.append("Rental Record for " + getName() + "\n");
-        result.append(this.moviesRented()).append(this.totalCostRented()).append(this.totalBonusFrequencyRented());
+        result.append(this.moviesRented());
+        result.append("Amount owed is " + String.valueOf(this.totalCostRented()) + "\n");
+        result.append("You earned " + String.valueOf(this.totalBonusFrequencyRented()) + " frequent renter points");
         return result.toString();
     }
 }
