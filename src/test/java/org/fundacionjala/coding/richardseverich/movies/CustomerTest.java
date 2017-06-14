@@ -79,5 +79,4 @@ public class CustomerTest {
         customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
         assertEquals(EXPECTED_RESULT, customer.calculateFrequent());
     }
-
 }

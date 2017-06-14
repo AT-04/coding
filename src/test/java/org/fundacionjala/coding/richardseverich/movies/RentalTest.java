@@ -40,5 +40,4 @@ public class RentalTest {
         final int expectedResult = 2;
         assertEquals(expectedResult, rental.frequentRenterPoints());
     }
-
 }
