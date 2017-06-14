@@ -10,9 +10,8 @@ import static org.junit.Assert.assertEquals;
  */
 public class CustomerTest {
 
-
+    private static final int EXPECTED_RESULT = 3;
     private static final double DELTA = 0.0;
-
     private Customer customer;
 
     /**
@@ -23,28 +22,62 @@ public class CustomerTest {
         customer = new Customer("Test");
     }
 
-
     /**
      *
      */
     @Test
-    public void canGetFrequentRenterPoints() {
+    public void verifyStringPrint() {
+        String expectResult = "Rental Record for Richard Severich\n"
+                + "\tThe Revenant\t6.0\n"
+                + "\tTerminator\t2.0\n"
+                + "Amount owed is 8.0\n"
+                + "You earned 3 frequent renter points";
         customer.addRental(new Rental(new MoviesNewRelease("The Revenant"), 2));
         customer.addRental(new Rental(new MoviesRegular("Terminator"), 2));
-
-        final int expectedResult = 3;
-        assertEquals(expectedResult, customer.calculateFrequent());
+        assertEquals(expectResult, customer.statement());
     }
 
     /**
      *
      */
     @Test
-    public void canGetTotalAmount() {
-        customer.addRental(new Rental(new MoviesNewRelease("The Revenant"), 2));
-        customer.addRental(new Rental(new MoviesRegular("Terminator"), 2));
-
-        final double expectedResult = 8;
-        assertEquals(expectedResult, customer.calculateAmount(), DELTA);
+    public void verifyRegularAndReleaseCalculateAmount() {
+        customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
+        customer.addRental(new Rental(new MoviesNewRelease("Pelicula Estreno"), 2));
+        final int expectResult = 8;
+        assertEquals(expectResult, customer.calculateAmount(), DELTA);
     }
+
+    /**
+     *
+     */
+    @Test
+    public void verifyRegularAndReleaseCalculateFrequent() {
+        customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
+        customer.addRental(new Rental(new MoviesNewRelease("Pelicula Estreno"), 2));
+        assertEquals(EXPECTED_RESULT, customer.calculateFrequent());
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void verifyRegularAndChildrenCalculateAmount() {
+        customer.addRental(new Rental(new MoviesChildren("Pelicula Children"), 2));
+        customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
+        final double expectResult = 3.5;
+        assertEquals(expectResult, customer.calculateAmount(), DELTA);
+
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void verifyRegularAndChildrenCalculateFrequent() {
+        customer.addRental(new Rental(new MoviesChildren("Pelicula Children"), 2));
+        customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
+        assertEquals(EXPECTED_RESULT, customer.calculateFrequent());
+    }
+
 }
