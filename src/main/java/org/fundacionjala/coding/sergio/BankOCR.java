@@ -8,6 +8,7 @@ import java.util.Map;
  */
 final class BankOCR {
     private static final int THREE = 3;
+    private static final int TWO = 2;
     private static final int NINE = 9;
     private static final int FOUR = 4;
     private static final int FIVE = 5;
@@ -21,38 +22,38 @@ final class BankOCR {
     private static final String S_ERR = "%s ERR";
     private static final String S_ILL = "%s ILL";
     private static final String NON_VALID_NUMBER = "?";
-    private static Map<String, Integer> number;
+    private static Map<String, Integer> Number;
 
     static {
-        number = new HashMap<>();
-        number.put("   "
+        Number = new HashMap<>();
+        Number.put("   "
                 + "  |"
-                + "  |", 1);
-        number.put(" _ "
+                + "  |", ONE);
+        Number.put(" _ "
                 + " _|"
-                + "|_ ", 2);
-        number.put(" _ "
+                + "|_ ", TWO);
+        Number.put(" _ "
                 + " _|"
                 + " _|", THREE);
-        number.put("   "
+        Number.put("   "
                 + "|_|"
                 + "  |", FOUR);
-        number.put(" _ "
+        Number.put(" _ "
                 + "|_ "
                 + " _|", FIVE);
-        number.put(" _ "
+        Number.put(" _ "
                 + "|_ "
                 + "|_|", SIX);
-        number.put(" _ "
+        Number.put(" _ "
                 + "  |"
                 + "  |", SEVEN);
-        number.put(" _ "
+        Number.put(" _ "
                 + "|_|"
                 + "|_|", EIGHT);
-        number.put(" _ "
+        Number.put(" _ "
                 + "|_|"
                 + " _|", NINE);
-        number.put(" _ "
+        Number.put(" _ "
                 + "| |"
                 + "|_|", 0);
     }
@@ -73,7 +74,7 @@ final class BankOCR {
         StringBuilder finalString = new StringBuilder();
         for (int i = 0; i < MAXLENGTH; i = i + THREE) {
             int j = i + THREE;
-            finalString.append(number.get(line1.substring(i, j) + line2.substring(i, j) + line3.substring(i, j)));
+            finalString.append(Number.get(line1.substring(i, j) + line2.substring(i, j) + line3.substring(i, j)));
         }
         return finalString.toString();
     }
