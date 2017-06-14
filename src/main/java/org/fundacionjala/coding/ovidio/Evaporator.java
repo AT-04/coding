@@ -26,35 +26,6 @@ public final class Evaporator {
         }
         return result;
     }
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    public static int evaporator(double content, double evap_per_day, double threshold) {
-
-        int result = 0;
-        double percent = 100;
-        while (percent > threshold)
-        {
-            percent = percent - percent * (evap_per_day/100);
-            result++;
-        }
-        return result;
-
-    }
-    */
 
