@@ -22,38 +22,38 @@ final class BankOCR {
     private static final String S_ERR = "%s ERR";
     private static final String S_ILL = "%s ILL";
     private static final String NON_VALID_NUMBER = "?";
-    private static Map<String, Integer> Number;
+    private static final Map<String, Integer> NUMBER;
 
     static {
-        Number = new HashMap<>();
-        Number.put("   "
+        NUMBER = new HashMap<>();
+        NUMBER.put("   "
                 + "  |"
                 + "  |", ONE);
-        Number.put(" _ "
+        NUMBER.put(" _ "
                 + " _|"
                 + "|_ ", TWO);
-        Number.put(" _ "
+        NUMBER.put(" _ "
                 + " _|"
                 + " _|", THREE);
-        Number.put("   "
+        NUMBER.put("   "
                 + "|_|"
                 + "  |", FOUR);
-        Number.put(" _ "
+        NUMBER.put(" _ "
                 + "|_ "
                 + " _|", FIVE);
-        Number.put(" _ "
+        NUMBER.put(" _ "
                 + "|_ "
                 + "|_|", SIX);
-        Number.put(" _ "
+        NUMBER.put(" _ "
                 + "  |"
                 + "  |", SEVEN);
-        Number.put(" _ "
+        NUMBER.put(" _ "
                 + "|_|"
                 + "|_|", EIGHT);
-        Number.put(" _ "
+        NUMBER.put(" _ "
                 + "|_|"
                 + " _|", NINE);
-        Number.put(" _ "
+        NUMBER.put(" _ "
                 + "| |"
                 + "|_|", 0);
     }
@@ -74,7 +74,7 @@ final class BankOCR {
         StringBuilder finalString = new StringBuilder();
         for (int i = 0; i < MAXLENGTH; i = i + THREE) {
             int j = i + THREE;
-            finalString.append(Number.get(line1.substring(i, j) + line2.substring(i, j) + line3.substring(i, j)));
+            finalString.append(NUMBER.get(line1.substring(i, j) + line2.substring(i, j) + line3.substring(i, j)));
         }
         return finalString.toString();
     }
