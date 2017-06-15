@@ -39,4 +39,13 @@ public class MoviesChildrenTest {
         final int expectedResult = 1;
         assertEquals(expectedResult, movie.generateFrequent(DAYS_RENTAL), ZERO);
     }
+
+    /**
+     *
+     */
+    @Test
+    public void verifyChildrenGetTitle() {
+        String expectedResult = "Children";
+        assertEquals(expectedResult, movie.getTitle());
+    }
 }

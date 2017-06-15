@@ -22,7 +22,7 @@ public class Rental {
     public int frequentRenterPoints() {
         return movie.generateFrequent(daysRented);
     }
-    
+
     /**
      * @return return amount of rental.
      */

@@ -38,4 +38,13 @@ public class MoviesRegularTest {
     public void verifyRegularMovieGenerateFrequent() {
         assertEquals(EXPECTED_RESULT, movie.generateFrequent(DAYS_RENTAL), ZERO);
     }
+
+    /**
+     *
+     */
+    @Test
+    public void verifyNewReleaseMovie() {
+        String expectedResult = "Regular";
+        assertEquals(expectedResult, movie.getTitle());
+    }
 }
