@@ -26,21 +26,6 @@ public class CustomerTest {
      *
      */
     @Test
-    public void verifyStringPrint() {
-        String expectResult = "Rental Record for Richard Severich\n"
-                + "\tThe Revenant\t6.0\n"
-                + "\tTerminator\t2.0\n"
-                + "Amount owed is 8.0\n"
-                + "You earned 3 frequent renter points";
-        customer.addRental(new Rental(new MoviesNewRelease("The Revenant"), 2));
-        customer.addRental(new Rental(new MoviesRegular("Terminator"), 2));
-        assertEquals(expectResult, customer.statement());
-    }
-
-    /**
-     *
-     */
-    @Test
     public void verifyRegularAndReleaseCalculateAmount() {
         customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
         customer.addRental(new Rental(new MoviesNewRelease("Pelicula Estreno"), 2));
@@ -77,5 +62,14 @@ public class CustomerTest {
         customer.addRental(new Rental(new MoviesChildren("Pelicula Children"), 2));
         customer.addRental(new Rental(new MoviesRegular("Pelicula Regular"), 2));
         assertEquals(EXPECTED_RESULT, customer.calculateFrequent());
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void verifyGetName() {
+        String expectedResult = "Test";
+        assertEquals(expectedResult, customer.getNameCustomer());
     }
 }

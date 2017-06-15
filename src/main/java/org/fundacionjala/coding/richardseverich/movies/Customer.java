@@ -26,21 +26,6 @@ public class Customer {
     }
 
     /**
-     * @return Returns the string to be displayed.
-     */
-    public String statement() {
-        StringBuilder resultBuilder = new StringBuilder();
-        resultBuilder.append(String.format("Rental Record for %s%n", nameCustomer));
-        for (Rental itemRental : rentalList) {
-            resultBuilder.append(String.format("\t%s\t%.1f%n", itemRental.getMovie().getTitle(),
-                    itemRental.getThisAmount()));
-        }
-        resultBuilder.append(String.format("Amount owed is %.1f%nYou earned %d frequent renter points",
-                calculateAmount(), calculateFrequent()));
-        return resultBuilder.toString();
-    }
-
-    /**
      * @return Amount of rented.
      */
     public double calculateAmount() {
@@ -56,5 +41,12 @@ public class Customer {
         return rentalList.stream()
                 .mapToInt(Rental::frequentRenterPoints)
                 .sum();
+    }
+
+    /**
+     * @return Name of Customer.
+     */
+    public String getNameCustomer() {
+        return nameCustomer;
     }
 }
