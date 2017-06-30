@@ -5,6 +5,7 @@ apply plugin: 'eclipse'
 apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'findbugs'
+apply plugin: 'jacoco'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -42,6 +43,14 @@ tasks.withType(Pmd) {
         html.enabled = true
     }
 }
+
+jacocoTestReport {
+    reports {
+        html.enabled = true
+    }
+}
+
+check.dependsOn jacocoTestReport
 
 test {
     testLogging {
