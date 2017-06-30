@@ -46,6 +46,7 @@ tasks.withType(Pmd) {
 
 jacocoTestReport {
     reports {
+        xml.enabled true
         html.enabled = true
     }
 }
