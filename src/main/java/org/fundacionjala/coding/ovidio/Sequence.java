@@ -18,6 +18,6 @@ public final class Sequence {
      * @return Long
      */
     public static long getScore(final long n) {
-        return 25 * n * (n   + 1);
+        return 25 * n * (n + 1);
     }
 }
