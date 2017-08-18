@@ -51,6 +51,10 @@ jacocoTestReport {
     }
 }
 
+compileJava {
+    options.fork (memoryMaximumSize: '2048m')
+}
+
 check.dependsOn jacocoTestReport
 
 test {
