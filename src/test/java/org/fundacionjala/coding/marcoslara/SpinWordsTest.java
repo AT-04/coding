@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.marcoslara.spinwords;
+package org.fundacionjala.coding.marcoslara;
 
 import org.junit.Test;
 

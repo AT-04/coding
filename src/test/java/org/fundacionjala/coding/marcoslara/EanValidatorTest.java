@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.marcoslara.eanvalidation;
+package org.fundacionjala.coding.marcoslara;
 
 import org.junit.Test;
 

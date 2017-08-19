@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.marcoslara.spinwords;
+package org.fundacionjala.coding.marcoslara;
 
 /**
  * Created by Marcos Lara on 5/22/2017.

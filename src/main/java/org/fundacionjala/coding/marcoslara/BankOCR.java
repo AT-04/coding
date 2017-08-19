@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.marcoslara.bankocr;
+package org.fundacionjala.coding.marcoslara;
 
 import java.util.HashMap;
 import java.util.Map;
