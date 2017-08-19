@@ -3,15 +3,13 @@ package org.fundacionjala.coding.cynthia;
 /**
  * Created by Cynthia on 8/18/2017.
  */
-public final class Sequence {
+public class Sequence {
 
     private static final long TWENTY_FIVE = 25;
 
     /**
      * this is the constructor.
      */
-    private Sequence() {
-    }
 
     /**
      * @param num of the user.
