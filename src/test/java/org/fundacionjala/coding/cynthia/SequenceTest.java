@@ -14,7 +14,7 @@ public class SequenceTest {
      */
     @Test
     public void basicTests() {
-        Sequence sec= new Sequence();
+        Sequence sec = new Sequence();
         assertEquals("getScore(1) returns a wrong result", 50, sec.getScore(1));
         assertEquals("getScore(2) returns a wrong result", 150, sec.getScore(2));
         assertEquals("getScore(3) returns a wrong result", 300, sec.getScore(3));
