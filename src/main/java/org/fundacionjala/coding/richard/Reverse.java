@@ -13,6 +13,12 @@ public class Reverse {
     private boolean flag = true;
 
     /**
+     * This method is constructor.
+     */
+    public Reverse() {
+    }
+
+    /**
      * This method return a reverse string.
      *
      * @param cad this variable contains a string.
