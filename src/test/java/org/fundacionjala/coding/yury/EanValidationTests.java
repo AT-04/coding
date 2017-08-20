@@ -1,4 +1,4 @@
-package test.java.org.fundacionjala.coding.yury;
+package org.fundacionjala.coding.yury;
 
 import main.java.org.fundacionjala.coding.yury.EanValidation;
 import org.junit.Test;
