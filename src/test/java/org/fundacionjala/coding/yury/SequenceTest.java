@@ -2,12 +2,29 @@ package org.fundacionjala.coding.yury;
 
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Test.
  */
 public class SequenceTest {
+
+  /**
+   * test constructor private.
+   */
+  @Test
+  public void privateConstructorTests() {
+    final Constructor<?>[] constructors = Sequence.class.getDeclaredConstructors();
+    for (Constructor<?> constructor : constructors) {
+      assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+    }
+  }
+
+
   /**
    * test for sequence.
    */
