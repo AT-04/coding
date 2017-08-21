@@ -5,7 +5,7 @@ package org.fundacionjala.coding.abel;
  */
 public final class Sequence {
 
-    private static final int FIFTY = 50;
+    private static final int TWENTY_FIVE = 25;
 
     /**
      * Private Constructor.
@@ -16,10 +16,11 @@ public final class Sequence {
 
     /**
      * This method calculates the Score of the Sequence.
+     *
      * @param n long.
      * @return long.
      */
     public static long getScore(final long n) {
-        return n <= 1 ? FIFTY : n * FIFTY + getScore(n - 1);
+        return TWENTY_FIVE * (long) (Math.pow(n, 2) + n);
     }
 }
