@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.marcoslara.highestandlowest;
+package org.fundacionjala.coding.marcoslara;
 
 import java.util.Arrays;
 import java.util.Collections;

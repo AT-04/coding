@@ -1,8 +1,8 @@
-package org.fundacionjala.coding.marcoslara.averagesofnumbers;
-
-import org.junit.Test;
+package org.fundacionjala.coding.marcoslara;
 
 import java.util.Arrays;
+
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 

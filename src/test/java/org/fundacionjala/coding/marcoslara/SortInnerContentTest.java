@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.marcoslara.sortinnercontent;
+package org.fundacionjala.coding.marcoslara;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.marcoslara.multiplesofthreeandfive;
+package org.fundacionjala.coding.marcoslara;
 
 /**
  * Created by Marcos on 12-06-2017.

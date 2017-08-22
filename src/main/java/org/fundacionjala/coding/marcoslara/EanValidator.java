@@ -1,4 +1,4 @@
-package org.fundacionjala.coding.marcoslara.eanvalidation;
+package org.fundacionjala.coding.marcoslara;
 
 /**
  * Created by Marcos Lara on 5/26/2017.
