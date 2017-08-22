@@ -13,7 +13,7 @@ public class Sequence {
      * @return result.
      */
     public long getScore(long num) {
-        return (TWENTY_FIVE * (1 + num)) * num;
+        return TWENTY_FIVE * (1 + num) * num;
     }
 }
 
