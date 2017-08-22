@@ -23,6 +23,6 @@ public final class Sequence {
      * @return the resulting score.
      */
     public static long getScore(long n) {
-        return (long) (25 * Math.pow(n, 2) + 25 * n);
+        return  25 * (long) (Math.pow(n, 2) + n);
     }
 }
