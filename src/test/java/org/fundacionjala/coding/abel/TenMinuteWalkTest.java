@@ -45,5 +45,7 @@ public class TenMinuteWalkTest {
                 TenMinWalk.isValid(new char[]{'w'}));
         assertEquals("Should return false", false,
                 TenMinWalk.isValid(new char[]{'n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}));
+        assertEquals("Should return false", false,
+                TenMinWalk.isValid(new char[]{'w', 'w', 'w', 'e', 'e', 'e', 'w', 'w', 'w', 'e'}));
     }
 }
