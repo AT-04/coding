@@ -47,4 +47,12 @@ public class BouncingBallTest {
     public void test2() {
         assertEquals(15, BouncingBall.bouncingBall(30.0, 0.66, 1.5));
     }
+
+    /**
+     * Third Test.
+     */
+    @Test
+    public void test3() {
+        assertEquals(-1, BouncingBall.bouncingBall(1.0, 0.66, 2.00));
+    }
 }

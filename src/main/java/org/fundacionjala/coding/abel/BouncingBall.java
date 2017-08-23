@@ -35,7 +35,7 @@ public final class BouncingBall {
      * @return How many times the ball is seen.
      */
     public static int bouncingBall(double h, double bounce, double window) {
-        if (!(h > 0 || 0 < bounce || bounce < 1 || window < h)) {
+        if (!(h > 0 && 0 < bounce && bounce < 1 && window < h)) {
             return -1;
         }
         int count = 1;
