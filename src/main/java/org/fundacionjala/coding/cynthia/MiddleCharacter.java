@@ -1,7 +1,10 @@
-package main.java.org.fundacionjala.coding.cynthia;
+package org.fundacionjala.coding.cynthia;
 
 /**
- * You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+ * You are going to be given a word. Your job is to return the middle character of the word.
+ * If the word's length is odd, return the middle character.
+ * If the word's length is even, return the middle 2 characters.
+ *
  * <p>
  * #Examples:
  * <p>
@@ -16,6 +19,7 @@ package main.java.org.fundacionjala.coding.cynthia;
  */
 
 public class MiddleCharacter {
+
     /**
      * this method is for get the middle character.
      *
@@ -27,3 +31,4 @@ public class MiddleCharacter {
         return word.substring(middle - (word.length() % 2 == 0 ? 1 : 0), middle + 1);
     }
 }
+
