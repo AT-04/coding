@@ -36,6 +36,7 @@ public class FizzBuzzTest {
    */
   @Test
   public void basicTest() {
+    assertEquals("", FizzBuzz.numberDivisor(-1));
     assertEquals("1", FizzBuzz.numberDivisor(1));
     assertEquals("Fizz", FizzBuzz.numberDivisor(3));
     assertEquals("Buzz", FizzBuzz.numberDivisor(5));
