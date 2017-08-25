@@ -10,6 +10,7 @@ public final class FizzBuzz {
   private FizzBuzz() {
 
   }
+
   /**
    * @param number Integer received.
    * @return String word or number.
@@ -17,13 +18,14 @@ public final class FizzBuzz {
   public static String numberDivisor(Integer number) {
     String variable = "";
     while (number > 0) {
-      if ((number % 3 == 0) && (number % 5 == 0)) {
+      if (((number % 3 == 0) && (number % 5 == 0)) || (Integer.toString(number).contains("3")
+          && Integer.toString(number).contains("5"))) {
         return "FizzBuzz";
       }
-      if (number % 3 == 0) {
+      if ((number % 3 == 0) || (Integer.toString(number).contains("3"))) {
         return "Fizz";
       }
-      if (number % 5 == 0) {
+      if ((number % 5 == 0) || (Integer.toString(number).contains("5"))) {
         return "Buzz";
       } else {
         return Integer.toString(number);
