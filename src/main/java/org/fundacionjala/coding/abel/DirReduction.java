@@ -24,7 +24,7 @@ import java.util.List;
  * "NORTH" and "WEST", "WEST" and "SOUTH", "SOUTH" and "EAST" are not directly opposite of each other and can't become
  * such. Hence the result path is itself : ["NORTH", "WEST", "SOUTH", "EAST"].
  */
-public class DirReduction {
+public final class DirReduction {
 
     /**
      * Private constructor.
