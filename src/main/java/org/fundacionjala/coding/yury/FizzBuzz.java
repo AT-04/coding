@@ -34,7 +34,7 @@ public class FizzBuzz {
         for (int i = 1; i <= n; i++) {
             stringJoiner.add(i % THREE == 0 || i % FIVE == 0 ? fizzOrBuzz(i) : String.valueOf(i));
         }
-        return String.join(" ", String.valueOf(stringJoiner));
+        return stringJoiner.toString();
     }
 
     /**
