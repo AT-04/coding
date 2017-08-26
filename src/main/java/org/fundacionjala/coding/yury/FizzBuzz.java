@@ -9,15 +9,18 @@ import java.util.StringJoiner;
  */
 public class FizzBuzz {
 
+    public static final int FIFTEEN = 15;
+    public static final int FIVE = 5;
+    public static final int THREE = 3;
     private final Map<Integer, String> linkedHashMap = new LinkedHashMap<>();
 
     /**
      * This constructor.
      */
     public FizzBuzz() {
-        linkedHashMap.put(15, "FizzBuzz");
-        linkedHashMap.put(5, "Buzz");
-        linkedHashMap.put(3, "Fizz");
+        linkedHashMap.put(FIFTEEN, "FizzBuzz");
+        linkedHashMap.put(FIVE, "Buzz");
+        linkedHashMap.put(THREE, "Fizz");
     }
 
     /**
@@ -29,7 +32,7 @@ public class FizzBuzz {
     public String sequence(int n) {
         StringJoiner stringJoiner = new StringJoiner(" ");
         for (int i = 1; i <= n; i++) {
-            stringJoiner.add(i % 3 == 0 || i % 5 == 0 ? fizzOrBuzz(i) : String.valueOf(i));
+            stringJoiner.add(i % THREE == 0 || i % FIVE == 0 ? fizzOrBuzz(i) : String.valueOf(i));
         }
         return String.join(" ", String.valueOf(stringJoiner));
     }
