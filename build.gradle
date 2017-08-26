@@ -19,7 +19,7 @@ dependencies {
 
 // Checkstyle configuration
 checkstyle {
-    toolVersion = '7.8'
+    toolVersion = '8.1'
 }
 
 // FindBugs configuration
@@ -35,7 +35,7 @@ tasks.withType(FindBugs) {
 
 // PMD Configuration
 pmd {
-    toolVersion = '5.7.0'
+    toolVersion = '5.8.1'
 }
 tasks.withType(Pmd) {
     reports {

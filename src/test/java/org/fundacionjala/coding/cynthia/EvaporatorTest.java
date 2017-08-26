@@ -2,7 +2,7 @@ package org.fundacionjala.coding.cynthia;
 
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by CynthiaTerrazas on 6/13/2017.
