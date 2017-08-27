@@ -9,6 +9,7 @@ public final class FizzBuzz {
 
     private static final int FIVE = 5;
     private static final int THREE = 3;
+    private static final int ZERO = 0;
     protected static final String FIZZ = "Fizz";
     protected static final String BUZZ = "Buzz";
     protected static final String FIZZ_BUZZ = "FizzBuzz";
@@ -28,7 +29,7 @@ public final class FizzBuzz {
      * @return the number representation.
      */
     public static String printNumber(int n) {
-        return n % 3 == 0 || n % 5 == 0 || hasThisNumber(n, THREE) || hasThisNumber(n, FIVE)
+        return n % THREE == ZERO || n % FIVE == ZERO || hasThisNumber(n, THREE) || hasThisNumber(n, FIVE)
                 ? printWord(n) : String.valueOf(n);
     }
 
@@ -40,10 +41,10 @@ public final class FizzBuzz {
      */
     private static String printWord(int n) {
         StringBuilder stringBuilder = new StringBuilder();
-        if (n % 3 == 0 || hasThisNumber(n, THREE)) {
+        if (n % THREE == ZERO || hasThisNumber(n, THREE)) {
             stringBuilder.append(FIZZ);
         }
-        if (n % 5 == 0 || hasThisNumber(n, FIVE)) {
+        if (n % FIVE == ZERO || hasThisNumber(n, FIVE)) {
             stringBuilder.append(BUZZ);
         }
         return stringBuilder.toString();
