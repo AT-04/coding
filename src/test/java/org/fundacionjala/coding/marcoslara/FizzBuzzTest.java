@@ -38,7 +38,7 @@ public class FizzBuzzTest {
      */
     @Test
     public void fizzBuzzOfOne() {
-        assertEquals(FizzBuzz.printNumber(1), "1");
+        assertEquals("1", FizzBuzz.printNumber(1));
     }
 
     /**
@@ -46,7 +46,7 @@ public class FizzBuzzTest {
      */
     @Test
     public void fizzBuzzOfThree() {
-        assertEquals(FizzBuzz.printNumber(3), "Fizz");
+        assertEquals(FizzBuzz.FIZZ, FizzBuzz.printNumber(3));
     }
 
     /**
@@ -54,7 +54,15 @@ public class FizzBuzzTest {
      */
     @Test
     public void fizzBuzzOfFive() {
-        assertEquals(FizzBuzz.printNumber(5), "Buzz");
+        assertEquals(FizzBuzz.BUZZ, FizzBuzz.printNumber(5));
+    }
+
+    /**
+     * Basic tets for the number eleven.
+     */
+    @Test
+    public void fizzBuzzOfEleven() {
+        assertEquals("11", FizzBuzz.printNumber(11));
     }
 
     /**
@@ -62,15 +70,33 @@ public class FizzBuzzTest {
      */
     @Test
     public void fizzBuzzOfFifteen() {
-        assertEquals(FizzBuzz.printNumber(15), "FizzBuzz");
+        assertEquals(FizzBuzz.FIZZ_BUZZ, FizzBuzz.printNumber(15));
     }
 
     /**
-     * FOR THE STAGE TWO
+     * For the stage two.
      * Basic test for the number fifty three.
      */
     @Test
-    public void fizzBuzzOfFiftyThree() {
-        assertEquals(FizzBuzz.printNumber(53), "FizzBuzz");
+    public void fizzBuzzO355fFiftyThree() {
+        assertEquals(FizzBuzz.FIZZ_BUZZ, FizzBuzz.printNumber(53));
+    }
+
+    /**
+     * For the stage two.
+     * Basic test for the number Three thousand five hundred fifty three.
+     */
+    @Test
+    public void fizzBuzzOfThreeThousandFiveHundredFiftyThree() {
+        assertEquals(FizzBuzz.FIZZ_BUZZ, FizzBuzz.printNumber(3553));
+    }
+
+    /**
+     * For the stage two.
+     * Basic test for the number Three million thirty thousand five hundred three.
+     */
+    @Test
+    public void fizzBuzzOfThreeMillionThirtyThousandFiveHundredThree() {
+        assertEquals(FizzBuzz.FIZZ_BUZZ, FizzBuzz.printNumber(3030503));
     }
 }

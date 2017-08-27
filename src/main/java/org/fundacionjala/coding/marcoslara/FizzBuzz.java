@@ -7,8 +7,11 @@ package org.fundacionjala.coding.marcoslara;
  */
 public final class FizzBuzz {
 
-    public static final int FIVE = 5;
-    public static final int THREE = 3;
+    private static final int FIVE = 5;
+    private static final int THREE = 3;
+    protected static final String FIZZ = "Fizz";
+    protected static final String BUZZ = "Buzz";
+    protected static final String FIZZ_BUZZ = "FizzBuzz";
 
     /**
      * Private constructor for the utility class.
@@ -25,7 +28,7 @@ public final class FizzBuzz {
      * @return the number representation.
      */
     public static String printNumber(int n) {
-        return n % 3 == 0 || n % 5 == 0 || isContaining(n, THREE) || isContaining(n, FIVE)
+        return n % 3 == 0 || n % 5 == 0 || hasThisNumber(n, THREE) || hasThisNumber(n, FIVE)
                 ? printWord(n) : String.valueOf(n);
     }
 
@@ -37,29 +40,23 @@ public final class FizzBuzz {
      */
     private static String printWord(int n) {
         StringBuilder stringBuilder = new StringBuilder();
-        if (n % 3 == 0 || isContaining(n, 3)) {
-            stringBuilder.append("Fizz");
+        if (n % 3 == 0 || hasThisNumber(n, THREE)) {
+            stringBuilder.append(FIZZ);
         }
-        if (n % 5 == 0 || isContaining(n, 5)) {
-            stringBuilder.append("Buzz");
+        if (n % 5 == 0 || hasThisNumber(n, FIVE)) {
+            stringBuilder.append(BUZZ);
         }
         return stringBuilder.toString();
     }
 
     /**
-     * This method find a digit in a number.
+     * This method check if a number contains a certain digit.
      *
      * @param n     is the number to be evaluated.
-     * @param digit is the number to find.
+     * @param digit is the number to check.
      * @return the find result.
      */
-    private static boolean isContaining(int n, int digit) {
-        while (n > 0) {
-            if (n % 10 == digit) {
-                return true;
-            }
-            n = n / 10;
-        }
-        return false;
+    private static boolean hasThisNumber(int n, int digit) {
+        return String.valueOf(n).contains(String.valueOf(digit));
     }
 }
