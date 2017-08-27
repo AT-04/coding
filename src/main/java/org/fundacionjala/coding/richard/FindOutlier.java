@@ -15,12 +15,6 @@ package org.fundacionjala.coding.richard;
 public class FindOutlier {
 
     /**
-     * This method is a private constructor.
-     */
-    public FindOutlier() {
-    }
-
-    /**
      * @param outlier is a array of int numbers.
      * @return outlier number.
      */
