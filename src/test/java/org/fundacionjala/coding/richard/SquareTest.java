@@ -2,6 +2,7 @@ package org.fundacionjala.coding.richard;
 
 import java.util.Random;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -21,12 +22,21 @@ import static org.junit.Assert.assertEquals;
  */
 public class SquareTest {
 
+    private Square square;
+
+    /**
+     *
+     */
+    @Before
+    public void setUp() {
+        square = new Square();
+    }
+
     /**
      *
      */
     @Test
     public void shouldWorkForSomeExamples() {
-        Square square = new Square();
         assertEquals("negative numbers aren't square numbers", false, square.isSquare(-1));
         assertEquals("3 isn't a square number", false, square.isSquare(3));
         assertEquals("4 is a square number", true, square.isSquare(4));
@@ -39,7 +49,6 @@ public class SquareTest {
      */
     @Test
     public void shouldWorkForRandomSquareNumbers() {
-        Square square = new Square();
         Random rand = new Random();
         for (int i = 0; i < 100; ++i) {
             int randomNum = rand.nextInt(0x0fff);

@@ -16,12 +16,6 @@ package org.fundacionjala.coding.richard;
 public final class Square {
 
     /**
-     *
-     */
-    public Square() {
-    }
-
-    /**
      * @param num is a float number.
      * @return true if is square number.
      */
