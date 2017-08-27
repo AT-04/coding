@@ -11,9 +11,6 @@ import static org.junit.Assert.assertTrue;
  */
 public class FizzBuzzTest {
     private FizzBuzz fizzBuzz;
-    private static final String FIZZ_BUZZ = "FizzBuzz";
-    private static final String FIZZ = "Fizz";
-    private static final String BUZZ = "Buzz";
 
     /**
      *
@@ -29,7 +26,7 @@ public class FizzBuzzTest {
      */
     @Test
     public void testForNumberDivisibleForThree() {
-        assertTrue(FIZZ.equals(fizzBuzz.fizzBuzzOf(3)));
+        assertTrue(fizzBuzz.FIZZ.equals(fizzBuzz.fizzBuzzOf(3)));
     }
 
     /**
@@ -37,7 +34,7 @@ public class FizzBuzzTest {
      */
     @Test
     public void testForNumberDivisibleForFive() {
-        assertTrue(BUZZ.equals(fizzBuzz.fizzBuzzOf(5)));
+        assertTrue(fizzBuzz.BUZZ.equals(fizzBuzz.fizzBuzzOf(5)));
     }
 
     /**
@@ -45,7 +42,7 @@ public class FizzBuzzTest {
      */
     @Test
     public void testForNumberDivisibleForThreeAndFive() {
-        assertTrue(FIZZ_BUZZ.equals(fizzBuzz.fizzBuzzOf(15)));
+        assertTrue(fizzBuzz.FIZZ_BUZZ.equals(fizzBuzz.fizzBuzzOf(15)));
     }
 
     /**
@@ -53,7 +50,7 @@ public class FizzBuzzTest {
      */
     @Test
     public void testCounterFizzfromOneToOneHundred() {
-        assertEquals(27, (fizzBuzz.counter(FIZZ)));
+        assertEquals(27, (fizzBuzz.counter(fizzBuzz.FIZZ)));
     }
 
     /**
@@ -61,7 +58,7 @@ public class FizzBuzzTest {
      */
     @Test
     public void testCounterBuzzfromOneToOneHundred() {
-        assertEquals(14, (fizzBuzz.counter(BUZZ)));
+        assertEquals(14, (fizzBuzz.counter(fizzBuzz.BUZZ)));
     }
 
     /**
@@ -69,6 +66,6 @@ public class FizzBuzzTest {
      */
     @Test
     public void testCounterFizzBuzzfromOneToOneHundred() {
-        assertEquals(6, (fizzBuzz.counter(FIZZ_BUZZ)));
+        assertEquals(6, (fizzBuzz.counter(fizzBuzz.FIZZ_BUZZ)));
     }
 }

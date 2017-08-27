@@ -1,6 +1,5 @@
 package org.fundacionjala.coding.ovidio;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,20 +7,21 @@ import java.util.List;
  * Created by OvidioMiranda on 8/25/2017.
  */
 public class FizzBuzz {
-    private  List<String> number;
-    private static final String FIZZ_BUZZ = "FizzBuzz";
-    private static final String FIZZ = "Fizz";
-    private static final String BUZZ = "Buzz";
+    private List<String> number;
+    public static final String FIZZ = "Fizz";
+    public static final String BUZZ = "Buzz";
+    public static final String FIZZ_BUZZ = "FizzBuzz";
 
     /**
      *
      */
     public FizzBuzz() {
-         number = new ArrayList<>();
+        number = new ArrayList<>();
     }
 
     /**
      * FizzBuzzOf.
+     *
      * @param number int.
      * @return string.
      */
@@ -33,7 +33,6 @@ public class FizzBuzz {
         }
         return modThree ? FIZZ : modFive ? BUZZ : Integer.toString(number);
     }
-
 
     /**
      * Print Numbers for Game.
@@ -50,15 +49,11 @@ public class FizzBuzz {
      * Counter.
      *
      * @param name String.
-     * @return int.
+     * @return long.
      */
-    public int counter(String name) {
-        int count = 0;
-        for (String c : number) {
-            if (c.equals(name)) {
-                count++;
-            }
-        }
-        return count;
+    public long counter(String name) {
+        return number.stream()
+                .filter(x -> name.equals(x))
+                .count();
     }
 }
