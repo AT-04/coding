@@ -1,5 +1,6 @@
 package org.fundacionjala.coding.richard;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -26,14 +27,32 @@ import static org.junit.Assert.assertEquals;
  */
 public class PrinterTest {
 
+
+    private Printer printer;
+
+    /**
+     *
+     */
+    @Before
+    public void setUp() {
+        printer = new Printer();
+    }
+
     /**
      *
      */
     @Test
-    public void test() {
-        Printer printer = new Printer();
-        System.out.println("printerError Fixed Tests");
+    public void testWithErrors() {
         String s = "aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz";
         assertEquals("3/56", printer.printerError(s));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testWithoutErrors() {
+        String s = "aaabbbbhaijjjm";
+        assertEquals("0/14", printer.printerError(s));
     }
 }
