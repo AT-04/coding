@@ -1,18 +1,23 @@
 package org.fundacionjala.coding.ovidio;
 
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by OvidioMiranda on 8/25/2017.
  */
 public class FizzBuzz {
-    private ArrayList<String> number;
+    private  List<String> number;
+    private static final String FIZZ_BUZZ = "FizzBuzz";
+    private static final String FIZZ = "Fizz";
+    private static final String BUZZ = "Buzz";
 
     /**
      *
      */
     public FizzBuzz() {
-        number = new ArrayList<>();
+         number = new ArrayList<>();
     }
 
     /**
@@ -24,9 +29,9 @@ public class FizzBuzz {
         boolean modThree = number % 3 == 0;
         boolean modFive = number % 5 == 0;
         if (modThree && modFive) {
-            return "FizzBuzz";
+            return FIZZ_BUZZ;
         }
-        return modThree ? "Fizz" : modFive ? "Buzz" : Integer.toString(number);
+        return modThree ? FIZZ : modFive ? BUZZ : Integer.toString(number);
     }
 
 
