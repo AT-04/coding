@@ -10,14 +10,6 @@ package org.fundacionjala.coding.richard;
  */
 public class Reverse {
 
-    private boolean flag = true;
-
-    /**
-     * This method is constructor.
-     */
-    public Reverse() {
-    }
-
     /**
      * This method return a reverse string.
      *
@@ -25,10 +17,9 @@ public class Reverse {
      * @return reverse string.
      */
     public String reverse(String cad) {
-        if (flag) {
-            cad = new StringBuilder(cad).reverse().toString();
-            flag = false;
+        if ((null == cad) || (cad.length() <= 1)) {
+            return cad;
         }
-        return cad.length() > 0 ? cad.substring(0, cad.length()) : String.valueOf(cad.toCharArray()[cad.length() - 1]);
+        return String.format("%s%s", reverse(cad.substring(1)), cad.charAt(0));
     }
 }

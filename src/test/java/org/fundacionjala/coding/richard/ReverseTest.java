@@ -60,4 +60,12 @@ public class ReverseTest {
         String expectedResult = "a";
         assertEquals(expectedResult, reverse.reverse("a"));
     }
+
+    /**
+     *
+     */
+    @Test
+    public void testSomethingFive() {
+        assertEquals(null, reverse.reverse(null));
+    }
 }
