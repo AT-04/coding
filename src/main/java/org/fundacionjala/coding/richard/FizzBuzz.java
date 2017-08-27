@@ -5,12 +5,17 @@ package org.fundacionjala.coding.richard;
  */
 public class FizzBuzz {
 
+    private static final int FIVE = 5;
+    private static final int THREE = 3;
+    private static final String FIZZ = "Fizz";
+    private static final String BUZZ = "Buzz";
+
     /**
      * @param number is the number.
      * @return boolean value.
      */
     public boolean isFizz(int number) {
-        return number % 3 == 0 || String.valueOf(number).contains("3");
+        return number % THREE == 0 || String.valueOf(number).contains(String.valueOf(THREE));
     }
 
     /**
@@ -18,7 +23,7 @@ public class FizzBuzz {
      * @return boolean value.
      */
     public boolean isBuzz(int number) {
-        return number % 5 == 0 || String.valueOf(number).contains("5");
+        return number % FIVE == 0 || String.valueOf(number).contains(String.valueOf(FIVE));
     }
 
     /**
@@ -26,20 +31,16 @@ public class FizzBuzz {
      * @return Fizz, Buzz or FizzBuzz.
      */
     public String getFizzBuzz(int number) {
-        StringBuilder result = new StringBuilder();
-        result.append(number);
+        String result = String.valueOf(number);
         if (isFizz(number)) {
-            result.setLength(0);
-            result.append("Fizz");
+            result = FIZZ;
         }
         if (isBuzz(number)) {
-            result.setLength(0);
-            result.append("Buzz");
+            result = BUZZ;
         }
         if (isFizz(number) && isBuzz(number)) {
-            result.setLength(0);
-            result.append("FizzBuzz");
+            result = String.format("%s%s", FIZZ, BUZZ);
         }
-        return result.toString();
+        return result;
     }
 }
