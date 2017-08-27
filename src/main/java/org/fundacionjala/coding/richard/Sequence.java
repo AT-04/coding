@@ -6,12 +6,6 @@ package org.fundacionjala.coding.richard;
 public class Sequence {
 
     /**
-     * This method is constructor.
-     */
-    Sequence() {
-    }
-
-    /**
      * @param num is the number to convert.
      * @return the sequence number.
      */
