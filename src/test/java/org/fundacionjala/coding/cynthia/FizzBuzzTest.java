@@ -14,19 +14,19 @@ public class FizzBuzzTest {
     @Test
     public void basicTests() {
         FizzBuzz fb = new FizzBuzz();
-        assertEquals("1", fb.isFizz(1));
-        assertEquals("2", fb.isFizz(2));
-        assertEquals("Fizz", fb.isFizz(3));
-        assertEquals("4", fb.isFizz(4));
-        assertEquals("Buzz", fb.isFizz(5));
-        assertEquals("Fizz", fb.isFizz(6));
-        assertEquals("7", fb.isFizz(7));
-        assertEquals("8", fb.isFizz(8));
-        assertEquals("Fizz", fb.isFizz(9));
-        assertEquals("Buzz", fb.isFizz(10));
-        assertEquals("11", fb.isFizz(11));
-        assertEquals("Fizz", fb.isFizz(12));
-        assertEquals("FizzBuzz", fb.isFizz(15));
+        assertEquals("1", fb.isFizzBuzz(1));
+        assertEquals("2", fb.isFizzBuzz(2));
+        assertEquals("Fizz", fb.isFizzBuzz(3));
+        assertEquals("4", fb.isFizzBuzz(4));
+        assertEquals("Buzz", fb.isFizzBuzz(5));
+        assertEquals("Fizz", fb.isFizzBuzz(6));
+        assertEquals("7", fb.isFizzBuzz(7));
+        assertEquals("8", fb.isFizzBuzz(8));
+        assertEquals("Fizz", fb.isFizzBuzz(9));
+        assertEquals("Buzz", fb.isFizzBuzz(10));
+        assertEquals("11", fb.isFizzBuzz(11));
+        assertEquals("Fizz", fb.isFizzBuzz(12));
+        assertEquals("FizzBuzz", fb.isFizzBuzz(15));
 
 
     }
