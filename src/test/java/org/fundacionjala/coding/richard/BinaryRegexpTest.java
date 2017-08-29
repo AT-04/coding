@@ -35,6 +35,9 @@ import static org.junit.Assert.assertEquals;
  */
 public class BinaryRegexpTest {
 
+    /**
+     * This test verify binary pattern.
+     */
     @Test
     public void testSimple() {
         BinaryRegexp binaryRegexp = new BinaryRegexp();
