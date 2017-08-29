@@ -19,19 +19,19 @@ public class FindOutlier {
      * @return outlier number.
      */
     int find(int[] outlier) {
-        int pairResult = 0;
+        int evenResult = 0;
         int oddResult = 0;
-        int countPairNumbers = 0;
+        int countEvenNumbers = 0;
         int countOddNumbers = 0;
         for (int anOutlier : outlier) {
             if (anOutlier % 2 == 0) {
-                countPairNumbers++;
-                pairResult = anOutlier;
+                countEvenNumbers++;
+                evenResult = anOutlier;
             } else {
                 countOddNumbers++;
                 oddResult = anOutlier;
             }
         }
-        return (countPairNumbers > countOddNumbers) ? oddResult : pairResult;
+        return (countEvenNumbers > countOddNumbers) ? oddResult : evenResult;
     }
 }
