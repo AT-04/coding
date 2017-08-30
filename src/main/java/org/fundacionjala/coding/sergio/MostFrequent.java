@@ -16,7 +16,7 @@ public final class MostFrequent {
      * @param collection of numbers.
      * @return number.
      */
-    static int mostFrequentItemCount(int[] collection) {
+     static int mostFrequentItemCount(int[] collection) {
         int count = 1, tempCount = 0;
         int temp = 0;
         for (int i = 0; i < (collection.length - 1); i++) {
