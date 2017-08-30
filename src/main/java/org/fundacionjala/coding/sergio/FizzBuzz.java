@@ -3,20 +3,13 @@ package org.fundacionjala.coding.sergio;
 /**
  * Created by SergioNavarro on 8/25/2017.
  */
-final class FizzBuzz {
-    /**
-     *
-     */
-    private FizzBuzz() {
-
-    }
+public class FizzBuzz {
 
     /**
-     *
      * @param num input.
      * @return return.
      */
-    static String[] resolve(int num) {
+    public String[] resolve(int num) {
         String[] result = new String[num];
         boolean normal = true;
         for (int i = 1; i <= num; i++) {
@@ -34,7 +27,7 @@ final class FizzBuzz {
                 normal = false;
             }
             if (normal) {
-                result[ i - 1] = Integer.toString(i);
+                result[i - 1] = Integer.toString(i);
             }
         }
         return result;
