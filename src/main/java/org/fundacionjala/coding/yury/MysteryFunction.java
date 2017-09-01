@@ -8,13 +8,13 @@ import java.util.List;
  */
 public class MysteryFunction {
 
-    public static int mystery(int n) {
+    public static long mystery(long n) {
         List<List<String>> sequenceBinary = new ArrayList<List<String>>();
-        int size = Integer.toBinaryString(n).length();
+        int size = Integer.toBinaryString(Math.toIntExact(n)).length();
         sequenceBinary = generateSequence(size, sequenceBinary);
-        int sum = 0;
+        long sum = 0;
         for (int i = 0; i < size; i++) {
-            if (Integer.parseInt(sequenceBinary.get(i).get(n)) == 1) {
+            if (Integer.parseInt(sequenceBinary.get(i).get(Math.toIntExact(n))) == 1) {
                 sum += Math.pow(2, size - 1 - i);
             }
         }
@@ -49,12 +49,12 @@ public class MysteryFunction {
         return sequenceBinary;
     }
 
-    public static int mysteryInv(int n) {
+    public static long mysteryInv(long n) {
         List<List<String>> sequenceBinary = new ArrayList<List<String>>();
-        int size = Integer.toBinaryString(n).length();
+        int size = Integer.toBinaryString(Math.toIntExact(n)).length();
         sequenceBinary = generateSequence(size, sequenceBinary);
         for (int j = 0; j < (int) Math.pow(2, size); j++) {
-            int sum = 0;
+            long sum = 0;
             for (int i = 0; i < size; i++) {
                 if (Integer.parseInt(sequenceBinary.get(i).get(j)) == 1) {
                     sum += Math.pow(2, size - 1 - i);
@@ -65,5 +65,9 @@ public class MysteryFunction {
             }
         }
         return 0;
+    }
+
+    public static String nameOfMystery() {
+        return "GRAY CODE";
     }
 }
