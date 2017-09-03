@@ -13,11 +13,14 @@ import java.util.stream.Collectors;
 public class BinaryArrayToNumber {
     /**
      * Convert Binary Array To Int.
+     *
      * @param binary Array.
      * @return int Decimal Number.
      */
     public int convertBinaryArrayToInt(List<Integer> binary) {
-        String numberBinary = binary.stream().map(digit -> digit.toString()).collect(Collectors.joining(""));
-        return Integer.parseInt((numberBinary.toString()), 2);
+        String numberBinary = binary.stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining(""));
+        return Integer.parseInt(numberBinary, 2);
     }
 }
