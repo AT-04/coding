@@ -57,5 +57,6 @@ public class MagnetsTest {
         assertFuzzyEquals(Magnets.doubles(10, 1000), 0.6921486500921933);
         assertFuzzyEquals(Magnets.doubles(10, 10000), 0.6930471674194457);
         assertFuzzyEquals(Magnets.doubles(20, 10000), 0.6930471955575918);
+        assertFuzzyEquals(Magnets.doubles(30, 10000), 0.6930471955576123);
     }
 }
