@@ -18,6 +18,9 @@ import java.util.stream.IntStream;
  */
 public final class SumOfDivided {
 
+    public static final int TWO = 2;
+    public static final int ZERO = 0;
+
     /**
      * Private constructor for the Sum of Divided utility class.
      */
@@ -34,7 +37,7 @@ public final class SumOfDivided {
      */
     public static String sumOfDivided(int[] numbers) {
         StringBuilder result = new StringBuilder();
-        IntStream.rangeClosed(2, Arrays.stream(numbers).map(Math::abs).sum() / 2).filter(SumOfDivided::isPrime)
+        IntStream.rangeClosed(TWO, Arrays.stream(numbers).map(Math::abs).sum() / TWO).filter(SumOfDivided::isPrime)
                 .forEach(n -> result.append(sumMultiples(n, numbers)));
         return result.toString();
     }
@@ -49,7 +52,7 @@ public final class SumOfDivided {
     private static String sumMultiples(int prime, int[] numbers) {
         List<Integer> list = Arrays.stream(numbers).filter(n -> n % prime == 0)
                 .boxed().collect(Collectors.toList());
-        return list.size() != 0
+        return list.size() != ZERO
                 ? String.format("(%d %d)", prime, list.stream().mapToInt(i -> i).sum()) : "";
     }
 
@@ -60,6 +63,6 @@ public final class SumOfDivided {
      * @return the verification result.
      */
     private static boolean isPrime(int number) {
-        return IntStream.rangeClosed(2, (int) Math.sqrt(number)).allMatch(n -> number % n != 0);
+        return IntStream.rangeClosed(TWO, (int) Math.sqrt(number)).allMatch(n -> number % n != ZERO);
     }
 }

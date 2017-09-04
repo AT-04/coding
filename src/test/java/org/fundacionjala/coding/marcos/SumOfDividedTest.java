@@ -1,13 +1,35 @@
 package org.fundacionjala.coding.marcos;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Marcos.
  */
 public class SumOfDividedTest {
+
+    /**
+     * This test assert the modifier of the Sequence private constructor class.
+     *
+     * @throws NoSuchMethodException     throw when no private constructor is defined.
+     * @throws IllegalAccessException    throw when can not access to the constructor.
+     * @throws InvocationTargetException throw when can not be perform a invocation.
+     * @throws InstantiationException    throw when a instantiation can not be performed.
+     */
+    @Test
+    public void privateConstructorTest() throws NoSuchMethodException, IllegalAccessException,
+            InvocationTargetException, InstantiationException {
+        Constructor<SumOfDivided> constructor = SumOfDivided.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
 
     /**
      * Basic test using positive numbers.
