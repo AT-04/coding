@@ -11,6 +11,7 @@ public final class FizzBuzz {
   public static final int ZERO = 0;
   public static final String FIZZ = "Fizz";
   public static final String BUZZ = "Buzz";
+  public static final String EMPTY= "";
 
   /**
    * Default Constructor.
@@ -24,20 +25,20 @@ public final class FizzBuzz {
    * @return String word or number.
    */
   public static String numberDivisor(Integer number) {
-    while (number > 0) {
-      if ((number % THREE == ZERO) && (number % FIVE == ZERO)
+      if (number < 0) {
+          return EMPTY;
+      }
+      if (number % THREE == ZERO && number % FIVE == ZERO
           || Integer.toString(number).contains("3") && Integer.toString(number).contains("5")) {
         return FIZZ_BUZZ;
       }
-      if ((number % THREE == ZERO) || (Integer.toString(number).contains("3"))) {
+      if (number % THREE == ZERO || Integer.toString(number).contains("3")) {
         return FIZZ;
       }
-      if ((number % FIVE == ZERO) || (Integer.toString(number).contains("5"))) {
+      if (number % FIVE == ZERO || Integer.toString(number).contains("5")) {
         return BUZZ;
       } else {
         return Integer.toString(number);
       }
-    }
-    return "";
   }
 }
