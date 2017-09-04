@@ -4,9 +4,16 @@ import java.util.stream.IntStream;
 
 /**
  * Created by Marcos.
+ * <p>
+ * Professor Chambouliard hast just discovered a new type of magnet material.
+ * He put particles of this material in a box made of small boxes arranged
+ * in K rows and N columns as a kind of 2D matrix K x N where K and N are positive integers.
  */
 
 public final class Magnets {
+
+    public static final int ONE = 1;
+    public static final int TWO = 2;
 
     /**
      * Private constructor for the Magnets utility class.
@@ -36,6 +43,6 @@ public final class Magnets {
      * @return the summation result.
      */
     private static double calculateForce(int k, int maxN) {
-        return IntStream.rangeClosed(1, maxN).mapToDouble(n -> 1 / (k * Math.pow(n + 1, 2 * k))).sum();
+        return IntStream.rangeClosed(ONE, maxN).mapToDouble(n -> ONE / (k * Math.pow(n + ONE, TWO * k))).sum();
     }
 }

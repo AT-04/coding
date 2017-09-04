@@ -41,7 +41,7 @@ public class MagnetsTest {
     @Test
     public void privateConstructorTest() throws NoSuchMethodException, IllegalAccessException,
             InvocationTargetException, InstantiationException {
-        Constructor<FizzBuzz> constructor = FizzBuzz.class.getDeclaredConstructor();
+        Constructor<Magnets> constructor = Magnets.class.getDeclaredConstructor();
         assertTrue(Modifier.isPrivate(constructor.getModifiers()));
         constructor.setAccessible(true);
         constructor.newInstance();
