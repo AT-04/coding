@@ -66,4 +66,13 @@ public class SumOfDividedTest {
         int[] fourth = new int[]{-35, -24, -48, -11};
         assertEquals("(2 -72)(3 -72)(5 -35)(7 -35)(11 -11)", SumOfDivided.sumOfDivided(fourth));
     }
+
+    /**
+     * Basic test using negative and positive numbers.
+     */
+    @Test
+    public void testFive() {
+        int[] fourth = new int[]{10, 55, -48, -21};
+        assertEquals("(2 -38)(3 -69)(5 65)(7 -21)(11 55)", SumOfDivided.sumOfDivided(fourth));
+    }
 }
