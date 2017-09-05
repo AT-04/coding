@@ -34,8 +34,9 @@ public final class Frequent {
         int mostFrequent = 0;
 
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() > mostFrequent)
+            if (entry.getValue() > mostFrequent) {
                 mostFrequent = entry.getValue();
+            }
         }
 
         return mostFrequent;

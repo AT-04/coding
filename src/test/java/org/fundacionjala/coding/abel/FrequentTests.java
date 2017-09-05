@@ -41,7 +41,8 @@ public class FrequentTests {
     public void basicTests() {
         String msg = "Should work with example test cases";
         assertEquals(msg, 2, Frequent.mostFrequentItemCount(new int[]{3, -1, -1}));
-        assertEquals(msg, 5, Frequent.mostFrequentItemCount(new int[]{3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3}));
+        assertEquals(msg, 5, Frequent.mostFrequentItemCount(
+                new int[]{3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3}));
     }
 
     /**
@@ -49,9 +50,12 @@ public class FrequentTests {
      */
     @Test
     public void edgeTests() {
-        assertEquals("Should work for empty arrays", 0, Frequent.mostFrequentItemCount(new int[0]));
-        assertEquals("Should work for 1-element arrays", 1, Frequent.mostFrequentItemCount(new int[]{9}));
-        assertEquals("Should work with multiple most frequent items, e.g. nine 7's and nine 1's", 3, Frequent.mostFrequentItemCount(new int[]{7, 1, 7, 1, 7, 1}));
+        assertEquals("Should work for empty arrays", 0,
+                Frequent.mostFrequentItemCount(new int[0]));
+        assertEquals("Should work for 1-element arrays", 1,
+                Frequent.mostFrequentItemCount(new int[]{9}));
+        assertEquals("Should work with multiple most frequent items, e.g. nine 7's and nine 1's",
+                3, Frequent.mostFrequentItemCount(new int[]{7, 1, 7, 1, 7, 1}));
     }
 
     /**
@@ -66,25 +70,29 @@ public class FrequentTests {
             for (int e = 0; e < testArr.length; e++) {
                 testArr[e] = randGen.nextInt(30) - 15;
             }
-            assertEquals("Should work with " + arrToString(testArr), mostFrequentAns(testArr), Frequent.mostFrequentItemCount(testArr));
+            assertEquals("Should work with " + arrToString(testArr), mostFrequentAns(testArr),
+                    Frequent.mostFrequentItemCount(testArr));
         }
     }
 
     /**
      * Method To create an String.
+     *
      * @param arr Array of Integer.
      * @return String.
      */
     private String arrToString(int[] arr) {
-        String retStr = "{ ";
+        StringBuilder retStr = new StringBuilder("{ ");
         for (int i : arr) {
-            retStr += i + ", ";
+            retStr.append(String.format("%s, ", i));
         }
-        return (retStr.substring(0, retStr.length() - 2)) + " }";
+        retStr.append(" }");
+        return retStr.toString();
     }
 
     /**
      * Method to generate numbers.
+     *
      * @param collection Array of Integers.
      * @return Int.
      */
@@ -95,8 +103,9 @@ public class FrequentTests {
         Arrays.sort(collection);
         for (int i = 0; i < collection.length; i++) {
             if (currNum != collection[i]) {
-                if (currMax > max)
+                if (currMax > max) {
                     max = currMax;
+                }
                 currMax = 1;
                 currNum = collection[i];
             } else {
