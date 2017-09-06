@@ -58,13 +58,6 @@ public class Fibonacci {
         if (n.equals(BigInteger.ZERO)) {
             return BigInteger.ZERO;
         }
-
-        if (n.signum() == -1) {
-            n = n.abs();
-            if ((n.mod(BigInteger.valueOf(2))).equals(BigInteger.ZERO)) {
-                negativeChanger = BigInteger.valueOf(-1);
-            }
-        }
         return negativeChanger.multiply(fibonacci(n.subtract(BigInteger.ONE)));
     }
 
