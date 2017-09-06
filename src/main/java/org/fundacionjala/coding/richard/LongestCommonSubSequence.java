@@ -14,8 +14,13 @@ package org.fundacionjala.coding.richard;
  * solution.lcs("abcdef", "acf") => returns "acf"
  * solution.lcs("132535365", "123456789") => returns "12356"
  */
-public class LongestCommonSubsequence {
+public class LongestCommonSubSequence {
 
+    /**
+     * @param firstCad  is the first String.
+     * @param secondCad is the second String.
+     * @return the Longest Common Sub Sequence.
+     */
     public String solution(String firstCad, String secondCad) {
 
         if (firstCad.length() >= secondCad.length()) {
@@ -26,6 +31,11 @@ public class LongestCommonSubsequence {
         }
     }
 
+    /**
+     * @param firstCad  is the first String.
+     * @param secondCad is the second String.
+     * @return the Longest Common Sub Sequence.
+     */
     private String findSubSequence(String firstCad, String secondCad) {
         StringBuilder sb = new StringBuilder();
         String[] parts = firstCad.split("");

@@ -18,15 +18,14 @@ import static org.junit.Assert.assertEquals;
  * solution.lcs("abcdef", "acf") => returns "acf"
  * solution.lcs("132535365", "123456789") => returns "12356"
  */
-public class LongestCommonSubsequenceTest {
+public class LongestCommonSubSequenceTest {
 
     /**
      *
      */
     @Test
     public void exampleTests() {
-        LongestCommonSubsequence lcs = new LongestCommonSubsequence();
-
+        LongestCommonSubSequence lcs = new LongestCommonSubSequence();
         assertEquals("acf", lcs.solution("acf", "abcdef"));
         assertEquals("", lcs.solution("a", "b"));
         assertEquals("abc", lcs.solution("abcdef", "abc"));
