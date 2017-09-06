@@ -16,26 +16,25 @@ package org.fundacionjala.coding.richard;
  */
 public class LongestCommonSubsequence {
 
-    /**
-     * @param firstCad
-     * @param secondCad
-     * @return
-     */
     public String solution(String firstCad, String secondCad) {
-        if (firstCad.contains(secondCad)) {
-            return secondCad;
-        }
-        if (secondCad.contains(firstCad)) {
-            return firstCad;
-        }
-        if (firstCad.length() == 1 && secondCad.length() == 1) {
-            return "";
-        }
-        if (firstCad.length() > 1) {
-            return solution(firstCad.substring(1), secondCad);
+
+        if (firstCad.length() >= secondCad.length()) {
+            return findSubSequence(firstCad, secondCad);
+
         } else {
-            return solution(firstCad, secondCad.substring(1));
+            return findSubSequence(secondCad, firstCad);
         }
+    }
+
+    private String findSubSequence(String firstCad, String secondCad) {
+        StringBuilder sb = new StringBuilder();
+        String[] parts = firstCad.split("");
+        for (int i = 0; i < firstCad.length(); i++) {
+            if (secondCad.contains(parts[i])) {
+                sb.append(parts[i]);
+            }
+        }
+        return sb.toString();
     }
 
 }
