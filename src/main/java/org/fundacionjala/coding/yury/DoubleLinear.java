@@ -1,45 +1,67 @@
 package org.fundacionjala.coding.yury;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * Created by Administrator on 8/22/2017.
  */
 public class DoubleLinear {
 
-
-    private static int sequence(int n) {
-
-        ArrayList list = new ArrayList();
-        list.add(1);
-        int i = 0;
-        while (list.size() < 1.5 * n) {
-            if (!list.contains(equationY((Integer) list.get(i)))) {
-                list.add(equationY((Integer) list.get(i)));
+    /**
+     * This method generate sequence.
+     *
+     * @param n position.
+     * @return value.
+     */
+    private int sequence(int n) {
+        Deque<Integer> dequeY = new ArrayDeque();
+        Deque<Integer> dequeZ = new ArrayDeque();
+        int count = 0, value = 1;
+        while (true) {
+            if (count >= n) {
+                return value;
             }
-            if (!list.contains(equationZ((Integer) list.get(i)))) {
-                list.add(equationZ((Integer) list.get(i)));
+            dequeY.addLast(equationY(value));
+            dequeZ.addLast(equationZ(value));
+            value = Math.min(dequeY.peekFirst(), dequeZ.peekFirst());
+            if (value == dequeY.peekFirst()) {
+                dequeY.removeFirst();
             }
-            Collections.sort(list);
-            i++;
+            if (value == dequeZ.peekFirst()) {
+                dequeZ.removeFirst();
+            }
+            count++;
         }
-        return (int) list.get(n);
     }
 
-    private static boolean condition(ArrayList list, int i, int n) {
-        return list.size() >= n && equationY((Integer) list.get(i)) >= (int) list.get(n);
-    }
-
-    private static int equationY(int value) {
+    /**
+     * This method calculate equation Y.
+     *
+     * @param value is value.
+     * @return answer of equation.
+     */
+    private int equationY(int value) {
         return 2 * value + 1;
     }
 
-    private static int equationZ(int value) {
+    /**
+     * This method calculate equation Z.
+     *
+     * @param value is value.
+     * @return answer of equation.
+     */
+    private int equationZ(int value) {
         return 3 * value + 1;
     }
 
-    static int dblLinear(int i) {
+    /**
+     * This method calculate sequence.
+     *
+     * @param i is position.
+     * @return value.
+     */
+    public int dblLinear(int i) {
         return sequence(i);
     }
 
