@@ -1,6 +1,7 @@
 package org.fundacionjala.coding.ovidio;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Simon on 06/09/2017.
@@ -14,7 +15,7 @@ public class Vowels {
      */
     public int getCount(String str) {
         int vowelsCount = 0;
-        ArrayList<Character> vowels = new ArrayList<>();
+        List<Character> vowels = new ArrayList<>();
         vowels.add('a');
         vowels.add('e');
         vowels.add('i');
