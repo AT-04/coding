@@ -26,6 +26,6 @@ public class CountingSheep {
      * @return count.
      */
     public int countSheeps(Boolean[] arrayOfSheeps) {
-        return (int) stream(arrayOfSheeps).filter(n -> n.equals(true)).count();
+        return (int) stream(arrayOfSheeps).filter(Boolean.TRUE::equals).count();
     }
 }
