@@ -23,7 +23,7 @@ public class DRoot {
         int sum = stream(String.valueOf(n).split(""))
                 .mapToInt(Integer::parseInt)
                 .sum();
-        return (sum > 10) ? digitalRoot(sum) : sum;
+        return sum > 10 ? digitalRoot(sum) : sum;
     }
 }
 
