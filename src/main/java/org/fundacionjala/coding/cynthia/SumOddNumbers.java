@@ -24,6 +24,6 @@ public class SumOddNumbers {
      * @return the sum.
      */
     public int rowSumOddNumbers(int n) {
-        return ((int) Math.pow(n, 2)) * n;
+        return (int) Math.pow(n, 3);
     }
 }
