@@ -42,12 +42,10 @@ public class DigitalRoot {
      * @return the sum of digits.
      */
     public int sumOfDigits(int num) {
-        int mod;
         int res = 0;
         while (num != 0) {
-            mod = num % 10;
+            res += num % 10;
             num = num / 10;
-            res += mod;
         }
         return res >= 10 ? sumOfDigits(res) : res;
     }
