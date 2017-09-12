@@ -8,18 +8,18 @@ public class MostFrequent {
     /**
      * This method returns the most frequent item count.
      *
-     * @param array This variable contains the array of ints.
+     * @param arrayNumbers This variable contains the array of ints.
      * @return return the most frequent item count.
      */
-    public int mostFrequentItemCount(int[] array) {
-        if (array.length == 0) {
+    public int mostFrequentItemCount(int[] arrayNumbers) {
+        if (arrayNumbers.length == 0) {
             return 0;
         }
         int count = 0;
         int biggerNumber = 0;
-        for (int anArray1 : array) {
-            for (int anArray : array) {
-                if (anArray1 == anArray) {
+        for (int firstNumber : arrayNumbers) {
+            for (int secondNumber : arrayNumbers) {
+                if (firstNumber == secondNumber) {
                     count++;
                 }
             }
