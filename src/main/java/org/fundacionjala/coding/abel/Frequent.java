@@ -22,7 +22,7 @@ public final class Frequent {
      * @return The Most Frequent Number in the Array.
      */
     public static int mostFrequentItemCount(int[] ints) {
-        HashMap<Integer, Integer> map = new HashMap();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int anInt : ints) {
             if (map.containsKey(anInt)) {
                 int counter = map.get(anInt);

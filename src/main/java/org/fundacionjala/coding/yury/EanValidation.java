@@ -1,4 +1,4 @@
-package main.java.org.fundacionjala.coding.yury;
+package org.fundacionjala.coding.yury;
 
 /**
  * Created by YuryOrtuno on 5/26/2017.
@@ -12,7 +12,6 @@ public class EanValidation {
      * @return true there barcode is correct
      */
     public boolean validation(String string) {
-
 
         int more = 0;
         for (int i = 0; i < string.length() - 1; i++) {
