@@ -15,11 +15,11 @@ public class DigitalRootTest {
     @Test
     public void tests() {
         DigitalRoot digital = new DigitalRoot();
-        assertEquals("Nope!", digital.sumOfDigits(16), 7);
-        assertEquals("Nope!", digital.sumOfDigits(942), 6);
-        assertEquals("Nope!", digital.sumOfDigits(132189), 6);
-        assertEquals("Nope!", digital.sumOfDigits(493193), 2);
-        assertEquals("Nope!", digital.sumOfDigits(54), 9);
-        assertEquals("Nope!", digital.sumOfDigits(100), 1);
+        assertEquals(7, digital.sumOfDigits(16));
+        assertEquals(6, digital.sumOfDigits(942));
+        assertEquals(6, digital.sumOfDigits(132189));
+        assertEquals(2, digital.sumOfDigits(493193));
+        assertEquals(9, digital.sumOfDigits(54));
+        assertEquals(1, digital.sumOfDigits(100));
     }
 }
