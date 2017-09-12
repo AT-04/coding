@@ -18,28 +18,14 @@ public class Persist {
      * Function for persistence.
      *
      * @param n positive parameter num.
-     * @return returns ts multiplicative persistence.
+     * @return returns the multiplicative persistence.
      */
     public int persistence(long n) {
-        int cont = 1;
-        while (needsMorePersistence(n) > 9) {
-            n = needsMorePersistence(n);
-            cont++;
+        int times = 0;
+        while (n >= 10) {
+            n = Long.toString(n).chars().reduce(1, (r, i) -> r * (i - '0'));
+            times++;
         }
-        return cont > 1 ? cont : 0;
+        return times;
     }
-
-    /**
-     * Needs more Persistence.
-     * @param n number.
-     * @return persistence.
-     */
-    private int needsMorePersistence(long n) {
-        int value = 1;
-        for (char t : String.valueOf(n).toCharArray()) {
-            value *= Integer.parseInt(String.valueOf(t));
-        }
-        return value;
-    }
-
 }
