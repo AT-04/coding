@@ -12,10 +12,10 @@ public class Frequent {
      */
     public int mostFrequentItemCount(int[] ints) {
         int numberRepeated = 0;
-        for (int x = 0; x < ints.length; x++) {
+        for (int x : ints) {
             int count = 0;
-            for (int y = 0; y < ints.length; y++) {
-                count += ints[x] == ints[y] ? 1 : 0;
+            for (int y : ints) {
+                count += x == y ? 1 : 0;
             }
             numberRepeated = count >= numberRepeated ? count : numberRepeated;
         }
