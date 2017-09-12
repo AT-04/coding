@@ -35,7 +35,7 @@ public class MysteryFunction {
      * @return gray code.
      */
     public String nameOfMystery() {
-        return "GRAY CODE";
+        return "Gray Code";
     }
 
 }
